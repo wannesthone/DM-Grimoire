@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The DM's Grimoire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0a07;
+    --bg2: #13100c;
+    --bg3: #1a1510;
+    --panel: #1f1a13;
+    --panel2: #26201a;
+    --border: #4a3a25;
+    --border2: #6b5235;
+    --gold: #c9922a;
+    --gold2: #e8b84b;
+    --gold3: #f5d27a;
+    --red: #8b2020;
+    --red2: #c0392b;
+    --green: #2d6b3a;
+    --green2: #3d9b52;
+    --text: #e8dcc8;
+    --text2: #b8a88a;
+    --text3: #7a6a52;
+    --accent: #9b59b6;
+    --accent2: #c678e0;
+    --shadow: 0 4px 24px rgba(0,0,0,0.8);
+    --glow: 0 0 20px rgba(201,146,42,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Text', serif;
+    font-size: 17px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Parchment texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: linear-gradient(180deg, #0a0804 0%, var(--bg2) 100%);
+    border-bottom: 2px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 30px rgba(0,0,0,0.9);
+  }
+
+  .logo {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.4rem;
+    color: var(--gold2);
+    text-shadow: 0 0 30px rgba(232,184,75,0.5);
+    padding: 1rem 0;
+    letter-spacing: 2px;
+  }
+  .logo span { color: var(--red2); }
+
+  nav {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  nav button {
+    background: none;
+    border: none;
+    color: var(--text2);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1.2rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    position: relative;
+  }
+  nav button:hover { color: var(--gold3); }
+  nav button.active {
+    color: var(--gold2);
+    border-bottom-color: var(--gold);
+    text-shadow: 0 0 15px rgba(232,184,75,0.4);
+  }
+
+  /* ===== MAIN LAYOUT ===== */
+  main { padding: 2rem; max-width: 1600px; margin: 0 auto; }
+
+  .page { display: none; animation: fadeIn 0.3s ease; }
+  .page.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== COMMON COMPONENTS ===== */
+  h1, h2, h3 { font-family: 'Cinzel', serif; }
+
+  .page-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.8rem;
+    color: var(--gold2);
+    text-shadow: var(--glow);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .btn {
+    background: linear-gradient(135deg, var(--gold) 0%, #a07520 100%);
+    color: #0d0a07;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .btn:hover { filter: brightness(1.15); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,146,42,0.4); }
+  .btn:active { transform: translateY(0); }
+
+  .btn-red {
+    background: linear-gradient(135deg, var(--red2) 0%, var(--red) 100%);
+    color: var(--text);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--text2);
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,146,42,0.05); }
+
+  .btn-sm { padding: 0.35rem 0.75rem; font-size: 0.65rem; }
+
+  input, select, textarea {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 2px;
+    width: 100%;
+    transition: border-color 0.2s;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(201,146,42,0.15);
+  }
+  select option { background: var(--bg2); }
+
+  label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text2);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; margin-bottom: 0.75rem; }
+  .form-group { margin-bottom: 0.75rem; }
+
+  .tag {
+    display: inline-block;
+    background: rgba(201,146,42,0.15);
+    border: 1px solid var(--border);
+    color: var(--gold3);
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+    margin: 0.15rem;
+  }
+  .tag.school-abjuration { background: rgba(52,152,219,0.15); color: #5dade2; border-color: #2e86c1; }
+  .tag.school-evocation { background: rgba(192,57,43,0.15); color: #e74c3c; border-color: #c0392b; }
+  .tag.school-illusion { background: rgba(155,89,182,0.15); color: #c39bd3; border-color: #7d3c98; }
+  .tag.school-necromancy { background: rgba(40,40,50,0.8); color: #a9cce3; border-color: #566573; }
+  .tag.school-transmutation { background: rgba(46,125,50,0.15); color: #58d68d; border-color: #1e8449; }
+  .tag.school-divination { background: rgba(241,196,15,0.15); color: #f9e79f; border-color: #b7950b; }
+  .tag.school-enchantment { background: rgba(220,80,150,0.15); color: #f1948a; border-color: #c0392b; }
+  .tag.school-conjuration { background: rgba(0,150,136,0.15); color: #76d7c4; border-color: #0e6655; }
+
+  /* ===== DASHBOARD ===== */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2.5rem;
+    color: var(--gold2);
+    display: block;
+  }
+  .stat-card .label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text3);
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .session-note {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .session-note h3 { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--gold2); margin-bottom: 0.5rem; }
+
+  /* ===== DICE ROLLER ===== */
+  .dice-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+
+  .die-btn {
+    background: var(--panel);
+    border: 2px solid var(--border2);
+    color: var(--text);
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.1rem;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    position: relative;
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  }
+  .die-btn:hover {
+    border-color: var(--gold);
+    background: var(--panel2);
+    color: var(--gold2);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(201,146,42,0.3);
+  }
+  .die-btn .die-label { font-size: 0.65rem; font-family: 'Cinzel', serif; letter-spacing: 1px; color: var(--text3); }
+
+  .dice-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .roll-result {
+    background: var(--bg3);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .roll-total {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 4rem;
+    color: var(--gold2);
+    text-shadow: 0 0 40px rgba(232,184,75,0.5);
+    display: block;
+    line-height: 1;
+  }
+  .roll-breakdown {
+    color: var(--text3);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+  .roll-history {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  .roll-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(74,58,37,0.3);
+    font-size: 0.9rem;
+    color: var(--text2);
+  }
+  .roll-entry .total { color: var(--gold); font-weight: 600; }
+
+  @keyframes rollAnim {
+    0% { transform: scale(1.5) rotate(-10deg); opacity: 0; }
+    60% { transform: scale(0.9) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  .rolling { animation: rollAnim 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+  /* ===== CHARACTER SHEETS ===== */
+  .chars-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 1.5rem;
+  }
+
+  .char-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .char-item {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .char-item:hover, .char-item.active { border-color: var(--gold); background: var(--panel2); }
+  .char-item.active { border-left: 3px solid var(--gold); }
+  .char-avatar {
+    width: 36px; height: 36px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .char-info .char-name { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold3); }
+  .char-info .char-sub { font-size: 0.78rem; color: var(--text3); }
+
+  .char-type-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .type-tab {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .type-tab.active, .type-tab:hover { background: var(--gold); color: #0d0a07; border-color: var(--gold); }
+
+  .sheet-view { display: none; }
+  .sheet-view.active { display: block; }
+
+  .sheet-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: start;
+  }
+
+  .ability-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ability-box {
+    background: var(--bg3);
+    border: 2px solid var(--border);
+    text-align: center;
+    padding: 0.5rem 0.25rem;
+    border-radius: 4px;
+  }
+  .ability-box .ability-name { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); }
+  .ability-box .ability-score { font-family: 'Cinzel Decorative', cursive; font-size: 1.6rem; color: var(--gold2); }
+  .ability-box .ability-mod { font-size: 0.85rem; color: var(--text2); }
+  .ability-box input { background: transparent; border: none; text-align: center; font-family: 'Cinzel Decorative', cursive; font-size: 1.4rem; color: var(--gold2); width: 100%; padding: 0; }
+  .ability-box input:focus { outline: none; }
+
+  .hp-bar-wrap { margin-bottom: 1.5rem; }
+  .hp-bar {
+    height: 20px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+  }
+  .hp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red2), #e74c3c);
+    transition: width 0.4s ease;
+    position: relative;
+  }
+  .hp-fill::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 50%;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .combat-stats { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .combat-stat {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 0.6rem 1rem;
+    text-align: center;
+    min-width: 80px;
+    flex: 1;
+  }
+  .combat-stat .val { font-family: 'Cinzel Decorative', cursive; font-size: 1.4rem; color: var(--gold); }
+  .combat-stat .lbl { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); display: block; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.25rem; }
+  .skill-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    transition: background 0.15s;
+  }
+  .skill-row:hover { background: var(--panel2); }
+  .skill-check { width: 14px; height: 14px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.5rem; flex-shrink: 0; }
+  .skill-check.on { background: var(--gold); border-color: var(--gold); color: #000; }
+  .skill-mod { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold); min-width: 30px; text-align: right; }
+  .skill-name { color: var(--text2); font-size: 0.85rem; }
+
+  /* ===== SPELLS ===== */
+  .spell-filters {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .spell-filters input { max-width: 250px; }
+  .spell-filters select { max-width: 160px; }
+
+  .spell-table { width: 100%; border-collapse: collapse; }
+  .spell-table th {
+    background: var(--bg3);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+  .spell-table th:hover { color: var(--gold2); }
+  .spell-table td {
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid rgba(74,58,37,0.3);
+    font-size: 0.9rem;
+    vertical-align: top;
+  }
+  .spell-table tr:hover td { background: var(--panel2); }
+  .spell-table tr.expanded td { border-bottom: none; }
+  .spell-row-detail {
+    background: var(--bg3) !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .spell-detail-inner {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text2);
+    line-height: 1.6;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .spell-detail-desc { grid-column: 1 / -1; }
+  .spell-name { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold3); cursor: pointer; }
+  .spell-name:hover { text-decoration: underline; }
+  .spell-level-badge {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+  }
+
+  /* ===== MAP BUILDER ===== */
+  .map-toolbar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 0.75rem;
+  }
+  .map-tool-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.4rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    border-radius: 2px;
+  }
+  .map-tool-btn:hover, .map-tool-btn.active { background: var(--gold); color: #0d0a07; border-color: var(--gold); }
+
+  .tile-palette {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    padding: 0 0.5rem;
+  }
+  .tile-swatch {
+    width: 28px; height: 28px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.15s;
+  }
+  .tile-swatch:hover { transform: scale(1.2); }
+  .tile-swatch.active { border-color: var(--gold2); }
+
+  #map-canvas {
+    border: 2px solid var(--border);
+    cursor: crosshair;
+    display: block;
+    image-rendering: pixelated;
+    background: #1a1208;
+    max-width: 100%;
+  }
+
+  .map-layout { display: grid; grid-template-columns: 1fr 200px; gap: 1rem; }
+  .map-legend { display: flex; flex-direction: column; gap: 0.5rem; }
+  .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+
+  /* ===== INITIATIVE TRACKER ===== */
+  .initiative-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .initiative-item {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    display: grid;
+    grid-template-columns: 40px 1fr auto auto auto;
+    gap: 0.75rem;
+    align-items: center;
+    transition: all 0.2s;
+  }
+  .initiative-item.current {
+    border-color: var(--gold);
+    background: var(--panel2);
+    box-shadow: 0 0 0 1px rgba(201,146,42,0.3), inset 4px 0 0 var(--gold);
+  }
+  .initiative-item.dead { opacity: 0.4; }
+  .init-num {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.3rem;
+    color: var(--gold);
+    text-align: center;
+  }
+  .init-name { font-family: 'Cinzel', serif; font-size: 0.9rem; }
+  .init-hp-display { font-size: 0.85rem; color: var(--text2); }
+  .init-hp-display .current-hp { color: var(--green2); }
+  .init-hp-display .dead { color: var(--red2); }
+  .round-display {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .round-display span { font-size: 0.85rem; font-family: 'Cinzel', serif; color: var(--text3); display: block; }
+
+  /* ===== CONDITIONS TRACKER ===== */
+  .condition-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem; }
+  .condition-tag {
+    font-size: 0.65rem;
+    font-family: 'Cinzel', serif;
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .cond-blinded { background: rgba(100,100,100,0.3); color: #aaa; border: 1px solid #666; }
+  .cond-charmed { background: rgba(220,80,150,0.2); color: #e91e63; border: 1px solid #e91e63; }
+  .cond-frightened { background: rgba(128,0,128,0.2); color: #b39ddb; border: 1px solid #7b1fa2; }
+  .cond-paralyzed { background: rgba(255,165,0,0.2); color: #ff9800; border: 1px solid #e65100; }
+  .cond-poisoned { background: rgba(76,175,80,0.2); color: #81c784; border: 1px solid #2e7d32; }
+  .cond-stunned { background: rgba(33,150,243,0.2); color: #64b5f6; border: 1px solid #1565c0; }
+  .cond-prone { background: rgba(161,136,127,0.2); color: #bcaaa4; border: 1px solid #5d4037; }
+  .cond-invisible { background: rgba(200,200,255,0.1); color: #e0e0ff; border: 1px dashed #9fa8da; }
+  .cond-unconscious { background: rgba(0,0,0,0.5); color: #78909c; border: 1px solid #37474f; }
+
+  /* ===== NOTES ===== */
+  .notes-layout { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; }
+  .note-list { display: flex; flex-direction: column; gap: 0.4rem; }
+  .note-item {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+  .note-item:hover, .note-item.active { border-color: var(--gold); }
+  .note-item .note-title { font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--gold3); }
+  .note-item .note-date { font-size: 0.72rem; color: var(--text3); }
+  .note-editor { display: flex; flex-direction: column; gap: 0.75rem; }
+  .note-editor textarea { min-height: 300px; resize: vertical; line-height: 1.7; }
+
+  /* ===== SPOTIFY ===== */
+  .spotify-section { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .spotify-embed iframe { border-radius: 2px; }
+  .playlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; margin-top: 0.75rem; }
+  .playlist-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .playlist-card:hover { border-color: var(--gold); background: var(--panel2); }
+  .playlist-card .pl-icon { font-size: 2rem; display: block; margin-bottom: 0.4rem; }
+  .playlist-card .pl-name { font-family: 'Cinzel', serif; font-size: 0.78rem; color: var(--gold3); }
+  .playlist-card .pl-desc { font-size: 0.75rem; color: var(--text3); margin-top: 0.2rem; }
+  .spotify-input-row { display: flex; gap: 0.75rem; align-items: flex-end; }
+  .spotify-input-row input { flex: 1; }
+
+  /* ===== MONSTERS ===== */
+  .monster-grid { display: grid; grid-template-columns: 240px 1fr; gap: 1.5rem; }
+  .monster-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--red2);
+  }
+  .monster-stat-block { font-size: 0.88rem; line-height: 1.6; }
+  .monster-stat-block .divider { border: none; border-top: 2px solid var(--red2); margin: 0.75rem 0; }
+  .monster-stat-block .attr-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .monster-stat-block .attr { color: var(--text2); }
+  .monster-stat-block .attr strong { color: var(--gold3); font-weight: 600; }
+  .ability-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.25rem; text-align: center; }
+  .ability-cell { background: var(--bg3); padding: 0.3rem; border: 1px solid var(--border); }
+  .ability-cell .aname { font-family: 'Cinzel', serif; font-size: 0.6rem; color: var(--text3); letter-spacing: 0.5px; }
+  .ability-cell .aval { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold); }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg2); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .chars-grid, .notes-layout, .monster-grid, .map-layout { grid-template-columns: 1fr; }
+    .spotify-section { grid-template-columns: 1fr; }
+    .ability-grid { grid-template-columns: repeat(3, 1fr); }
+    nav button { padding: 0.9rem 0.65rem; font-size: 0.65rem; }
+    .logo { font-size: 1rem; }
+    .die-btn { width: 70px; height: 70px; }
+  }
+
+  .flex-row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+  .mt1 { margin-top: 1rem; }
+  .mb1 { margin-bottom: 1rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .text-center { text-align: center; }
+  .text-gold { color: var(--gold2); }
+  .text-dim { color: var(--text3); font-size: 0.85rem; }
+  .empty-state { text-align: center; padding: 3rem; color: var(--text3); }
+  .empty-state .empty-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">The DM's <span>Grimoire</span></div>
+  <nav>
+    <button class="active" onclick="showPage('dashboard')">⚔ Dashboard</button>
+    <button onclick="showPage('dice')">🎲 Dice</button>
+    <button onclick="showPage('initiative')">⏱ Initiative</button>
+    <button onclick="showPage('characters')">📜 Characters</button>
+    <button onclick="showPage('monsters')">💀 Monsters</button>
+    <button onclick="showPage('spells')">✨ Spells</button>
+    <button onclick="showPage('map')">🗺 Map</button>
+    <button onclick="showPage('notes')">📖 Notes</button>
+    <button onclick="showPage('music')">🎵 Music</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ===== DASHBOARD ===== -->
+<div id="page-dashboard" class="page active">
+  <div class="page-title">⚔ The War Table</div>
+  <div class="dashboard-grid" id="dash-stats">
+    <div class="stat-card"><span class="num" id="dash-players">0</span><span class="label">Players</span></div>
+    <div class="stat-card"><span class="num" id="dash-monsters">0</span><span class="label">Monsters Saved</span></div>
+    <div class="stat-card"><span class="num" id="dash-spells">0</span><span class="label">Spells</span></div>
+    <div class="stat-card"><span class="num" id="dash-notes">0</span><span class="label">Notes</span></div>
+    <div class="stat-card"><span class="num" id="dash-session">1</span><span class="label">Session #</span></div>
+  </div>
+  <div class="grid2">
+    <div>
+      <div class="card">
+        <div class="card-title">🗒 Session Notes</div>
+        <div id="dash-session-notes">
+          <div class="session-note">
+            <h3>Quick Note</h3>
+            <p style="color:var(--text2);font-size:0.9rem;">Your session notes will appear here. Go to Notes to create entries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">⚡ Quick Actions</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <button class="btn" onclick="showPage('initiative')">Start Combat Tracker</button>
+          <button class="btn btn-ghost" onclick="showPage('dice')">Roll Some Dice</button>
+          <button class="btn btn-ghost" onclick="showPage('spells')">Browse Spell Database</button>
+          <button class="btn btn-ghost" onclick="showPage('music')">Set The Mood</button>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <div class="card-title">📅 Campaign Info</div>
+          <div class="form-row">
+            <div class="form-group"><label>Campaign Name</label><input id="campaign-name" placeholder="The Lost Mines..." oninput="saveCampaignInfo()"></div>
+            <div class="form-group"><label>Session #</label><input id="campaign-session" type="number" value="1" min="1" oninput="saveCampaignInfo()"></div>
+          </div>
+          <div class="form-group"><label>Today's Date (In-World)</label><input id="campaign-date" placeholder="15th of Mirtul, 1492 DR" oninput="saveCampaignInfo()"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DICE ROLLER ===== -->
+<div id="page-dice" class="page">
+  <div class="page-title">🎲 Dice Roller</div>
+  <div class="grid2">
+    <div>
+      <div class="card" style="margin-bottom:1rem;">
+        <div class="card-title">Choose Your Dice</div>
+        <div class="dice-grid">
+          <button class="die-btn" onclick="quickRoll(4)">d4<span class="die-label">d4</span></button>
+          <button class="die-btn" onclick="quickRoll(6)">d6<span class="die-label">d6</span></button>
+          <button class="die-btn" onclick="quickRoll(8)">d8<span class="die-label">d8</span></button>
+          <button class="die-btn" onclick="quickRoll(10)">d10<span class="die-label">d10</span></button>
+          <button class="die-btn" onclick="quickRoll(12)">d12<span class="die-label">d12</span></button>
+          <button class="die-btn" onclick="quickRoll(20)" style="border-color:var(--gold2);color:var(--gold2);">d20<span class="die-label">d20</span></button>
+          <button class="die-btn" onclick="quickRoll(100)" style="font-size:0.8rem;">d100<span class="die-label">percentile</span></button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Custom Roll</div>
+        <div class="dice-controls">
+          <div class="form-group" style="flex:0 0 80px;margin:0">
+            <label>Dice</label>
+            <input type="number" id="dice-count" value="1" min="1" max="100" style="text-align:center;">
+          </div>
+          <div class="form-group" style="flex:0 0 100px;margin:0">
+            <label>Sides</label>
+            <select id="dice-sides">
+              <option>4</option><option>6</option><option>8</option><option selected>20</option>
+              <option>10</option><option>12</option><option>100</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex:0 0 90px;margin:0">
+            <label>Modifier</label>
+            <input type="number" id="dice-mod" value="0" style="text-align:center;">
+          </div>
+          <div class="form-group" style="flex:0 0 120px;margin:0">
+            <label>Advantage</label>
+            <select id="dice-adv">
+              <option value="none">Normal</option>
+              <option value="adv">Advantage</option>
+              <option value="dis">Disadvantage</option>
+            </select>
+          </div>
+          <button class="btn" onclick="customRoll()" style="margin-top:auto;">Roll!</button>
+        </div>
+        <div class="form-group">
+          <label>Quick Roll Presets</label>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn btn-ghost btn-sm" onclick="setRoll(1,20,0,'none');customRoll()">Attack</button>
+            <button class="btn btn-ghost btn-sm" onclick="setRoll(1,20,0,'adv');customRoll()">Adv. Attack</button>
+            <button class="btn btn-ghost btn-sm" onclick="setRoll(1,20,0,'dis');customRoll()">Dis. Attack</button>
+            <button class="btn btn-ghost btn-sm" onclick="setRoll(4,6,0,'none');customRoll()">Stat Roll (4d6)</button>
+            <button class="btn btn-ghost btn-sm" onclick="setRoll(1,20,0,'none');customRoll()">Save</button>
+            <button class="btn btn-ghost btn-sm" onclick="setRoll(2,6,0,'none');customRoll()">Sneak (2d6)</button>
+            <button class="btn btn-ghost btn-sm" onclick="setRoll(8,6,0,'none');customRoll()">Fireball</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:1rem;">
+        <div class="card-title">Result</div>
+        <div class="roll-result" id="roll-result">
+          <span class="roll-total" id="roll-total">—</span>
+          <div class="roll-breakdown" id="roll-breakdown">Click a die to roll</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Roll History</div>
+        <div class="roll-history" id="roll-history">
+          <div class="text-dim text-center" style="padding:1rem;">No rolls yet</div>
+        </div>
+        <button class="btn btn-ghost btn-sm mt1" onclick="clearHistory()">Clear History</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== INITIATIVE TRACKER ===== -->
+<div id="page-initiative" class="page">
+  <div class="page-title">⏱ Initiative Tracker</div>
+  <div class="grid2">
+    <div>
+      <div class="card" style="margin-bottom:1rem;">
+        <div class="card-title">Add Combatant</div>
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input id="init-name" placeholder="Goblin #1"></div>
+          <div class="form-group"><label>Initiative</label><input id="init-roll" type="number" placeholder="Roll..."></div>
+          <div class="form-group"><label>HP</label><input id="init-hp" type="number" placeholder="Max HP"></div>
+          <div class="form-group"><label>AC</label><input id="init-ac" type="number" placeholder="AC"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Type</label>
+            <select id="init-type">
+              <option value="player">🧙 Player</option>
+              <option value="enemy">💀 Enemy</option>
+              <option value="ally">✨ Ally / NPC</option>
+            </select>
+          </div>
+          <div class="form-group" style="display:flex;align-items:flex-end;gap:0.5rem;">
+            <button class="btn" onclick="addCombatant()">Add</button>
+            <button class="btn btn-ghost" onclick="rollInitAll()">Auto-Roll Init</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.5rem;margin-top:0.5rem;flex-wrap:wrap;">
+          <button class="btn btn-ghost btn-sm" onclick="loadPlayersToInit()">Load Players</button>
+          <button class="btn btn-red btn-sm" onclick="clearCombat()">Clear Combat</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Conditions Reference</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+          <span class="condition-tag cond-blinded">Blinded</span>
+          <span class="condition-tag cond-charmed">Charmed</span>
+          <span class="condition-tag cond-frightened">Frightened</span>
+          <span class="condition-tag cond-paralyzed">Paralyzed</span>
+          <span class="condition-tag cond-poisoned">Poisoned</span>
+          <span class="condition-tag cond-stunned">Stunned</span>
+          <span class="condition-tag cond-prone">Prone</span>
+          <span class="condition-tag cond-invisible">Invisible</span>
+          <span class="condition-tag cond-unconscious">Unconscious</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="round-display" id="round-counter">Round <span id="round-num">1</span><span>Current Round</span></div>
+      <div style="display:flex;gap:0.75rem;margin-bottom:1rem;">
+        <button class="btn" onclick="nextTurn()">▶ Next Turn</button>
+        <button class="btn btn-ghost" onclick="prevTurn()">◀ Prev Turn</button>
+        <button class="btn btn-ghost" onclick="sortInitiative()">↕ Sort</button>
+      </div>
+      <div id="initiative-list" class="initiative-list">
+        <div class="empty-state"><span class="empty-icon">⚔</span>Add combatants to begin tracking</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHARACTERS ===== -->
+<div id="page-characters" class="page">
+  <div class="page-title">📜 Character Sheets</div>
+  <div class="char-type-tabs">
+    <button class="type-tab active" onclick="switchCharType('player',this)">🧙 Players</button>
+    <button class="type-tab" onclick="switchCharType('npc',this)">🎭 NPCs</button>
+  </div>
+  <div class="chars-grid">
+    <div>
+      <div class="flex-row mb1">
+        <button class="btn" onclick="newCharacter()">+ New Character</button>
+        <button class="btn btn-ghost btn-sm" onclick="deleteCharacter()">Delete</button>
+      </div>
+      <div id="char-list" class="char-list">
+        <div class="empty-state"><span class="empty-icon">📜</span>No characters yet</div>
+      </div>
+    </div>
+    <div id="char-sheet-area">
+      <div class="empty-state" style="padding:4rem;"><span class="empty-icon">⚔</span>Select or create a character</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MONSTERS ===== -->
+<div id="page-monsters" class="page">
+  <div class="page-title">💀 Monster Manual</div>
+  <div class="monster-grid">
+    <div>
+      <div class="flex-row mb1">
+        <button class="btn" onclick="newMonster()">+ New Monster</button>
+        <button class="btn btn-ghost btn-sm" onclick="deleteMonster()">Delete</button>
+      </div>
+      <div id="monster-list" class="char-list"></div>
+    </div>
+    <div id="monster-detail-area">
+      <div class="empty-state" style="padding:4rem;"><span class="empty-icon">💀</span>Select a monster to view its stat block</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SPELLS ===== -->
+<div id="page-spells" class="page">
+  <div class="page-title">✨ Spell Database</div>
+  <div class="spell-filters">
+    <input id="spell-search" placeholder="🔍  Search spells..." oninput="filterSpells()">
+    <select id="spell-level-filter" onchange="filterSpells()">
+      <option value="">All Levels</option>
+      <option>Cantrip</option><option>1st</option><option>2nd</option><option>3rd</option>
+      <option>4th</option><option>5th</option><option>6th</option><option>7th</option>
+      <option>8th</option><option>9th</option>
+    </select>
+    <select id="spell-school-filter" onchange="filterSpells()">
+      <option value="">All Schools</option>
+      <option>Abjuration</option><option>Conjuration</option><option>Divination</option>
+      <option>Enchantment</option><option>Evocation</option><option>Illusion</option>
+      <option>Necromancy</option><option>Transmutation</option>
+    </select>
+    <select id="spell-class-filter" onchange="filterSpells()">
+      <option value="">All Classes</option>
+      <option>Bard</option><option>Cleric</option><option>Druid</option><option>Paladin</option>
+      <option>Ranger</option><option>Sorcerer</option><option>Warlock</option><option>Wizard</option>
+    </select>
+    <button class="btn btn-ghost btn-sm" onclick="openAddSpell()">+ Add Custom</button>
+  </div>
+  <div class="card" style="overflow:auto;">
+    <table class="spell-table" id="spell-table">
+      <thead>
+        <tr>
+          <th onclick="sortSpells('name')">Name ↕</th>
+          <th onclick="sortSpells('level')">Level ↕</th>
+          <th>School</th>
+          <th>Cast Time</th>
+          <th>Range</th>
+          <th>Duration</th>
+          <th>Components</th>
+          <th>Classes</th>
+        </tr>
+      </thead>
+      <tbody id="spell-tbody"></tbody>
+    </table>
+  </div>
+  <!-- Add Spell Modal -->
+  <div id="add-spell-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;overflow-y:auto;padding:2rem;">
+    <div style="max-width:600px;margin:0 auto;background:var(--panel);border:2px solid var(--border);padding:2rem;">
+      <div class="card-title">Add Custom Spell</div>
+      <div class="form-row">
+        <div class="form-group"><label>Name</label><input id="cs-name" placeholder="Fireball"></div>
+        <div class="form-group"><label>Level</label><select id="cs-level"><option>Cantrip</option><option>1st</option><option>2nd</option><option>3rd</option><option>4th</option><option>5th</option><option>6th</option><option>7th</option><option>8th</option><option>9th</option></select></div>
+        <div class="form-group"><label>School</label><select id="cs-school"><option>Abjuration</option><option>Conjuration</option><option>Divination</option><option>Enchantment</option><option>Evocation</option><option>Illusion</option><option>Necromancy</option><option>Transmutation</option></select></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Cast Time</label><input id="cs-cast" placeholder="1 action"></div>
+        <div class="form-group"><label>Range</label><input id="cs-range" placeholder="150 feet"></div>
+        <div class="form-group"><label>Duration</label><input id="cs-duration" placeholder="Instantaneous"></div>
+        <div class="form-group"><label>Components</label><input id="cs-components" placeholder="V, S, M"></div>
+      </div>
+      <div class="form-group"><label>Classes</label><input id="cs-classes" placeholder="Wizard, Sorcerer"></div>
+      <div class="form-group"><label>Description</label><textarea id="cs-desc" rows="4"></textarea></div>
+      <div style="display:flex;gap:0.75rem;margin-top:1rem;">
+        <button class="btn" onclick="saveCustomSpell()">Save Spell</button>
+        <button class="btn btn-ghost" onclick="closeAddSpell()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAP BUILDER ===== -->
+<div id="page-map" class="page">
+  <div class="page-title">🗺 Tactical Map Builder</div>
+  <div class="map-toolbar">
+    <button class="map-tool-btn active" id="tool-paint" onclick="setTool('paint',this)">🖌 Paint</button>
+    <button class="map-tool-btn" id="tool-erase" onclick="setTool('erase',this)">🧹 Erase</button>
+    <button class="map-tool-btn" id="tool-fill" onclick="setTool('fill',this)">🪣 Fill</button>
+    <button class="map-tool-btn" id="tool-token" onclick="setTool('token',this)">🎭 Token</button>
+    <div style="width:1px;background:var(--border);margin:0 0.25rem;"></div>
+    <div class="tile-palette" id="tile-palette"></div>
+    <div style="width:1px;background:var(--border);margin:0 0.25rem;"></div>
+    <label style="display:inline;margin:0;color:var(--text2);">Grid:</label>
+    <select id="map-size" onchange="resizeMap()" style="max-width:80px;padding:0.3rem 0.5rem;">
+      <option value="20">20×20</option>
+      <option value="30" selected>30×30</option>
+      <option value="40">40×40</option>
+      <option value="50">50×50</option>
+    </select>
+    <button class="map-tool-btn" onclick="clearMap()">🗑 Clear</button>
+    <button class="map-tool-btn" onclick="saveMapPNG()">💾 Save PNG</button>
+  </div>
+  <div class="map-layout">
+    <div style="overflow:auto;">
+      <canvas id="map-canvas"></canvas>
+    </div>
+    <div class="card map-legend">
+      <div class="card-title">Legend</div>
+      <div id="legend-list"></div>
+      <div style="margin-top:1rem;">
+        <div class="card-title">Tokens</div>
+        <div id="map-tokens" style="display:flex;flex-direction:column;gap:0.4rem;font-size:0.85rem;color:var(--text2);"></div>
+        <button class="btn btn-ghost btn-sm mt1" onclick="clearTokens()">Clear Tokens</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NOTES ===== -->
+<div id="page-notes" class="page">
+  <div class="page-title">📖 Campaign Notes</div>
+  <div class="notes-layout">
+    <div>
+      <button class="btn" onclick="newNote()" style="width:100%;margin-bottom:0.75rem;">+ New Note</button>
+      <div id="note-list" class="note-list"></div>
+    </div>
+    <div id="note-editor-area">
+      <div class="empty-state" style="padding:4rem;"><span class="empty-icon">📖</span>Select or create a note</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MUSIC ===== -->
+<div id="page-music" class="page">
+  <div class="page-title">🎵 Mood & Atmosphere</div>
+  <div class="card mb1">
+    <div class="card-title">Spotify Embed</div>
+    <p style="color:var(--text3);font-size:0.85rem;margin-bottom:1rem;">Paste a Spotify playlist or track URL to embed it. Works with playlists, albums, and tracks.</p>
+    <div class="spotify-input-row">
+      <div class="form-group" style="flex:1;margin:0;">
+        <label>Spotify URL</label>
+        <input id="spotify-url" placeholder="https://open.spotify.com/playlist/..." >
+      </div>
+      <button class="btn" onclick="loadSpotify()">Load</button>
+    </div>
+    <div id="spotify-player" style="margin-top:1rem;"></div>
+  </div>
+  <div class="card">
+    <div class="card-title">🎼 Mood Playlists (Quick Load)</div>
+    <p style="color:var(--text3);font-size:0.85rem;margin-bottom:1rem;">Paste your own Spotify links below to save them as quick-access mood buttons.</p>
+    <div id="mood-playlists" class="playlist-grid"></div>
+    <div style="margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1rem;">
+      <div class="card-title">Add Mood Playlist</div>
+      <div class="form-row">
+        <div class="form-group"><label>Name</label><input id="pl-name" placeholder="Epic Combat"></div>
+        <div class="form-group"><label>Emoji Icon</label><input id="pl-icon" placeholder="⚔" style="max-width:80px;"></div>
+        <div class="form-group"><label>Description</label><input id="pl-desc" placeholder="Intense battle music"></div>
+        <div class="form-group"><label>Spotify URL</label><input id="pl-url" placeholder="https://open.spotify.com/playlist/..."></div>
+        <div style="display:flex;align-items:flex-end;"><button class="btn" onclick="addMoodPlaylist()">Add</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// =============================================
+// STATE
+// =============================================
+let state = {
+  characters: [],
+  monsters: [],
+  spells: [],
+  notes: [],
+  combatants: [],
+  currentRound: 1,
+  currentTurn: 0,
+  currentCharType: 'player',
+  activeCharIdx: null,
+  activeMonsterIdx: null,
+  activeNoteIdx: null,
+  moodPlaylists: [],
+  campaignInfo: { name: '', session: 1, date: '' },
+  map: { grid: [], tokens: [], size: 30, selectedTile: '🌿', tool: 'paint' }
+};
+
+// =============================================
+// NAVIGATION
+// =============================================
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const navBtns = document.querySelectorAll('nav button');
+  navBtns.forEach(b => { if(b.getAttribute('onclick').includes("'"+id+"'")) b.classList.add('active'); });
+  if(id === 'spells') renderSpells();
+  if(id === 'map') setTimeout(initMap, 50);
+  if(id === 'dashboard') updateDashboard();
+}
+
+// =============================================
+// PERSISTENCE
+// =============================================
+function save() {
+  localStorage.setItem('dnd-grimoire', JSON.stringify(state));
+}
+function load() {
+  const d = localStorage.getItem('dnd-grimoire');
+  if(d) {
+    const loaded = JSON.parse(d);
+    state = { ...state, ...loaded };
+  }
+  // Merge default spells
+  if(!state.spells || state.spells.length === 0) state.spells = getDefaultSpells();
+  if(!state.moodPlaylists) state.moodPlaylists = getDefaultPlaylists();
+  renderAll();
+}
+
+function renderAll() {
+  renderCharList();
+  renderMonsterList();
+  renderNoteList();
+  renderInitiative();
+  renderMoodPlaylists();
+  updateDashboard();
+  // Campaign info
+  if(state.campaignInfo) {
+    if(document.getElementById('campaign-name')) document.getElementById('campaign-name').value = state.campaignInfo.name || '';
+    if(document.getElementById('campaign-session')) document.getElementById('campaign-session').value = state.campaignInfo.session || 1;
+    if(document.getElementById('campaign-date')) document.getElementById('campaign-date').value = state.campaignInfo.date || '';
+    document.getElementById('dash-session').textContent = state.campaignInfo.session || 1;
+  }
+}
+
+// =============================================
+// DASHBOARD
+// =============================================
+function updateDashboard() {
+  document.getElementById('dash-players').textContent = state.characters.filter(c => c.type === 'player').length;
+  document.getElementById('dash-monsters').textContent = state.monsters.length;
+  document.getElementById('dash-spells').textContent = state.spells.length;
+  document.getElementById('dash-notes').textContent = state.notes.length;
+  document.getElementById('dash-session').textContent = state.campaignInfo?.session || 1;
+}
+function saveCampaignInfo() {
+  state.campaignInfo = {
+    name: document.getElementById('campaign-name').value,
+    session: document.getElementById('campaign-session').value,
+    date: document.getElementById('campaign-date').value
+  };
+  document.getElementById('dash-session').textContent = state.campaignInfo.session || 1;
+  save();
+}
+
+// =============================================
+// DICE ROLLER
+// =============================================
+let rollHistory = [];
+
+function rollDie(sides) {
+  return Math.floor(Math.random() * sides) + 1;
+}
+
+function quickRoll(sides) {
+  const r = rollDie(sides);
+  showResult([r], sides, 0, `1d${sides}`);
+}
+
+function setRoll(count, sides, mod, adv) {
+  document.getElementById('dice-count').value = count;
+  document.getElementById('dice-sides').value = sides;
+  document.getElementById('dice-mod').value = mod;
+  document.getElementById('dice-adv').value = adv;
+}
+
+function customRoll() {
+  const count = parseInt(document.getElementById('dice-count').value) || 1;
+  const sides = parseInt(document.getElementById('dice-sides').value);
+  const mod = parseInt(document.getElementById('dice-mod').value) || 0;
+  const adv = document.getElementById('dice-adv').value;
+
+  let rolls = [];
+  for(let i = 0; i < count; i++) rolls.push(rollDie(sides));
+
+  let label = `${count}d${sides}`;
+  let displayRolls = rolls;
+
+  if(adv !== 'none' && count === 1) {
+    const r2 = rollDie(sides);
+    if(adv === 'adv') {
+      const kept = Math.max(rolls[0], r2);
+      const dropped = Math.min(rolls[0], r2);
+      label = `d${sides} Adv [${kept}, ~~${dropped}~~]`;
+      rolls = [kept];
+      displayRolls = [kept, dropped];
+    } else {
+      const kept = Math.min(rolls[0], r2);
+      const dropped = Math.max(rolls[0], r2);
+      label = `d${sides} Dis [${kept}, ~~${dropped}~~]`;
+      rolls = [kept];
+      displayRolls = [kept, dropped];
+    }
+  }
+
+  if(mod !== 0) label += ` ${mod >= 0 ? '+' : ''}${mod}`;
+  showResult(rolls, sides, mod, label, displayRolls);
+}
+
+function showResult(rolls, sides, mod, label, displayRolls) {
+  const total = rolls.reduce((a, b) => a + b, 0) + mod;
+  const el = document.getElementById('roll-total');
+  el.textContent = total;
+  el.classList.remove('rolling');
+  void el.offsetWidth;
+  el.classList.add('rolling');
+
+  // Color coding for d20
+  if(sides === 20 && rolls.length === 1) {
+    if(rolls[0] === 20) el.style.color = '#58d68d';
+    else if(rolls[0] === 1) el.style.color = '#e74c3c';
+    else el.style.color = 'var(--gold2)';
+  } else {
+    el.style.color = 'var(--gold2)';
+  }
+
+  const dr = displayRolls || rolls;
+  let breakdown = `[${dr.join(', ')}]`;
+  if(mod !== 0) breakdown += ` ${mod >= 0 ? '+' : ''}${mod} = ${total}`;
+  document.getElementById('roll-breakdown').textContent = breakdown;
+
+  // Add to history
+  rollHistory.unshift({ label, total, breakdown, time: new Date().toLocaleTimeString() });
+  if(rollHistory.length > 30) rollHistory.pop();
+  renderRollHistory();
+}
+
+function renderRollHistory() {
+  const el = document.getElementById('roll-history');
+  if(!rollHistory.length) { el.innerHTML = '<div class="text-dim text-center" style="padding:1rem;">No rolls yet</div>'; return; }
+  el.innerHTML = rollHistory.map(r => `
+    <div class="roll-entry">
+      <span>${r.label}</span>
+      <span style="color:var(--text3);font-size:0.78rem;">${r.time}</span>
+      <span class="total">${r.total}</span>
+    </div>
+  `).join('');
+}
+
+function clearHistory() {
+  rollHistory = [];
+  renderRollHistory();
+}
+
+// =============================================
+// INITIATIVE TRACKER
+// =============================================
+function addCombatant() {
+  const name = document.getElementById('init-name').value.trim();
+  if(!name) return alert('Enter a name!');
+  const hp = parseInt(document.getElementById('init-hp').value) || 10;
+  const ac = parseInt(document.getElementById('init-ac').value) || 10;
+  const init = parseInt(document.getElementById('init-roll').value) || rollDie(20);
+  const type = document.getElementById('init-type').value;
+  state.combatants.push({ name, hp, maxHp: hp, ac, init, type, conditions: [], dead: false, id: Date.now() });
+  document.getElementById('init-name').value = '';
+  document.getElementById('init-roll').value = '';
+  document.getElementById('init-hp').value = '';
+  document.getElementById('init-ac').value = '';
+  renderInitiative();
+  save();
+}
+
+function rollInitAll() {
+  state.combatants.forEach(c => c.init = rollDie(20));
+  sortInitiative();
+}
+
+function sortInitiative() {
+  state.combatants.sort((a,b) => b.init - a.init);
+  state.currentTurn = 0;
+  renderInitiative();
+  save();
+}
+
+function nextTurn() {
+  if(!state.combatants.length) return;
+  state.currentTurn++;
+  if(state.currentTurn >= state.combatants.length) {
+    state.currentTurn = 0;
+    state.currentRound++;
+    document.getElementById('round-num').textContent = state.currentRound;
+  }
+  renderInitiative();
+  save();
+}
+
+function prevTurn() {
+  if(!state.combatants.length) return;
+  state.currentTurn--;
+  if(state.currentTurn < 0) {
+    state.currentTurn = state.combatants.length - 1;
+    if(state.currentRound > 1) { state.currentRound--; document.getElementById('round-num').textContent = state.currentRound; }
+  }
+  renderInitiative();
+}
+
+function loadPlayersToInit() {
+  const players = state.characters.filter(c => c.type === 'player');
+  players.forEach(p => {
+    if(!state.combatants.find(c => c.name === p.name)) {
+      state.combatants.push({ name: p.name, hp: parseInt(p.hp) || 20, maxHp: parseInt(p.hp) || 20, ac: parseInt(p.ac) || 10, init: rollDie(20), type: 'player', conditions: [], dead: false, id: Date.now() + Math.random() });
+    }
+  });
+  renderInitiative();
+  save();
+}
+
+function clearCombat() {
+  if(confirm('Clear all combatants?')) {
+    state.combatants = []; state.currentRound = 1; state.currentTurn = 0;
+    document.getElementById('round-num').textContent = 1;
+    renderInitiative(); save();
+  }
+}
+
+function dmgHeal(id, isDmg) {
+  const val = parseInt(document.getElementById('hpinput-' + id).value);
+  if(!val) return;
+  const c = state.combatants.find(x => x.id === id);
+  if(!c) return;
+  if(isDmg) c.hp = Math.max(0, c.hp - val);
+  else c.hp = Math.min(c.maxHp, c.hp + val);
+  c.dead = c.hp <= 0;
+  document.getElementById('hpinput-' + id).value = '';
+  renderInitiative(); save();
+}
+
+function toggleCondition(id, cond) {
+  const c = state.combatants.find(x => x.id === id);
+  if(!c) return;
+  if(!c.conditions) c.conditions = [];
+  const idx = c.conditions.indexOf(cond);
+  if(idx === -1) c.conditions.push(cond);
+  else c.conditions.splice(idx, 1);
+  renderInitiative(); save();
+}
+
+function removeCombatant(id) {
+  state.combatants = state.combatants.filter(c => c.id !== id);
+  if(state.currentTurn >= state.combatants.length) state.currentTurn = 0;
+  renderInitiative(); save();
+}
+
+const CONDITIONS = ['Blinded','Charmed','Frightened','Paralyzed','Poisoned','Stunned','Prone','Invisible','Unconscious'];
+const COND_CLASSES = { Blinded:'cond-blinded',Charmed:'cond-charmed',Frightened:'cond-frightened',Paralyzed:'cond-paralyzed',Poisoned:'cond-poisoned',Stunned:'cond-stunned',Prone:'cond-prone',Invisible:'cond-invisible',Unconscious:'cond-unconscious' };
+
+function renderInitiative() {
+  const el = document.getElementById('initiative-list');
+  document.getElementById('round-num').textContent = state.currentRound;
+  if(!state.combatants.length) { el.innerHTML = '<div class="empty-state"><span class="empty-icon">⚔</span>Add combatants to begin</div>'; return; }
+
+  const typeIcon = { player:'🧙', enemy:'💀', ally:'✨' };
+  el.innerHTML = state.combatants.map((c, i) => {
+    const hpPct = Math.max(0, Math.min(100, (c.hp / c.maxHp) * 100));
+    const condTags = (c.conditions || []).map(cd => `<span class="condition-tag ${COND_CLASSES[cd]||''}" onclick="toggleCondition(${c.id},'${cd}')" title="Remove">${cd}</span>`).join('');
+    const allCondBtns = CONDITIONS.map(cd => {
+      const has = (c.conditions||[]).includes(cd);
+      return `<span class="condition-tag ${COND_CLASSES[cd]||''}" style="${has?'':'opacity:0.4'}" onclick="toggleCondition(${c.id},'${cd}')">${cd}</span>`;
+    }).join('');
+    return `
+    <div class="initiative-item ${i === state.currentTurn ? 'current' : ''} ${c.dead ? 'dead' : ''}" id="init-item-${c.id}">
+      <div class="init-num">${c.init}</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span>${typeIcon[c.type]||'👤'}</span>
+          <span class="init-name ${i===state.currentTurn?'text-gold':''}">${c.name}</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.7rem;color:var(--text3);">AC ${c.ac}</span>
+          ${c.dead ? '<span style="color:var(--red2);font-size:0.75rem;font-family:Cinzel,serif;">☠ DOWN</span>' : ''}
+        </div>
+        <div class="hp-bar" style="margin-top:0.4rem;height:6px;">
+          <div class="hp-fill" style="width:${hpPct}%;background:${hpPct>50?'linear-gradient(90deg,#2d6b3a,#3d9b52)':hpPct>25?'linear-gradient(90deg,#b7950b,#f39c12)':'linear-gradient(90deg,#7b241c,#c0392b)'};"></div>
+        </div>
+        <div class="condition-tags">${condTags}</div>
+        <details style="margin-top:0.25rem;">
+          <summary style="font-size:0.72rem;color:var(--text3);cursor:pointer;list-style:none;">Conditions ▾</summary>
+          <div style="margin-top:0.3rem;">${allCondBtns}</div>
+        </details>
+      </div>
+      <div class="init-hp-display">
+        <span class="${c.dead?'dead':'current-hp'}">${c.hp}</span>/<span>${c.maxHp}</span> HP
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.3rem;">
+        <input id="hpinput-${c.id}" type="number" placeholder="Amount" style="width:75px;padding:0.25rem 0.4rem;font-size:0.8rem;">
+        <div style="display:flex;gap:0.25rem;">
+          <button class="btn btn-red btn-sm" onclick="dmgHeal(${c.id}, true)">DMG</button>
+          <button class="btn btn-sm" onclick="dmgHeal(${c.id}, false)" style="background:var(--green);color:var(--text);">HEAL</button>
+        </div>
+      </div>
+      <button onclick="removeCombatant(${c.id})" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:1.1rem;" title="Remove">✕</button>
+    </div>`;
+  }).join('');
+}
+
+// =============================================
+// CHARACTERS
+// =============================================
+function switchCharType(type, btn) {
+  state.currentCharType = type;
+  document.querySelectorAll('.type-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  state.activeCharIdx = null;
+  document.getElementById('char-sheet-area').innerHTML = '<div class="empty-state" style="padding:4rem;"><span class="empty-icon">⚔</span>Select or create a character</div>';
+  renderCharList();
+}
+
+function newCharacter() {
+  const name = prompt('Character name:');
+  if(!name) return;
+  const char = {
+    id: Date.now(), type: state.currentCharType, name, race: '', class: '', subclass: '', level: 1,
+    hp: 10, maxHp: 10, ac: 10, speed: 30, initiative: 0, profBonus: 2,
+    str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10,
+    proficiencies: [], saves: [], skills: [],
+    equipment: '', background: '', alignment: '', personalityTraits: '', ideals: '', bonds: '', flaws: '',
+    features: '', notes: '', spellsKnown: '', spellSlots: '', backstory: '',
+    avatar: getClassEmoji('')
+  };
+  state.characters.push(char);
+  state.activeCharIdx = state.characters.length - 1;
+  renderCharList();
+  renderCharSheet(char);
+  save();
+}
+
+function deleteCharacter() {
+  if(state.activeCharIdx === null) return alert('Select a character first');
+  if(!confirm('Delete this character?')) return;
+  state.characters.splice(state.activeCharIdx, 1);
+  state.activeCharIdx = null;
+  document.getElementById('char-sheet-area').innerHTML = '<div class="empty-state" style="padding:4rem;"><span class="empty-icon">⚔</span>Select or create a character</div>';
+  renderCharList(); save();
+}
+
+function getClassEmoji(cls) {
+  const map = { fighter:'⚔', wizard:'🧙', rogue:'🗡', cleric:'✝', druid:'🌿', bard:'🎵', ranger:'🏹', paladin:'🛡', sorcerer:'✨', warlock:'👁', barbarian:'💪', monk:'🥋' };
+  return map[cls?.toLowerCase()] || '⚔';
+}
+
+function renderCharList() {
+  const el = document.getElementById('char-list');
+  const filtered = state.characters.filter(c => c.type === state.currentCharType);
+  if(!filtered.length) { el.innerHTML = '<div class="empty-state"><span class="empty-icon">📜</span>No characters yet</div>'; return; }
+  el.innerHTML = filtered.map(c => {
+    const realIdx = state.characters.indexOf(c);
+    return `<div class="char-item ${state.activeCharIdx === realIdx ? 'active' : ''}" onclick="selectChar(${realIdx})">
+      <div class="char-avatar">${c.avatar || '⚔'}</div>
+      <div class="char-info">
+        <div class="char-name">${c.name}</div>
+        <div class="char-sub">${c.race || '?'} ${c.class || 'Unknown'} Lvl ${c.level}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function selectChar(idx) {
+  state.activeCharIdx = idx;
+  renderCharList();
+  renderCharSheet(state.characters[idx]);
+}
+
+function calcMod(score) {
+  const m = Math.floor((score - 10) / 2);
+  return (m >= 0 ? '+' : '') + m;
+}
+
+const SKILLS_LIST = [
+  {name:'Acrobatics',stat:'dex'},{name:'Animal Handling',stat:'wis'},{name:'Arcana',stat:'int'},
+  {name:'Athletics',stat:'str'},{name:'Deception',stat:'cha'},{name:'History',stat:'int'},
+  {name:'Insight',stat:'wis'},{name:'Intimidation',stat:'cha'},{name:'Investigation',stat:'int'},
+  {name:'Medicine',stat:'wis'},{name:'Nature',stat:'int'},{name:'Perception',stat:'wis'},
+  {name:'Performance',stat:'cha'},{name:'Persuasion',stat:'cha'},{name:'Religion',stat:'int'},
+  {name:'Sleight of Hand',stat:'dex'},{name:'Stealth',stat:'dex'},{name:'Survival',stat:'wis'}
+];
+
+function renderCharSheet(c) {
+  const area = document.getElementById('char-sheet-area');
+  const idx = state.characters.indexOf(c);
+  const hpPct = Math.max(0, Math.min(100, (c.hp / c.maxHp) * 100));
+
+  const abilityFields = ['str','dex','con','int','wis','cha'];
+  const abilityNames = { str:'STR',dex:'DEX',con:'CON',int:'INT',wis:'WIS',cha:'CHA' };
+
+  area.innerHTML = `
+  <div class="card">
+    <div class="sheet-header">
+      <div>
+        <div style="font-family:'Cinzel Decorative',cursive;font-size:1.4rem;color:var(--gold2);">${c.name}</div>
+        <div style="color:var(--text3);font-size:0.85rem;margin-top:0.2rem;">${c.race} ${c.class} ${c.subclass ? '('+c.subclass+')' : ''} — Level ${c.level}</div>
+      </div>
+      <div style="text-align:right;">
+        <button class="btn btn-sm" onclick="saveCharSheet(${idx})">Save Sheet</button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;margin-bottom:1rem;">
+      <div class="form-group"><label>Race</label><input value="${c.race||''}" oninput="updateChar(${idx},'race',this.value)"></div>
+      <div class="form-group"><label>Class</label><input value="${c.class||''}" oninput="updateChar(${idx},'class',this.value)"></div>
+      <div class="form-group"><label>Subclass</label><input value="${c.subclass||''}" oninput="updateChar(${idx},'subclass',this.value)"></div>
+      <div class="form-group"><label>Level</label><input type="number" value="${c.level||1}" min="1" max="20" oninput="updateChar(${idx},'level',this.value)"></div>
+      <div class="form-group"><label>Background</label><input value="${c.background||''}" oninput="updateChar(${idx},'background',this.value)"></div>
+      <div class="form-group"><label>Alignment</label><input value="${c.alignment||''}" oninput="updateChar(${idx},'alignment',this.value)"></div>
+    </div>
+
+    <div class="combat-stats">
+      <div class="combat-stat"><input class="val" type="number" value="${c.hp}" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.4rem;color:var(--gold);text-align:center;width:60px;padding:0;" oninput="updateChar(${idx},'hp',this.value)"><span class="lbl">Current HP</span></div>
+      <div class="combat-stat"><input class="val" type="number" value="${c.maxHp}" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.4rem;color:var(--gold);text-align:center;width:60px;padding:0;" oninput="updateChar(${idx},'maxHp',this.value)"><span class="lbl">Max HP</span></div>
+      <div class="combat-stat"><input class="val" type="number" value="${c.ac}" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.4rem;color:var(--gold);text-align:center;width:60px;padding:0;" oninput="updateChar(${idx},'ac',this.value)"><span class="lbl">AC</span></div>
+      <div class="combat-stat"><input class="val" type="number" value="${c.speed}" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.4rem;color:var(--gold);text-align:center;width:60px;padding:0;" oninput="updateChar(${idx},'speed',this.value)"><span class="lbl">Speed ft.</span></div>
+      <div class="combat-stat"><input class="val" type="number" value="${c.profBonus||2}" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.4rem;color:var(--gold);text-align:center;width:60px;padding:0;" oninput="updateChar(${idx},'profBonus',this.value)"><span class="lbl">Prof. Bonus</span></div>
+      <div class="combat-stat"><input class="val" type="number" value="${c.initiative||0}" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.4rem;color:var(--gold);text-align:center;width:60px;padding:0;" oninput="updateChar(${idx},'initiative',this.value)"><span class="lbl">Initiative</span></div>
+    </div>
+
+    <div class="hp-bar-wrap">
+      <div class="hp-bar">
+        <div class="hp-fill" id="hp-bar-fill-${idx}" style="width:${hpPct}%;"></div>
+      </div>
+    </div>
+
+    <div class="ability-grid">
+      ${abilityFields.map(a => `
+        <div class="ability-box">
+          <div class="ability-name">${abilityNames[a]}</div>
+          <input type="number" value="${c[a]||10}" min="1" max="30" oninput="updateChar(${idx},'${a}',this.value);this.parentNode.querySelector('.ability-mod').textContent='('+calcMod(parseInt(this.value||10))+')'">
+          <div class="ability-mod">(${calcMod(c[a]||10)})</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="grid2">
+      <div class="card" style="background:var(--bg3);">
+        <div class="card-title">Skills</div>
+        <div class="skills-grid">
+          ${SKILLS_LIST.map(sk => {
+            const hasProf = (c.skills||[]).includes(sk.name);
+            const mod = Math.floor((parseInt(c[sk.stat]||10) - 10) / 2) + (hasProf ? parseInt(c.profBonus||2) : 0);
+            return `<div class="skill-row">
+              <div class="skill-check ${hasProf?'on':''}" onclick="toggleSkill(${idx},'${sk.name}',this)">${hasProf?'●':''}</div>
+              <span class="skill-mod">${mod>=0?'+':''}${mod}</span>
+              <span class="skill-name">${sk.name}</span>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+      <div>
+        <div class="card" style="background:var(--bg3);margin-bottom:0.75rem;">
+          <div class="card-title">Equipment & Inventory</div>
+          <textarea rows="5" oninput="updateChar(${idx},'equipment',this.value)">${c.equipment||''}</textarea>
+        </div>
+        <div class="card" style="background:var(--bg3);">
+          <div class="card-title">Features & Traits</div>
+          <textarea rows="5" oninput="updateChar(${idx},'features',this.value)">${c.features||''}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2 mt1">
+      <div class="card" style="background:var(--bg3);">
+        <div class="card-title">Spells Known / Prepared</div>
+        <textarea rows="5" oninput="updateChar(${idx},'spellsKnown',this.value)">${c.spellsKnown||''}</textarea>
+        <div class="card-title" style="margin-top:0.75rem;">Spell Slots</div>
+        <textarea rows="2" placeholder="1st: 4/4   2nd: 3/3..." oninput="updateChar(${idx},'spellSlots',this.value)">${c.spellSlots||''}</textarea>
+      </div>
+      <div class="card" style="background:var(--bg3);">
+        <div class="card-title">Backstory & Notes</div>
+        <textarea rows="10" oninput="updateChar(${idx},'backstory',this.value)">${c.backstory||''}</textarea>
+      </div>
+    </div>
+  </div>`;
+}
+
+function updateChar(idx, field, val) {
+  state.characters[idx][field] = val;
+  // Update HP bar live
+  if(field === 'hp' || field === 'maxHp') {
+    const c = state.characters[idx];
+    const el = document.getElementById('hp-bar-fill-' + idx);
+    if(el) { const pct = Math.max(0, Math.min(100, (parseInt(c.hp) / parseInt(c.maxHp)) * 100)); el.style.width = pct + '%'; }
+  }
+  save();
+}
+
+function toggleSkill(idx, skillName, el) {
+  const c = state.characters[idx];
+  if(!c.skills) c.skills = [];
+  const i = c.skills.indexOf(skillName);
+  if(i === -1) { c.skills.push(skillName); el.classList.add('on'); el.textContent = '●'; }
+  else { c.skills.splice(i, 1); el.classList.remove('on'); el.textContent = ''; }
+  save();
+}
+
+function saveCharSheet(idx) {
+  save();
+  alert('Character saved! ✓');
+}
+
+// =============================================
+// MONSTERS
+// =============================================
+function newMonster() {
+  const name = prompt('Monster name:');
+  if(!name) return;
+  const m = {
+    id: Date.now(), name, type: 'Undead', size: 'Medium', alignment: 'Neutral Evil',
+    ac: 13, hp: 22, speed: '30 ft.', cr: '1/2',
+    str:13,dex:6,con:16,int:3,wis:6,cha:5,
+    saves:'', skills:'', resistances:'', immunities:'', senses:'Darkvision 60 ft.',
+    languages:'—', traits:'', actions:'Shortsword: +3 to hit, 1d6+1 piercing.',
+    legendaryActions:'', reactions:''
+  };
+  state.monsters.push(m);
+  state.activeMonsterIdx = state.monsters.length - 1;
+  renderMonsterList();
+  renderMonsterDetail(m);
+  save();
+}
+
+function deleteMonster() {
+  if(state.activeMonsterIdx === null) return alert('Select a monster first');
+  if(!confirm('Delete this monster?')) return;
+  state.monsters.splice(state.activeMonsterIdx, 1);
+  state.activeMonsterIdx = null;
+  document.getElementById('monster-detail-area').innerHTML = '<div class="empty-state" style="padding:4rem;"><span class="empty-icon">💀</span>Select a monster</div>';
+  renderMonsterList(); save();
+}
+
+function renderMonsterList() {
+  const el = document.getElementById('monster-list');
+  if(!state.monsters.length) { el.innerHTML = '<div class="empty-state"><span class="empty-icon">💀</span>No monsters saved</div>'; return; }
+  el.innerHTML = state.monsters.map((m, i) => `
+    <div class="char-item ${state.activeMonsterIdx === i ? 'active' : ''}" onclick="selectMonster(${i})">
+      <div class="char-avatar">💀</div>
+      <div class="char-info">
+        <div class="char-name">${m.name}</div>
+        <div class="char-sub">${m.size||''} ${m.type||''} — CR ${m.cr||'?'}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function selectMonster(idx) {
+  state.activeMonsterIdx = idx;
+  renderMonsterList();
+  renderMonsterDetail(state.monsters[idx]);
+}
+
+function updateMon(idx, field, val) { state.monsters[idx][field] = val; save(); }
+
+function renderMonsterDetail(m) {
+  const idx = state.monsters.indexOf(m);
+  const area = document.getElementById('monster-detail-area');
+  area.innerHTML = `
+  <div class="monster-card card">
+    <div style="padding-bottom:0.5rem;border-bottom:2px solid var(--red2);">
+      <input value="${m.name}" style="font-family:'Cinzel Decorative',cursive;font-size:1.2rem;background:transparent;border:none;color:var(--gold2);width:100%;" oninput="updateMon(${idx},'name',this.value)">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.25rem;">
+        <input value="${m.size||'Medium'}" style="width:90px;" oninput="updateMon(${idx},'size',this.value)" placeholder="Size">
+        <input value="${m.type||'Beast'}" style="flex:1;" oninput="updateMon(${idx},'type',this.value)" placeholder="Type">
+        <input value="${m.alignment||''}" style="flex:1;" oninput="updateMon(${idx},'alignment',this.value)" placeholder="Alignment">
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="monster-stat-block">
+      <div class="attr-row">
+        <span class="attr"><strong>AC</strong> <input type="number" value="${m.ac||10}" oninput="updateMon(${idx},'ac',this.value)" style="width:50px;display:inline;"></span>
+        <span class="attr"><strong>HP</strong> <input type="number" value="${m.hp||10}" oninput="updateMon(${idx},'hp',this.value)" style="width:60px;display:inline;"></span>
+        <span class="attr"><strong>Speed</strong> <input value="${m.speed||'30 ft.'}" oninput="updateMon(${idx},'speed',this.value)" style="width:80px;display:inline;"></span>
+        <span class="attr"><strong>CR</strong> <input value="${m.cr||'1'}" oninput="updateMon(${idx},'cr',this.value)" style="width:50px;display:inline;"></span>
+      </div>
+      <hr class="divider">
+      <div class="ability-row">
+        ${['str','dex','con','int','wis','cha'].map(a => `
+          <div class="ability-cell">
+            <div class="aname">${a.toUpperCase()}</div>
+            <input type="number" value="${m[a]||10}" oninput="updateMon(${idx},'${a}',this.value)" style="width:45px;background:transparent;border:none;font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold);text-align:center;padding:0;">
+            <div class="aval">(${calcMod(m[a]||10)})</div>
+          </div>
+        `).join('')}
+      </div>
+      <hr class="divider">
+      <div class="attr-row">
+        <span class="attr" style="width:100%"><strong>Saving Throws</strong><input value="${m.saves||''}" oninput="updateMon(${idx},'saves',this.value)" placeholder="Con +5, Wis +2..." style="width:100%;margin-top:0.25rem;"></span>
+      </div>
+      <div class="attr-row">
+        <span class="attr" style="width:100%"><strong>Damage Resistances</strong><input value="${m.resistances||''}" oninput="updateMon(${idx},'resistances',this.value)" style="width:100%;margin-top:0.25rem;"></span>
+      </div>
+      <div class="attr-row">
+        <span class="attr" style="width:100%"><strong>Immunities</strong><input value="${m.immunities||''}" oninput="updateMon(${idx},'immunities',this.value)" style="width:100%;margin-top:0.25rem;"></span>
+      </div>
+      <div class="attr-row">
+        <span class="attr" style="width:100%"><strong>Senses</strong><input value="${m.senses||''}" oninput="updateMon(${idx},'senses',this.value)" style="width:100%;margin-top:0.25rem;"></span>
+      </div>
+      <div class="attr-row">
+        <span class="attr" style="width:100%"><strong>Languages</strong><input value="${m.languages||'—'}" oninput="updateMon(${idx},'languages',this.value)" style="width:100%;margin-top:0.25rem;"></span>
+      </div>
+      <hr class="divider">
+      <div><strong style="font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold);">TRAITS</strong>
+        <textarea rows="3" oninput="updateMon(${idx},'traits',this.value)" style="margin-top:0.3rem;">${m.traits||''}</textarea>
+      </div>
+      <div style="margin-top:0.75rem;"><strong style="font-family:'Cinzel',serif;font-size:0.75rem;color:var(--red2);">ACTIONS</strong>
+        <textarea rows="4" oninput="updateMon(${idx},'actions',this.value)" style="margin-top:0.3rem;">${m.actions||''}</textarea>
+      </div>
+      <div style="margin-top:0.75rem;"><strong style="font-family:'Cinzel',serif;font-size:0.75rem;color:var(--text2);">REACTIONS</strong>
+        <textarea rows="2" oninput="updateMon(${idx},'reactions',this.value)" style="margin-top:0.3rem;">${m.reactions||''}</textarea>
+      </div>
+      <div style="margin-top:0.75rem;"><strong style="font-family:'Cinzel',serif;font-size:0.75rem;color:var(--accent2);">LEGENDARY ACTIONS</strong>
+        <textarea rows="3" oninput="updateMon(${idx},'legendaryActions',this.value)" style="margin-top:0.3rem;">${m.legendaryActions||''}</textarea>
+      </div>
+    </div>
+    <div style="margin-top:1rem;display:flex;gap:0.75rem;">
+      <button class="btn btn-sm" onclick="addMonsterToInit(${idx})">Add to Initiative</button>
+      <button class="btn btn-ghost btn-sm" onclick="save();alert('Saved ✓')">Save</button>
+    </div>
+  </div>`;
+}
+
+function addMonsterToInit(idx) {
+  const m = state.monsters[idx];
+  state.combatants.push({ name: m.name, hp: parseInt(m.hp)||10, maxHp: parseInt(m.hp)||10, ac: parseInt(m.ac)||10, init: rollDie(20), type: 'enemy', conditions: [], dead: false, id: Date.now() + Math.random() });
+  showPage('initiative');
+  renderInitiative();
+  save();
+}
+
+// =============================================
+// SPELLS
+// =============================================
+let spellSort = { col: 'level', dir: 1 };
+let expandedSpell = null;
+
+function sortSpells(col) {
+  if(spellSort.col === col) spellSort.dir *= -1;
+  else { spellSort.col = col; spellSort.dir = 1; }
+  renderSpells();
+}
+
+function filterSpells() { renderSpells(); }
+
+function renderSpells() {
+  const search = document.getElementById('spell-search')?.value?.toLowerCase() || '';
+  const levelF = document.getElementById('spell-level-filter')?.value || '';
+  const schoolF = document.getElementById('spell-school-filter')?.value || '';
+  const classF = document.getElementById('spell-class-filter')?.value || '';
+
+  let spells = state.spells.filter(s => {
+    if(search && !s.name.toLowerCase().includes(search) && !(s.description||'').toLowerCase().includes(search)) return false;
+    if(levelF && s.level !== levelF) return false;
+    if(schoolF && s.school !== schoolF) return false;
+    if(classF && !(s.classes||'').includes(classF)) return false;
+    return true;
+  });
+
+  spells.sort((a, b) => {
+    const levelOrder = ['Cantrip','1st','2nd','3rd','4th','5th','6th','7th','8th','9th'];
+    if(spellSort.col === 'level') {
+      return (levelOrder.indexOf(a.level) - levelOrder.indexOf(b.level)) * spellSort.dir;
+    }
+    return (a[spellSort.col]||'').localeCompare(b[spellSort.col]||'') * spellSort.dir;
+  });
+
+  const tbody = document.getElementById('spell-tbody');
+  if(!spells.length) { tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--text3);padding:2rem;">No spells found</td></tr>'; return; }
+
+  tbody.innerHTML = spells.map(s => {
+    const sid = 'spell-' + s.name.replace(/\s+/g,'_');
+    const schoolClass = 'school-' + (s.school||'').toLowerCase();
+    const isExpanded = expandedSpell === s.name;
+    return `
+    <tr class="${isExpanded?'expanded':''}" onclick="toggleSpellDetail('${s.name}')">
+      <td><span class="spell-name">${s.name}</span>${s.ritual?' <span class="tag" style="font-size:0.6rem;">Ritual</span>':''}${s.concentration?' <span class="tag" style="font-size:0.6rem;background:rgba(155,89,182,0.15);color:#c678e0;border-color:#7d3c98;">Conc.</span>':''}</td>
+      <td><span class="spell-level-badge">${s.level}</span></td>
+      <td><span class="tag ${schoolClass}">${s.school}</span></td>
+      <td style="color:var(--text2);font-size:0.85rem;">${s.castTime||'—'}</td>
+      <td style="color:var(--text2);font-size:0.85rem;">${s.range||'—'}</td>
+      <td style="color:var(--text2);font-size:0.85rem;">${s.duration||'—'}</td>
+      <td style="color:var(--text2);font-size:0.85rem;">${s.components||'—'}</td>
+      <td style="color:var(--text3);font-size:0.8rem;">${s.classes||'—'}</td>
+    </tr>
+    ${isExpanded ? `<tr class="spell-row-detail"><td colspan="8"><div class="spell-detail-inner">
+      <div><strong style="color:var(--gold);font-family:'Cinzel',serif;">Casting Time:</strong> ${s.castTime||'—'}</div>
+      <div><strong style="color:var(--gold);font-family:'Cinzel',serif;">Range:</strong> ${s.range||'—'}</div>
+      <div><strong style="color:var(--gold);font-family:'Cinzel',serif;">Duration:</strong> ${s.duration||'—'}</div>
+      <div><strong style="color:var(--gold);font-family:'Cinzel',serif;">Components:</strong> ${s.components||'—'}</div>
+      <div class="spell-detail-desc">${(s.description||'No description available.').replace(/\n/g,'<br>')}</div>
+      ${s.higherLevel ? `<div class="spell-detail-desc"><strong style="color:var(--gold3);">At Higher Levels:</strong> ${s.higherLevel}</div>` : ''}
+    </div></td></tr>` : ''}`;
+  }).join('');
+}
+
+function toggleSpellDetail(name) {
+  expandedSpell = expandedSpell === name ? null : name;
+  renderSpells();
+}
+
+function openAddSpell() { document.getElementById('add-spell-modal').style.display = 'block'; }
+function closeAddSpell() { document.getElementById('add-spell-modal').style.display = 'none'; }
+
+function saveCustomSpell() {
+  const s = {
+    name: document.getElementById('cs-name').value,
+    level: document.getElementById('cs-level').value,
+    school: document.getElementById('cs-school').value,
+    castTime: document.getElementById('cs-cast').value,
+    range: document.getElementById('cs-range').value,
+    duration: document.getElementById('cs-duration').value,
+    components: document.getElementById('cs-components').value,
+    classes: document.getElementById('cs-classes').value,
+    description: document.getElementById('cs-desc').value,
+    custom: true
+  };
+  if(!s.name) return alert('Enter spell name');
+  state.spells.push(s);
+  save();
+  closeAddSpell();
+  renderSpells();
+}
+
+// =============================================
+// MAP BUILDER
+// =============================================
+const TILES = [
+  { emoji: '⬜', name: 'Floor' },
+  { emoji: '⬛', name: 'Wall' },
+  { emoji: '🌿', name: 'Grass' },
+  { emoji: '🟫', name: 'Dirt' },
+  { emoji: '💧', name: 'Water' },
+  { emoji: '🌲', name: 'Tree' },
+  { emoji: '🔥', name: 'Fire' },
+  { emoji: '🪨', name: 'Rock' },
+  { emoji: '🚪', name: 'Door' },
+  { emoji: '⬆', name: 'Stairs' },
+  { emoji: '🛏', name: 'Bed' },
+  { emoji: '🪣', name: 'Barrel' },
+  { emoji: '💀', name: 'Bones' },
+  { emoji: '🕯', name: 'Candle' },
+  { emoji: '🏛', name: 'Pillar' },
+  { emoji: '🌑', name: 'Darkness' },
+];
+
+const TOKEN_EMOJIS = ['🧙','⚔','🏹','🛡','👁','💀','🐉','👹','🧌','🧝','🤺','🐺'];
+
+let mapData = [];
+let tokens = [];
+let mapSize = 30;
+let cellSize = 24;
+let selectedTile = '⬜';
+let mapTool = 'paint';
+let isDrawing = false;
+let selectedToken = null;
+
+function initMap() {
+  const canvas = document.getElementById('map-canvas');
+  if(!canvas) return;
+  mapSize = parseInt(document.getElementById('map-size').value) || 30;
+  cellSize = Math.min(24, Math.floor(Math.min(window.innerWidth - 300, 1000) / mapSize));
+  canvas.width = mapSize * cellSize;
+  canvas.height = mapSize * cellSize;
+
+  if(!mapData.length || mapData.length !== mapSize) {
+    mapData = Array.from({length: mapSize}, () => Array(mapSize).fill('⬜'));
+  }
+
+  setupTilePalette();
+  setupMapEvents(canvas);
+  drawMap(canvas);
+  renderLegend();
+}
+
+function setupTilePalette() {
+  const pal = document.getElementById('tile-palette');
+  pal.innerHTML = TILES.map(t => `<div class="tile-swatch ${t.emoji===selectedTile?'active':''}" title="${t.name}" onclick="selectTile('${t.emoji}',this)">${t.emoji}</div>`).join('');
+}
+
+function selectTile(emoji, el) {
+  selectedTile = emoji;
+  document.querySelectorAll('.tile-swatch').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function setTool(tool, btn) {
+  mapTool = tool;
+  document.querySelectorAll('.map-tool-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function setupMapEvents(canvas) {
+  canvas.onmousedown = (e) => { isDrawing = true; handleMapClick(e, canvas); };
+  canvas.onmousemove = (e) => { if(isDrawing) handleMapClick(e, canvas); };
+  canvas.onmouseup = () => isDrawing = false;
+  canvas.onmouseleave = () => isDrawing = false;
+  canvas.ontouchstart = (e) => { e.preventDefault(); isDrawing = true; handleMapTouch(e, canvas); };
+  canvas.ontouchmove = (e) => { e.preventDefault(); if(isDrawing) handleMapTouch(e, canvas); };
+  canvas.ontouchend = () => isDrawing = false;
+}
+
+function handleMapTouch(e, canvas) {
+  const touch = e.touches[0];
+  const rect = canvas.getBoundingClientRect();
+  const x = Math.floor((touch.clientX - rect.left) / (rect.width / mapSize));
+  const y = Math.floor((touch.clientY - rect.top) / (rect.height / mapSize));
+  applyTool(x, y, canvas);
+}
+
+function handleMapClick(e, canvas) {
+  const rect = canvas.getBoundingClientRect();
+  const x = Math.floor((e.clientX - rect.left) / (rect.width / mapSize));
+  const y = Math.floor((e.clientY - rect.top) / (rect.height / mapSize));
+  applyTool(x, y, canvas);
+}
+
+function applyTool(x, y, canvas) {
+  if(x < 0 || y < 0 || x >= mapSize || y >= mapSize) return;
+  if(mapTool === 'paint') { mapData[y][x] = selectedTile; drawMap(canvas); }
+  else if(mapTool === 'erase') { mapData[y][x] = '⬜'; drawMap(canvas); }
+  else if(mapTool === 'fill') { floodFill(x, y, mapData[y][x], selectedTile, canvas); }
+  else if(mapTool === 'token') {
+    const tokenEmoji = TOKEN_EMOJIS[Math.floor(Math.random() * TOKEN_EMOJIS.length)];
+    const name = prompt('Token name:', 'Player') || 'Token';
+    tokens.push({ x, y, emoji: tokenEmoji, name });
+    drawMap(canvas);
+    renderTokenList();
+  }
+}
+
+function floodFill(x, y, target, replacement, canvas) {
+  if(target === replacement) return;
+  const stack = [[x, y]];
+  while(stack.length) {
+    const [cx, cy] = stack.pop();
+    if(cx < 0 || cy < 0 || cx >= mapSize || cy >= mapSize) continue;
+    if(mapData[cy][cx] !== target) continue;
+    mapData[cy][cx] = replacement;
+    stack.push([cx+1,cy],[cx-1,cy],[cx,cy+1],[cx,cy-1]);
+  }
+  drawMap(canvas);
+}
+
+function drawMap(canvas) {
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const cs = cellSize;
+  const fontSize = Math.max(10, cs - 4);
+  ctx.font = `${fontSize}px serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  for(let y = 0; y < mapSize; y++) {
+    for(let x = 0; x < mapSize; x++) {
+      ctx.fillStyle = '#1a1208';
+      ctx.fillRect(x*cs, y*cs, cs, cs);
+      ctx.strokeStyle = 'rgba(74,58,37,0.3)';
+      ctx.lineWidth = 0.5;
+      ctx.strokeRect(x*cs, y*cs, cs, cs);
+      if(mapData[y][x] && mapData[y][x] !== '⬜') {
+        ctx.fillText(mapData[y][x], x*cs + cs/2, y*cs + cs/2);
+      }
+    }
+  }
+  tokens.forEach(t => {
+    ctx.font = `${fontSize}px serif`;
+    ctx.fillText(t.emoji, t.x*cs + cs/2, t.y*cs + cs/2);
+    ctx.fillStyle = 'rgba(232,184,75,0.8)';
+    ctx.font = `bold ${Math.max(7,cs/3)}px 'Cinzel',serif`;
+    ctx.fillText(t.name.substring(0,4), t.x*cs + cs/2, t.y*cs + cs - 2);
+  });
+}
+
+function renderLegend() {
+  const el = document.getElementById('legend-list');
+  el.innerHTML = TILES.map(t => `<div class="legend-item"><span>${t.emoji}</span><span style="font-size:0.8rem;color:var(--text2);">${t.name}</span></div>`).join('');
+}
+
+function renderTokenList() {
+  const el = document.getElementById('map-tokens');
+  el.innerHTML = tokens.map((t,i) => `<div style="display:flex;align-items:center;gap:0.5rem;">${t.emoji} ${t.name} <button onclick="removeToken(${i})" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:0.8rem;">✕</button></div>`).join('');
+}
+
+function removeToken(i) { tokens.splice(i, 1); drawMap(document.getElementById('map-canvas')); renderTokenList(); }
+function clearTokens() { tokens = []; drawMap(document.getElementById('map-canvas')); renderTokenList(); }
+function clearMap() { if(confirm('Clear the map?')) { mapData = Array.from({length:mapSize},()=>Array(mapSize).fill('⬜')); tokens = []; drawMap(document.getElementById('map-canvas')); renderTokenList(); } }
+function resizeMap() { mapSize = parseInt(document.getElementById('map-size').value); mapData = []; tokens = []; initMap(); }
+
+function saveMapPNG() {
+  const canvas = document.getElementById('map-canvas');
+  const link = document.createElement('a');
+  link.download = 'dnd-map.png';
+  link.href = canvas.toDataURL();
+  link.click();
+}
+
+// =============================================
+// NOTES
+// =============================================
+function newNote() {
+  const title = prompt('Note title:');
+  if(!title) return;
+  state.notes.push({ id: Date.now(), title, content: '', date: new Date().toLocaleDateString() });
+  state.activeNoteIdx = state.notes.length - 1;
+  renderNoteList();
+  renderNoteEditor();
+  save();
+}
+
+function renderNoteList() {
+  const el = document.getElementById('note-list');
+  if(!state.notes.length) { el.innerHTML = '<div class="text-dim text-center" style="padding:1rem;">No notes yet</div>'; return; }
+  el.innerHTML = state.notes.map((n, i) => `
+    <div class="note-item ${state.activeNoteIdx === i ? 'active' : ''}" onclick="selectNote(${i})">
+      <div class="note-title">${n.title}</div>
+      <div class="note-date">${n.date}</div>
+    </div>
+  `).join('');
+}
+
+function selectNote(idx) {
+  state.activeNoteIdx = idx;
+  renderNoteList();
+  renderNoteEditor();
+}
+
+function renderNoteEditor() {
+  const area = document.getElementById('note-editor-area');
+  if(state.activeNoteIdx === null) { area.innerHTML = '<div class="empty-state" style="padding:4rem;"><span class="empty-icon">📖</span>Select a note</div>'; return; }
+  const n = state.notes[state.activeNoteIdx];
+  const idx = state.activeNoteIdx;
+  area.innerHTML = `
+  <div class="note-editor">
+    <div class="flex-row">
+      <div class="form-group" style="flex:1;margin:0;">
+        <label>Title</label>
+        <input value="${n.title}" oninput="updateNote(${idx},'title',this.value)">
+      </div>
+      <button class="btn btn-red btn-sm" onclick="deleteNote(${idx})" style="margin-top:auto;">Delete</button>
+    </div>
+    <div class="form-group">
+      <label>Content (Markdown-friendly)</label>
+      <textarea style="min-height:400px;line-height:1.7;" oninput="updateNote(${idx},'content',this.value)">${n.content||''}</textarea>
+    </div>
+    <button class="btn btn-sm" onclick="save();alert('Saved ✓')">Save Note</button>
+  </div>`;
+}
+
+function updateNote(idx, field, val) {
+  state.notes[idx][field] = val;
+  if(field === 'title') renderNoteList();
+  save();
+}
+
+function deleteNote(idx) {
+  if(!confirm('Delete this note?')) return;
+  state.notes.splice(idx, 1);
+  state.activeNoteIdx = null;
+  document.getElementById('note-editor-area').innerHTML = '<div class="empty-state" style="padding:4rem;"><span class="empty-icon">📖</span>Select a note</div>';
+  renderNoteList(); save();
+}
+
+// =============================================
+// MUSIC / SPOTIFY
+// =============================================
+function loadSpotify() {
+  const url = document.getElementById('spotify-url').value.trim();
+  if(!url) return alert('Paste a Spotify URL');
+  const embedUrl = convertSpotifyUrl(url);
+  document.getElementById('spotify-player').innerHTML = `
+    <iframe src="${embedUrl}" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" style="border-radius:4px;border:1px solid var(--border);"></iframe>`;
+}
+
+function convertSpotifyUrl(url) {
+  return url.replace('open.spotify.com/', 'open.spotify.com/embed/').replace(/\?.*$/, '');
+}
+
+function addMoodPlaylist() {
+  const name = document.getElementById('pl-name').value.trim();
+  const icon = document.getElementById('pl-icon').value.trim() || '🎵';
+  const desc = document.getElementById('pl-desc').value.trim();
+  const url = document.getElementById('pl-url').value.trim();
+  if(!name || !url) return alert('Enter name and URL');
+  state.moodPlaylists.push({ name, icon, desc, url });
+  document.getElementById('pl-name').value = '';
+  document.getElementById('pl-icon').value = '';
+  document.getElementById('pl-desc').value = '';
+  document.getElementById('pl-url').value = '';
+  renderMoodPlaylists(); save();
+}
+
+function loadMoodPlaylist(idx) {
+  const pl = state.moodPlaylists[idx];
+  document.getElementById('spotify-url').value = pl.url;
+  const embedUrl = convertSpotifyUrl(pl.url);
+  document.getElementById('spotify-player').innerHTML = `
+    <iframe src="${embedUrl}" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" style="border-radius:4px;border:1px solid var(--border);"></iframe>`;
+}
+
+function renderMoodPlaylists() {
+  const el = document.getElementById('mood-playlists');
+  if(!state.moodPlaylists.length) {
+    el.innerHTML = '<div class="text-dim">Add mood playlists below to appear here as quick-load buttons.</div>';
+    return;
+  }
+  el.innerHTML = state.moodPlaylists.map((pl, i) => `
+    <div class="playlist-card" onclick="loadMoodPlaylist(${i})">
+      <span class="pl-icon">${pl.icon}</span>
+      <div class="pl-name">${pl.name}</div>
+      <div class="pl-desc">${pl.desc}</div>
+      <button onclick="event.stopPropagation();removeMoodPlaylist(${i})" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:0.75rem;margin-top:0.4rem;">Remove</button>
+    </div>
+  `).join('');
+}
+
+function removeMoodPlaylist(idx) { state.moodPlaylists.splice(idx, 1); renderMoodPlaylists(); save(); }
+
+function getDefaultPlaylists() {
+  return [
+    { name: 'Epic Combat', icon: '⚔', desc: 'Intense battle music', url: 'https://open.spotify.com/playlist/37i9dQZF1DX3rxVfibe1L0' },
+    { name: 'Tavern Ambience', icon: '🍺', desc: 'Warm & cozy inn sounds', url: 'https://open.spotify.com/playlist/37i9dQZF1DWXe9gFZP0gtP' },
+    { name: 'Dungeon Crawl', icon: '🕯', desc: 'Dark & eerie exploration', url: 'https://open.spotify.com/playlist/37i9dQZF1DX5trt9iCwTOT' },
+    { name: 'Dark Forest', icon: '🌲', desc: 'Ominous wilderness', url: 'https://open.spotify.com/playlist/37i9dQZF1DWWQrqDFnlRSf' },
+    { name: 'Boss Fight', icon: '🐉', desc: 'Final encounter music', url: 'https://open.spotify.com/playlist/37i9dQZF1DX0HRj9P7NxeE' },
+    { name: 'Town & Village', icon: '🏘', desc: 'Peaceful town music', url: 'https://open.spotify.com/playlist/37i9dQZF1DWWEJlAGA9gs0' },
+  ];
+}
+
+// =============================================
+// SPELL DATA
+// =============================================
+function getDefaultSpells() {
+  return [
+    { name: 'Fire Bolt', level: 'Cantrip', school: 'Evocation', castTime: '1 action', range: '120 feet', duration: 'Instantaneous', components: 'V, S', classes: 'Sorcerer, Wizard', description: 'You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 fire damage. A flammable object hit by this spell ignites if it isn\'t being worn or carried.\n\nThis spell\'s damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).' },
+    { name: 'Eldritch Blast', level: 'Cantrip', school: 'Evocation', castTime: '1 action', range: '120 feet', duration: 'Instantaneous', components: 'V, S', classes: 'Warlock', description: 'A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n\nThe spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level.' },
+    { name: 'Prestidigitation', level: 'Cantrip', school: 'Transmutation', castTime: '1 action', range: '10 feet', duration: '1 hour', components: 'V, S', classes: 'Bard, Sorcerer, Warlock, Wizard', description: 'This spell is a minor magical trick that novice spellcasters use for practice. You create one of the following magical effects within range: a harmless sensory effect, light or snuff a small flame, chill/warm/flavor material, make a color/mark/symbol appear on an object, create a nonmagical trinket or illusory image that can fit in your hand.' },
+    { name: 'Magic Missile', level: '1st', school: 'Evocation', castTime: '1 action', range: '120 feet', duration: 'Instantaneous', components: 'V, S', classes: 'Sorcerer, Wizard', description: 'You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.', higherLevel: 'When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.' },
+    { name: 'Shield', level: '1st', school: 'Abjuration', castTime: '1 reaction', range: 'Self', duration: '1 round', components: 'V, S', classes: 'Sorcerer, Wizard', description: 'An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from magic missile.' },
+    { name: 'Cure Wounds', level: '1st', school: 'Evocation', castTime: '1 action', range: 'Touch', duration: 'Instantaneous', components: 'V, S', classes: 'Bard, Cleric, Druid, Paladin, Ranger', description: 'A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.', higherLevel: 'When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d8 for each slot level above 1st.' },
+    { name: 'Thunderwave', level: '1st', school: 'Evocation', castTime: '1 action', range: 'Self (15-foot cube)', duration: 'Instantaneous', components: 'V, S', classes: 'Bard, Druid, Sorcerer, Wizard', description: 'A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn\'t pushed.', higherLevel: 'When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.' },
+    { name: 'Misty Step', level: '2nd', school: 'Conjuration', castTime: '1 bonus action', range: 'Self', duration: 'Instantaneous', components: 'V', classes: 'Sorcerer, Warlock, Wizard', description: 'Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.' },
+    { name: 'Hold Person', level: '2nd', school: 'Enchantment', castTime: '1 action', range: '60 feet', duration: 'Concentration, up to 1 minute', components: 'V, S, M', classes: 'Bard, Cleric, Druid, Sorcerer, Warlock, Wizard', concentration: true, description: 'Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.', higherLevel: 'When you cast this spell using a spell slot of 3rd level or higher, you can target one additional humanoid for each slot level above 2nd.' },
+    { name: 'Invisibility', level: '2nd', school: 'Illusion', castTime: '1 action', range: 'Touch', duration: 'Concentration, up to 1 hour', components: 'V, S, M', classes: 'Bard, Sorcerer, Warlock, Wizard', concentration: true, description: 'A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target\'s person. The spell ends for a target that attacks or casts a spell.', higherLevel: 'When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.' },
+    { name: 'Fireball', level: '3rd', school: 'Evocation', castTime: '1 action', range: '150 feet', duration: 'Instantaneous', components: 'V, S, M', classes: 'Sorcerer, Wizard', description: 'A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one.', higherLevel: 'When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.' },
+    { name: 'Counterspell', level: '3rd', school: 'Abjuration', castTime: '1 reaction', range: '60 feet', duration: 'Instantaneous', components: 'S', classes: 'Sorcerer, Warlock, Wizard', description: 'You attempt to interrupt a creature in the process of casting a spell. If the creature is casting a spell of 3rd level or lower, its spell fails and has no effect. If it is casting a spell of 4th level or higher, make an ability check using your spellcasting ability. The DC equals 10 + the spell\'s level. On a success, the creature\'s spell fails.', higherLevel: 'When you cast this spell using a spell slot of 4th level or higher, the interrupted spell has no effect if its level is less than or equal to the level of the spell slot you used.' },
+    { name: 'Polymorph', level: '4th', school: 'Transmutation', castTime: '1 action', range: '60 feet', duration: 'Concentration, up to 1 hour', components: 'V, S, M', classes: 'Bard, Druid, Sorcerer, Wizard', concentration: true, description: 'This spell transforms a creature that you can see within range into a new form. An unwilling creature must make a Wisdom saving throw to avoid the effect. The spell has no effect on a shapechanger or a creature with 0 hit points.\n\nThe transformation lasts for the duration, or until the target drops to 0 hit points or dies. The new form can be any beast whose challenge rating is equal to or less than the target\'s (or the target\'s level, if it doesn\'t have a challenge rating).' },
+    { name: 'Wall of Fire', level: '4th', school: 'Evocation', castTime: '1 action', range: '120 feet', duration: 'Concentration, up to 1 minute', components: 'V, S, M', classes: 'Druid, Sorcerer, Wizard', concentration: true, description: 'You create a wall of fire on a solid surface within range. The wall can be up to 60 feet long, 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration.\n\nWhen the wall appears, each creature within its area must make a Dexterity saving throw. On a failed save, a creature takes 5d8 fire damage, or half as much damage on a successful save.', higherLevel: 'When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d8 for each slot level above 4th.' },
+    { name: 'Animate Dead', level: '3rd', school: 'Necromancy', castTime: '1 minute', range: '10 feet', duration: 'Instantaneous', components: 'V, S, M', classes: 'Cleric, Wizard', description: 'This spell creates an undead servant. Choose a pile of bones or a corpse of a Medium or Small humanoid within range. Your spell imbues the target with a foul mimicry of life, raising it as an undead creature. The target becomes a skeleton if you chose bones or a zombie if you chose a corpse.', higherLevel: 'When you cast this spell using a spell slot of 4th level or higher, you animate or reassert control over two additional undead creatures for each slot level above 3rd.' },
+    { name: 'Dimension Door', level: '4th', school: 'Conjuration', castTime: '1 action', range: '500 feet', duration: 'Instantaneous', components: 'V', classes: 'Bard, Sorcerer, Warlock, Wizard', description: 'You teleport yourself from your current location to any other spot within range. You arrive at exactly the spot desired. It can be a place you can see, one you can visualize, or one you can describe by stating distance and direction, such as "200 feet straight downward" or "upward to the northwest at a 45-degree angle, 300 feet."' },
+    { name: 'Banishment', level: '4th', school: 'Abjuration', castTime: '1 action', range: '60 feet', duration: 'Concentration, up to 1 minute', components: 'V, S, M', classes: 'Cleric, Paladin, Sorcerer, Warlock, Wizard', concentration: true, description: 'You attempt to send one creature that you can see within range to another plane of existence. The target must succeed on a Charisma saving throw or be banished. If the target is native to the plane of existence you\'re on, you banish the target to a harmless demiplane. While there, the target is incapacitated. The target remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.', higherLevel: 'When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th.' },
+    { name: 'Wish', level: '9th', school: 'Conjuration', castTime: '1 action', range: 'Self', duration: 'Instantaneous', components: 'V', classes: 'Sorcerer, Wizard', description: 'Wish is the mightiest spell a mortal creature can cast. By simply speaking aloud, you can alter the very foundations of reality in accord with your desires.\n\nThe basic use of this spell is to duplicate any other spell of 8th level or lower. You don\'t need to meet any requirements in that spell, including costly components. The spell simply takes effect. Alternatively, you can create one of the following effects of your choice: You create one object of up to 25,000 gp in value that isn\'t a magic item, grant up to ten creatures immunity to a single spell or other magical effect for 8 hours, undo a single recent event by forcing a reroll of any roll made within the last round.\n\nYou might be able to accomplish something beyond the scope of the above examples. The DM has great latitude in ruling what occurs in such an instance; the greater the wish, the greater the likelihood that something goes wrong.' },
+    { name: 'Charm Person', level: '1st', school: 'Enchantment', castTime: '1 action', range: '30 feet', duration: 'Concentration, up to 1 hour', components: 'V, S', classes: 'Bard, Druid, Sorcerer, Warlock, Wizard', concentration: true, description: 'You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it.', higherLevel: 'When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.' },
+    { name: 'Detect Magic', level: '1st', school: 'Divination', castTime: '1 action', range: 'Self', duration: 'Concentration, up to 10 minutes', components: 'V, S', classes: 'Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard', concentration: true, ritual: true, description: 'For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.' },
+    { name: 'Hunter\'s Mark', level: '1st', school: 'Divination', castTime: '1 bonus action', range: '90 feet', duration: 'Concentration, up to 1 hour', components: 'V', classes: 'Ranger', concentration: true, description: 'You choose a creature you can see within range and mystically mark it as your quarry. Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack, and you have advantage on any Wisdom (Perception) or Wisdom (Survival) check you make to find it.', higherLevel: 'When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours.' },
+    { name: 'Hex', level: '1st', school: 'Enchantment', castTime: '1 bonus action', range: '90 feet', duration: 'Concentration, up to 1 hour', components: 'V, S, M', classes: 'Warlock', concentration: true, description: 'You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability.', higherLevel: 'When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours.' },
+    { name: 'Lightning Bolt', level: '3rd', school: 'Evocation', castTime: '1 action', range: 'Self (100-foot line)', duration: 'Instantaneous', components: 'V, S, M', classes: 'Sorcerer, Wizard', description: 'A stroke of lightning forming a line 100 feet long and 5 feet wide blasts out from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 8d6 lightning damage on a failed save, or half as much damage on a successful one.', higherLevel: 'When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.' },
+    { name: 'Healing Word', level: '1st', school: 'Evocation', castTime: '1 bonus action', range: '60 feet', duration: 'Instantaneous', components: 'V', classes: 'Bard, Cleric, Druid', description: 'A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.', higherLevel: 'When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d4 for each slot level above 1st.' },
+    { name: 'Spiritual Weapon', level: '2nd', school: 'Evocation', castTime: '1 bonus action', range: '60 feet', duration: '1 minute (no concentration)', components: 'V, S', classes: 'Cleric', description: 'You create a floating, spectral weapon within range that lasts for the duration or until you cast this spell again. When you cast the spell, you can make a melee spell attack against a creature within 5 feet of the weapon. On a hit, the target takes force damage equal to 1d8 + your spellcasting ability modifier.\n\nAs a bonus action on your turn, you can move the weapon up to 20 feet and repeat the attack against a creature within 5 feet of it.', higherLevel: 'When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for every two slot levels above 2nd.' },
+    { name: 'Hypnotic Pattern', level: '3rd', school: 'Illusion', castTime: '1 action', range: '120 feet', duration: 'Concentration, up to 1 minute', components: 'S, M', classes: 'Bard, Sorcerer, Warlock, Wizard', concentration: true, description: 'You create a twisting pattern of colors that weaves through the air inside a 30-foot cube within range. The pattern appears for a moment and vanishes. Each creature in the area who sees the pattern must make a Wisdom saving throw. On a failed save, the creature becomes charmed for the duration. While charmed by this spell, the creature is incapacitated and has a speed of 0.' },
+    { name: 'Mass Cure Wounds', level: '5th', school: 'Evocation', castTime: '1 action', range: '60 feet', duration: 'Instantaneous', components: 'V, S', classes: 'Bard, Cleric, Druid', description: 'A wave of healing energy washes out from a point of your choice within range. Choose up to six creatures in a 30-foot-radius sphere centered on that point. Each target regains hit points equal to 3d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.', higherLevel: 'When you cast this spell using a spell slot of 6th level or higher, the healing increases by 1d8 for each slot level above 5th.' },
+    { name: 'Plane Shift', level: '7th', school: 'Conjuration', castTime: '1 action', range: 'Touch', duration: 'Instantaneous', components: 'V, S, M', classes: 'Cleric, Druid, Sorcerer, Warlock, Wizard', description: 'You and up to eight willing creatures who link hands in a circle are transported to a different plane of existence. You can specify a target destination in general terms, such as the City of Brass on the Elemental Plane of Fire or the palace of Dispater on the second level of the Nine Hells, and you appear in or near that destination. If you are trying to reach the City of Brass, for example, you might arrive in its streets, at its iron gates, or in a street in Sigil that leads to a portal toward your destination.' },
+    { name: 'True Seeing', level: '6th', school: 'Divination', castTime: '1 action', range: 'Touch', duration: '1 hour', components: 'V, S, M', classes: 'Bard, Cleric, Sorcerer, Warlock, Wizard', description: 'You give the willing creature you touch the ability to see things as they actually are. For the duration, the creature has truesight, notices secret doors hidden by magic, and can see into the Ethereal Plane, all out to a range of 120 feet.' },
+    { name: 'Power Word Kill', level: '9th', school: 'Enchantment', castTime: '1 action', range: '60 feet', duration: 'Instantaneous', components: 'V', classes: 'Sorcerer, Warlock, Wizard', description: 'You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you chose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.' },
+  ];
+}
+
+// =============================================
+// INIT
+// =============================================
+window.onload = () => {
+  load();
+  renderSpells();
+};
+</script>
+</body>
+</html>

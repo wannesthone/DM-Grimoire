@@ -128,7 +128,64 @@ label{font-family:'Cinzel',serif;font-size:.62rem;font-weight:600;letter-spacing
 .tip-card .tip-source{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:.35rem;}
 .tip-card h4{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold3);margin-bottom:.42rem;}
 .tip-card p{color:var(--text2);font-size:.86rem;line-height:1.62;}
-.danger-zone{border:2px solid var(--red2);padding:1.1rem;background:rgba(139,32,32,.05);}
+/* Library wiki styles */
+.lib-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.85rem;margin-bottom:1rem;}
+.lib-browse-card{background:var(--panel);border:1px solid var(--border);padding:0;cursor:pointer;transition:all .22s;overflow:hidden;position:relative;}
+.lib-browse-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.6);}
+.lib-browse-card .lbc-img{width:100%;height:110px;object-fit:cover;display:block;background:var(--bg3);}
+.lib-browse-card .lbc-img-placeholder{width:100%;height:110px;display:flex;align-items:center;justify-content:center;font-size:3.2rem;background:linear-gradient(135deg,var(--bg3),var(--panel2));overflow:hidden;}
+.lib-browse-card .lbc-img-placeholder svg{width:100%;height:110px;}
+.lib-browse-card .lbc-body{padding:.75rem 1rem;}
+.lib-browse-card .lbc-name{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold3);margin-bottom:.22rem;}
+.lib-browse-card .lbc-sub{font-size:.78rem;color:var(--text3);margin-bottom:.38rem;}
+.lib-browse-card .lbc-desc{font-size:.82rem;color:var(--text2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+/* Library-linked item chips on character sheet */
+.lib-chip{display:inline-flex;align-items:center;gap:.35rem;background:var(--bg3);border:1px solid var(--border2);border-radius:2px;padding:.22rem .55rem;margin:.15rem .15rem .15rem 0;transition:border-color .15s;}
+.lib-chip:hover{border-color:var(--gold);}
+.lib-chip .lc-name{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold3);cursor:pointer;}
+.lib-chip .lc-name:hover{color:var(--gold2);}
+.lib-chip .lc-remove{background:none;border:none;color:var(--text3);cursor:pointer;font-size:.8rem;padding:0;line-height:1;}
+.lib-chip .lc-remove:hover{color:var(--red2);}
+.lib-chip-field-badge{display:inline-flex;align-items:center;gap:.25rem;font-size:.65rem;font-family:'Cinzel',serif;color:var(--gold2);cursor:pointer;margin-left:.4rem;opacity:.75;transition:opacity .15s;}
+.lib-chip-field-badge:hover{opacity:1;}
+.char-linked-chips{display:flex;flex-wrap:wrap;gap:.1rem;margin-bottom:.45rem;min-height:.5rem;}
+.lib-browse-card .lbc-badge{position:absolute;top:.5rem;right:.5rem;background:rgba(201,146,42,.18);border:1px solid var(--gold);color:var(--gold3);font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;padding:.1rem .38rem;border-radius:2px;}
+/* Wiki detail page */
+.wiki-page{max-width:900px;margin:0 auto;}
+.wiki-header{background:linear-gradient(135deg,var(--bg3),var(--panel));border:1px solid var(--border);border-top:4px solid var(--gold);padding:1.5rem 2rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap;}
+.wiki-header-icon{font-size:3.5rem;flex-shrink:0;}
+.wiki-header-info h1{font-family:'Cinzel Decorative',cursive;font-size:1.6rem;color:var(--gold2);margin-bottom:.35rem;}
+.wiki-header-info .wiki-subtitle{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:.5rem;}
+.wiki-header-info .wiki-tags{display:flex;flex-wrap:wrap;gap:.3rem;}
+.wiki-section{background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-bottom:1rem;}
+.wiki-section h2{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding-bottom:.45rem;border-bottom:1px solid var(--border);margin-bottom:.85rem;}
+.wiki-section h3{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold3);margin:.85rem 0 .38rem;}
+.wiki-section p{color:var(--text2);font-size:.9rem;line-height:1.72;margin-bottom:.65rem;}
+.wiki-section ul{padding-left:1.25rem;color:var(--text2);font-size:.88rem;line-height:1.72;}
+.wiki-section li{margin-bottom:.2rem;}
+.wiki-table{width:100%;border-collapse:collapse;font-size:.84rem;margin:.5rem 0;}
+.wiki-table th{background:var(--bg3);font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:.55rem .7rem;text-align:left;border-bottom:2px solid var(--border);}
+.wiki-table td{padding:.45rem .7rem;border-bottom:1px solid rgba(74,58,37,.3);color:var(--text2);vertical-align:top;}
+.wiki-table tr:hover td{background:var(--panel2);}
+.wiki-subclass-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.5rem;margin-top:.5rem;}
+.wiki-subclass-chip{background:var(--bg3);border:1px solid var(--border2);padding:.45rem .75rem;cursor:pointer;transition:all .18s;border-radius:2px;}
+.wiki-subclass-chip:hover{border-color:var(--gold);color:var(--gold3);}
+.wiki-subclass-chip .sc-name{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold3);}
+.wiki-subclass-chip .sc-sub{font-size:.72rem;color:var(--text3);}
+.lib-link{color:var(--gold2);cursor:pointer;text-decoration:underline;text-decoration-color:rgba(201,146,42,.4);}
+.lib-link:hover{color:var(--gold3);}
+.wiki-two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:600px){.wiki-two-col{grid-template-columns:1fr;}.wiki-header{flex-direction:column;gap:.75rem;}.lib-card-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));}.wiki-header-icon{font-size:2.5rem;}}
+/* ===== MAP BUILDER ===== */
+#mb-toolbar{display:flex;gap:.3rem;align-items:center;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border);padding:.45rem .65rem;margin-bottom:.6rem;}
+.mb-tool-btn{background:transparent;border:1px solid var(--border);color:var(--text2);font-size:.8rem;width:26px;height:26px;cursor:pointer;transition:all .15s;border-radius:2px;display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0;}
+.mb-tool-btn:hover,.mb-tool-btn.active{background:var(--gold);color:#0d0a07;border-color:var(--gold);}
+.mb-sep{width:1px;background:var(--border);height:20px;margin:0 .1rem;flex-shrink:0;}
+.mb-group-title{font-family:Cinzel,serif;font-size:.58rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:.5rem 0 .28rem;padding-bottom:.18rem;border-bottom:1px solid var(--border);}
+.mb-tile-btn{width:34px;height:34px;border:2px solid transparent;cursor:pointer;border-radius:3px;transition:border-color .15s;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.mb-tile-btn:hover{border-color:var(--gold2)!important;}
+.mb-tile-btn.active{border-color:var(--gold)!important;box-shadow:0 0 6px rgba(201,146,42,.4);}
+.mb-tile-label{font-family:Cinzel,serif;font-size:.5rem;color:var(--text3);text-align:center;margin-top:.1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:34px;}
 .danger-zone .dz-title{font-family:'Cinzel',serif;font-size:.75rem;color:var(--red2);letter-spacing:2px;text-transform:uppercase;margin-bottom:.65rem;}
 .ability-cell-m{background:var(--bg3);padding:.28rem;border:1px solid var(--border);text-align:center;}
 .ability-cell-m .aname{font-family:'Cinzel',serif;font-size:.56rem;color:var(--text3);}
@@ -164,11 +221,50 @@ label{font-family:'Cinzel',serif;font-size:.62rem;font-weight:600;letter-spacing
     <button onclick="showPage('map')">🗺 Map</button>
     <button onclick="showPage('notes')">📖 Notes</button>
     <button onclick="showPage('music')">🎵 Music</button>
+    <button onclick="showPage('library')">🏛 Library</button>
     <button onclick="showPage('reference')">📚 Reference</button>
     <button onclick="showPage('settings')">⚙ Settings</button>
   </nav>
 </header>
 <main>
+
+<!-- LIBRARY -->
+<div id="page-library" class="page">
+  <div class="page-title">🏛 Library <small>Classes, Races, Items, Monsters, Feats & More</small></div>
+
+  <div id="lib-search-view">
+    <!-- Search bar -->
+    <div style="background:var(--panel);border:1px solid var(--border);padding:1.1rem;margin-bottom:1rem;">
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:.85rem;">
+        <div style="flex:1;min-width:220px;">
+          <label>Search the Library</label>
+          <input id="library-search" placeholder="🔍 Fighter, Longsword, Goblin, Acolyte..." oninput="debouncedLibSearch()" style="font-size:1.05rem;padding:.55rem .85rem;">
+        </div>
+        <button class="btn" onclick="searchLibrary()" style="align-self:flex-end;">🔍 Search</button>
+      </div>
+      <!-- Category tabs — no Spells (those live in the Spells page) -->
+      <div style="display:flex;gap:.38rem;flex-wrap:wrap;">
+        <button class="type-tab active" onclick="setLibCategory('',this)">All</button>
+        <button class="type-tab" onclick="setLibCategory('class',this)">⚔ Classes</button>
+        <button class="type-tab" onclick="setLibCategory('race',this)">🧝 Races</button>
+        <button class="type-tab" onclick="setLibCategory('item',this)">🗡 Magic Items</button>
+        <button class="type-tab" onclick="setLibCategory('weapon',this)">🏹 Weapons</button>
+        <button class="type-tab" onclick="setLibCategory('armor',this)">🛡 Armor</button>
+        <button class="type-tab" onclick="setLibCategory('monster',this)">💀 Monsters</button>
+        <button class="type-tab" onclick="setLibCategory('feat',this)">⭐ Feats</button>
+        <button class="type-tab" onclick="setLibCategory('background',this)">📜 Backgrounds</button>
+      </div>
+    </div>
+    <div id="library-loading" style="display:none;text-align:center;padding:2rem;color:var(--gold2);font-family:'Cinzel',serif;">⏳ Searching library...</div>
+    <div id="library-results" style="min-height:180px;"></div>
+  </div>
+
+  <!-- Detail view (wiki page) -->
+  <div id="lib-detail-view" style="display:none;">
+    <button class="btn btn-ghost" onclick="closeLibDetail()" style="margin-bottom:1rem;">← Back to Results</button>
+    <div id="lib-detail-content"></div>
+  </div>
+</div>
 
 <!-- DASHBOARD -->
 <div id="page-dashboard" class="page active">
@@ -279,9 +375,10 @@ label{font-family:'Cinzel',serif;font-size:.62rem;font-weight:600;letter-spacing
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Conditions (click to toggle)</div>
+        <div class="card-title">Conditions <span style="font-weight:400;color:var(--text3);font-size:.7rem;font-family:'Crimson Text',serif;text-transform:none;letter-spacing:0;">— applied to active turn</span></div>
+        <div id="init-cond-target" style="font-family:'Cinzel',serif;font-size:.68rem;color:var(--gold2);margin-bottom:.45rem;min-height:1.1em;"></div>
         <div style="display:flex;flex-wrap:wrap;gap:.25rem;">
-          <span class="condition-tag cond-blinded">Blinded</span><span class="condition-tag cond-charmed">Charmed</span><span class="condition-tag cond-frightened">Frightened</span><span class="condition-tag cond-paralyzed">Paralyzed</span><span class="condition-tag cond-poisoned">Poisoned</span><span class="condition-tag cond-stunned">Stunned</span><span class="condition-tag cond-prone">Prone</span><span class="condition-tag cond-invisible">Invisible</span><span class="condition-tag cond-unconscious">Unconscious</span><span class="condition-tag cond-exhausted">Exhausted</span><span class="condition-tag cond-grappled">Grappled</span><span class="condition-tag cond-petrified">Petrified</span><span class="condition-tag cond-restrained">Restrained</span>
+          <span class="condition-tag cond-blinded" onclick="toggleCondActive('Blinded')">Blinded</span><span class="condition-tag cond-charmed" onclick="toggleCondActive('Charmed')">Charmed</span><span class="condition-tag cond-frightened" onclick="toggleCondActive('Frightened')">Frightened</span><span class="condition-tag cond-paralyzed" onclick="toggleCondActive('Paralyzed')">Paralyzed</span><span class="condition-tag cond-poisoned" onclick="toggleCondActive('Poisoned')">Poisoned</span><span class="condition-tag cond-stunned" onclick="toggleCondActive('Stunned')">Stunned</span><span class="condition-tag cond-prone" onclick="toggleCondActive('Prone')">Prone</span><span class="condition-tag cond-invisible" onclick="toggleCondActive('Invisible')">Invisible</span><span class="condition-tag cond-unconscious" onclick="toggleCondActive('Unconscious')">Unconscious</span><span class="condition-tag cond-exhausted" onclick="toggleCondActive('Exhausted')">Exhausted</span><span class="condition-tag cond-grappled" onclick="toggleCondActive('Grappled')">Grappled</span><span class="condition-tag cond-petrified" onclick="toggleCondActive('Petrified')">Petrified</span><span class="condition-tag cond-restrained" onclick="toggleCondActive('Restrained')">Restrained</span>
         </div>
         <button class="btn btn-ghost btn-sm mt1" onclick="showPage('reference')">📚 Full Condition Rules →</button>
       </div>
@@ -301,37 +398,96 @@ label{font-family:'Cinzel',serif;font-size:.62rem;font-weight:600;letter-spacing
 <!-- CHARACTERS -->
 <div id="page-characters" class="page">
   <div class="page-title">📜 Character Sheets</div>
-  <div style="display:flex;gap:.38rem;margin-bottom:.9rem;">
-    <button class="type-tab active" onclick="switchCharType('player',this)">🧙 Players</button>
-    <button class="type-tab" onclick="switchCharType('npc',this)">🎭 NPCs</button>
-  </div>
-  <div class="chars-grid">
-    <div>
-      <div class="flex-row mb1"><button class="btn" onclick="newCharacter()">+ New Character</button><button class="btn btn-red btn-sm" onclick="deleteCharacter()">Delete</button></div>
-      <div id="char-list" class="char-list"><div class="empty-state"><span class="empty-icon">📜</span>No characters yet</div></div>
+
+  <!-- LIST VIEW -->
+  <div id="char-list-view">
+    <div style="display:flex;gap:.38rem;margin-bottom:.9rem;">
+      <button class="type-tab active" onclick="switchCharType('player',this)">🧙 Players</button>
+      <button class="type-tab" onclick="switchCharType('npc',this)">🎭 NPCs</button>
     </div>
-    <div id="char-sheet-area"><div class="empty-state" style="padding:3.5rem;"><span class="empty-icon">⚔</span>Select or create a character</div></div>
+    <div class="chars-grid">
+      <div>
+        <div class="flex-row mb1">
+          <button class="btn" onclick="newCharacter()">+ New Character</button>
+          <button class="btn btn-ghost" onclick="generateRandomCharacter()">🎲 Random</button>
+        </div>
+        <div id="char-list" class="char-list"><div class="empty-state"><span class="empty-icon">📜</span>No characters yet</div></div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;color:var(--text3);font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:1px;text-align:center;padding:3rem;border:1px dashed var(--border);">
+        ← Select or create a character<br>to view their full sheet
+      </div>
+    </div>
   </div>
+
+  <!-- FULL VIEW -->
+  <div id="char-full-view" style="display:none;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border);">
+      <button class="btn btn-ghost" onclick="closeCharFullView()">← Back to List</button>
+      <div style="display:flex;gap:.5rem;">
+        <button class="btn btn-sm" onclick="addCharToInitFromFull()">➕ Add to Initiative</button>
+        <button class="btn btn-ghost btn-sm" onclick="save();alert('Saved ✓')">💾 Save</button>
+        <button class="btn btn-red btn-sm" onclick="deleteCharFromFull()">🗑 Delete</button>
+      </div>
+    </div>
+    <div id="char-full-content"></div>
+  </div>
+
 </div>
 
 <!-- MONSTERS -->
 <div id="page-monsters" class="page">
   <div class="page-title">💀 Monster Manual</div>
-  <div class="grid2">
-    <div>
-      <div class="card mb1">
-        <div class="card-title">🔗 Import from Open5e (Free SRD)</div>
-        <div class="import-hint"><strong style="color:var(--gold3);">Search any SRD monster by name.</strong> Uses the Open5e API (all official SRD monsters free — Goblin, Dragon, Lich, etc). The stat block is fully editable after import.</div>
-        <div style="display:flex;gap:.45rem;"><input id="monster-search-import" placeholder="e.g. Goblin, Zombie, Ancient Red Dragon..." style="flex:1;"><button class="btn" onclick="importMonsterFromAPI()">Search</button></div>
-        <div id="monster-import-results" style="margin-top:.6rem;max-height:200px;overflow-y:auto;"></div>
+
+  <!-- MONSTER LIST VIEW -->
+  <div id="monster-list-view">
+    <div class="grid2">
+      <div>
+        <div class="card mb1">
+          <div class="card-title">🔗 Import Monster</div>
+          <div class="import-hint">
+            <strong style="color:var(--gold3);">Option 1 — Search Open5e (SRD monsters):</strong> Searches ~325 free official monsters.<br>
+            <strong style="color:var(--gold3);">Option 2 — Paste a stat block:</strong> Copy any stat block text (from D&D Beyond, a PDF, ChatGPT, Claude, anywhere) and click Parse. Works with homebrew too.
+          </div>
+          <div style="display:flex;gap:.45rem;margin-bottom:.65rem;">
+            <input id="monster-search-import" placeholder="Search by name — Goblin, Ancient Red Dragon..." style="flex:1;">
+            <button class="btn" onclick="importMonsterFromAPI()">Search SRD</button>
+          </div>
+          <div id="monster-import-results" style="margin-bottom:.65rem;max-height:200px;overflow-y:auto;"></div>
+          <hr style="border-color:var(--border);margin-bottom:.65rem;">
+          <div class="card-title">📋 Paste Stat Block Text</div>
+          <div class="import-hint">Copy a stat block from anywhere — D&D Beyond, a PDF, an AI chatbot — paste it below and click Parse.</div>
+          <textarea id="statblock-paste" rows="6" placeholder="Paste stat block text here..."></textarea>
+          <button class="btn mt1" onclick="parseStatblockText()">🧠 Parse & Import</button>
+        </div>
+        <div class="flex-row mb1">
+          <button class="btn btn-ghost" onclick="newMonster()">+ Blank Monster</button>
+          <button class="btn btn-red btn-sm" onclick="deleteMonster()">Delete</button>
+        </div>
+        <div id="monster-list" class="char-list"><div class="empty-state"><span class="empty-icon">💀</span>No monsters saved</div></div>
       </div>
-      <div class="flex-row mb1"><button class="btn btn-ghost" onclick="newMonster()">+ Blank Monster</button><button class="btn btn-red btn-sm" onclick="deleteMonster()">Delete</button></div>
-      <div id="monster-list" class="char-list"><div class="empty-state"><span class="empty-icon">💀</span>No monsters saved</div></div>
+      <div style="display:flex;align-items:center;justify-content:center;color:var(--text3);font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:1px;text-align:center;padding:3rem;border:1px dashed var(--border);">
+        ← Select or import a monster<br>to view its full stat block
+      </div>
     </div>
-    <div id="monster-detail-area"><div class="empty-state" style="padding:3.5rem;"><span class="empty-icon">💀</span>Import or select a monster</div></div>
+  </div>
+
+  <!-- MONSTER FULLSCREEN VIEW -->
+  <div id="monster-full-view" style="display:none;">
+    <!-- Top bar -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border);">
+      <button class="btn btn-ghost" onclick="closeMonsterFullView()" style="display:flex;align-items:center;gap:.4rem;">
+        ← Back to List
+      </button>
+      <div style="display:flex;gap:.5rem;">
+        <button class="btn btn-sm" onclick="addMonsterToInitFromFull()" >➕ Add to Initiative</button>
+        <button class="btn btn-ghost btn-sm" onclick="save();alert('Saved ✓')">💾 Save</button>
+        <button class="btn btn-red btn-sm" onclick="deleteMonsterFromFull()">🗑 Delete</button>
+      </div>
+    </div>
+    <!-- Stat block rendered here -->
+    <div id="monster-full-content"></div>
   </div>
 </div>
-
 <!-- SPELLS -->
 <div id="page-spells" class="page">
   <div class="page-title">✨ Spell Database <small>Open5e SRD — 300+ spells</small></div>
@@ -363,22 +519,85 @@ label{font-family:'Cinzel',serif;font-size:.62rem;font-weight:600;letter-spacing
 
 <!-- MAP -->
 <div id="page-map" class="page">
-  <div class="page-title">🗺 Tactical Map Builder</div>
-  <div style="display:flex;gap:.38rem;flex-wrap:wrap;align-items:center;background:var(--panel);border:1px solid var(--border);padding:.6rem;margin-bottom:.75rem;">
-    <button class="map-tool-btn active" onclick="setMapTool('paint',this)">🖌 Paint</button>
-    <button class="map-tool-btn" onclick="setMapTool('erase',this)">🧹 Erase</button>
-    <button class="map-tool-btn" onclick="setMapTool('fill',this)">🪣 Fill</button>
-    <button class="map-tool-btn" onclick="setMapTool('token',this)">🎭 Token</button>
-    <div style="width:1px;background:var(--border);height:22px;margin:0 .18rem;"></div>
-    <div id="tile-palette" style="display:flex;gap:.28rem;flex-wrap:wrap;"></div>
-    <div style="width:1px;background:var(--border);height:22px;margin:0 .18rem;"></div>
-    <select id="map-size" onchange="resizeMap()" style="max-width:72px;padding:.22rem .42rem;"><option value="20">20×20</option><option value="30" selected>30×30</option><option value="40">40×40</option><option value="50">50×50</option></select>
-    <button class="map-tool-btn" onclick="clearMap()">🗑 Clear</button>
-    <button class="map-tool-btn" onclick="saveMapPNG()">💾 PNG</button>
+  <div class="page-title">🗺 Dungeon Builder <small>Draw · Tile · Token · Fog · ISO</small></div>
+  <div id="mb-toolbar">
+    <button class="mb-tool-btn active" id="mbt-paint"   onclick="mbTool('paint',this)"   title="Paint (1)">✏</button>
+    <button class="mb-tool-btn"        id="mbt-erase"   onclick="mbTool('erase',this)"   title="Erase (E)">🧹</button>
+    <button class="mb-tool-btn"        id="mbt-fill"    onclick="mbTool('fill',this)"    title="Fill (F)">🪣</button>
+    <button class="mb-tool-btn"        id="mbt-rect"    onclick="mbTool('rect',this)"    title="Rectangle (R)">▭</button>
+    <button class="mb-tool-btn"        id="mbt-line"    onclick="mbTool('line',this)"    title="Line (L)">╱</button>
+    <div class="mb-sep"></div>
+    <button class="mb-tool-btn"        id="mbt-token"   onclick="mbTool('token',this)"   title="Token (T)">🎭</button>
+    <button class="mb-tool-btn"        id="mbt-label"   onclick="mbTool('label',this)"   title="Label (X)">𝐓</button>
+    <button class="mb-tool-btn"        id="mbt-measure" onclick="mbTool('measure',this)" title="Measure (M)">📏</button>
+    <button class="mb-tool-btn"        id="mbt-pan"     onclick="mbTool('pan',this)"     title="Pan (Space)">✋</button>
+    <div class="mb-sep"></div>
+    <button class="mb-tool-btn" onclick="mbZoomBy(1.25)" title="Zoom In (+)" style="font-weight:700;">+</button>
+    <span id="mb-zlabel" style="font-family:Cinzel,serif;font-size:.58rem;color:var(--text3);min-width:34px;text-align:center;user-select:none;">100%</span>
+    <button class="mb-tool-btn" onclick="mbZoomBy(0.8)" title="Zoom Out (-)" style="font-weight:700;">−</button>
+    <button class="mb-tool-btn" onclick="mbFit()" title="Fit to screen">⌂</button>
+    <div class="mb-sep"></div>
+    <button class="mb-tool-btn" id="mbt-grid" onclick="mbToggle('grid',this)" title="Grid" style="background:var(--gold);color:#0d0a07;border-color:var(--gold);">⊞</button>
+    <button class="mb-tool-btn" id="mbt-fog"  onclick="mbToggle('fog',this)"  title="Fog of War">🌫</button>
+    <button class="mb-tool-btn" id="mbt-iso"  onclick="mbToggle('iso',this)"  title="Isometric">🧊</button>
+    <div class="mb-sep"></div>
+    <button class="mb-tool-btn" onclick="mbUndo()" title="Undo (Ctrl+Z)">↩</button>
+    <button class="mb-tool-btn" onclick="mbRedo()" title="Redo (Ctrl+Y)">↪</button>
+    <div class="mb-sep"></div>
+    <select id="mb-size-sel" onchange="mbResize(this.value)" style="background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:Cinzel,serif;font-size:.58rem;padding:.2rem .35rem;border-radius:2px;">
+      <option value="20">20×20</option><option value="30" selected>30×30</option><option value="40">40×40</option><option value="50">50×50</option><option value="60">60×60</option>
+    </select>
+    <div class="mb-sep"></div>
+    <button class="mb-tool-btn" onclick="mbClear()" title="Clear All" style="color:var(--red2);">🗑</button>
+    <button class="mb-tool-btn" onclick="mbExport()" title="Export PNG">💾</button>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 185px;gap:1rem;">
-    <div style="overflow:auto;"><canvas id="map-canvas"></canvas></div>
-    <div><div class="card mb1"><div class="card-title">Tile Legend</div><div id="legend-list" style="display:flex;flex-direction:column;gap:.28rem;font-size:.8rem;"></div></div><div class="card"><div class="card-title">Tokens</div><div id="map-tokens" style="display:flex;flex-direction:column;gap:.3rem;font-size:.8rem;color:var(--text2);"></div><button class="btn btn-ghost btn-sm mt1" onclick="clearTokens()">Clear Tokens</button></div></div>
+
+  <div style="display:grid;grid-template-columns:160px 1fr 175px;gap:.5rem;height:calc(100vh - 210px);min-height:480px;">
+
+    <!-- LEFT: Tile Palette -->
+    <div id="mb-palette" style="overflow-y:auto;background:var(--panel);border:1px solid var(--border);padding:.45rem;"></div>
+
+    <!-- CENTRE: Canvas -->
+    <div id="mb-wrap" style="position:relative;overflow:hidden;background:#060402;border:1px solid var(--border);cursor:crosshair;">
+      <canvas id="mb-canvas"></canvas>
+      <div id="mb-tip" style="position:absolute;top:8px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.8);color:var(--gold2);font-family:Cinzel,serif;font-size:.65rem;padding:.22rem .65rem;border-radius:2px;pointer-events:none;display:none;border:1px solid var(--border);white-space:nowrap;"></div>
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <div style="display:flex;flex-direction:column;gap:.45rem;overflow-y:auto;">
+
+      <div style="background:var(--panel);border:1px solid var(--border);padding:.6rem;">
+        <div class="card-title" style="margin-bottom:.35rem;">Active Tile</div>
+        <canvas id="mb-prev" width="44" height="44" style="border:2px solid var(--gold);border-radius:2px;display:block;margin-bottom:.3rem;"></canvas>
+        <div id="mb-prev-name" style="font-family:Cinzel,serif;font-size:.65rem;color:var(--gold3);">Stone Floor</div>
+      </div>
+
+      <div style="background:var(--panel);border:1px solid var(--border);padding:.6rem;">
+        <div class="card-title" style="margin-bottom:.35rem;">Custom Color</div>
+        <input type="color" id="mb-cc" value="#7a5c3a" style="width:100%;height:26px;cursor:pointer;border:1px solid var(--border);border-radius:2px;background:var(--bg3);">
+        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:.35rem;" onclick="mbCustomColor()">🎨 Add as Tile</button>
+      </div>
+
+      <div id="mb-fog-ctrl" style="display:none;background:var(--panel);border:1px solid var(--border);padding:.6rem;">
+        <div class="card-title" style="margin-bottom:.35rem;">Fog Brush</div>
+        <input type="range" id="mb-fb" min="1" max="10" value="3" style="width:100%;" oninput="mb.fogBrush=+this.value">
+        <div style="display:flex;gap:.3rem;margin-top:.3rem;">
+          <button class="btn btn-ghost btn-sm" style="flex:1;" onclick="mbFogAll(false)">Reveal</button>
+          <button class="btn btn-ghost btn-sm" style="flex:1;" onclick="mbFogAll(true)">Hide</button>
+        </div>
+      </div>
+
+      <div style="background:var(--panel);border:1px solid var(--border);padding:.6rem;flex:1;min-height:0;overflow-y:auto;">
+        <div class="card-title" style="margin-bottom:.35rem;">Tokens</div>
+        <div id="mb-tpicker" style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:.35rem;"></div>
+        <label style="display:block;text-align:center;padding:.28rem;background:var(--bg3);border:1px dashed var(--border2);cursor:pointer;font-family:Cinzel,serif;font-size:.55rem;color:var(--text3);border-radius:2px;margin-bottom:.4rem;">
+          📎 Upload Token<input type="file" accept="image/*" style="display:none;" onchange="mbUploadTok(this)">
+        </label>
+        <div id="mb-tlist" style="display:flex;flex-direction:column;gap:2px;"></div>
+        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:.4rem;" onclick="mbClearTokens()">Clear All</button>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -467,6 +686,836 @@ label{font-family:'Cinzel',serif;font-size:.62rem;font-weight:600;letter-spacing
 
 </main>
 <script>
+// ===== LIBRARY =====
+let libSearchDebounce=null;
+let libCurrentCategory='';
+let _libCache={};
+
+function debouncedLibSearch(){clearTimeout(libSearchDebounce);libSearchDebounce=setTimeout(searchLibrary,380);}
+
+function setLibCategory(cat,btn){
+  libCurrentCategory=cat;
+  document.querySelectorAll('#page-library .type-tab').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  searchLibrary();
+}
+
+// Open5e endpoints — NO spells (they live in the Spell Database page)
+const LIB_OPEN5E={
+  class:'https://api.open5e.com/v1/classes/?limit=100&ordering=name',
+  race:'https://api.open5e.com/v1/races/?limit=100&ordering=name',
+  item:'https://api.open5e.com/v1/magicitems/?limit=60&ordering=name',
+  weapon:'https://api.open5e.com/v1/weapons/?limit=100&ordering=name',
+  armor:'https://api.open5e.com/v1/armor/?limit=60&ordering=name',
+  monster:'https://api.open5e.com/v1/monsters/?limit=60&ordering=name',
+  feat:'https://api.open5e.com/v1/feats/?limit=100&ordering=name',
+  background:'https://api.open5e.com/v1/backgrounds/?limit=100&ordering=name',
+  subclass:'https://api.open5e.com/v1/subclasses/?limit=100&ordering=name'
+};
+
+// No spells in library — they stay in Spell Database
+const LIB_TYPES=['class','race','item','weapon','armor','monster','feat','background'];
+const LIB_ICONS={class:'⚔',race:'🧝',item:'🗡',weapon:'🏹',armor:'🛡',monster:'💀',feat:'⭐',background:'📜',subclass:'🔱'};
+const LIB_COLORS={class:'#c9922a',race:'#58d68d',item:'#c39bd3',weapon:'#e74c3c',armor:'#5dade2',monster:'#c0392b',feat:'#f39c12',background:'#76d7c4',subclass:'#c9922a'};
+
+// SVG Pictograms — fantasy-themed, inline, no external deps
+const LIB_SVG={
+  class:{
+    barbarian:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#1a0a05"/><path d="M40 8 L44 30 L60 25 L48 40 L65 50 L44 48 L46 70 L40 55 L34 70 L36 48 L15 50 L32 40 L20 25 L36 30 Z" fill="#c9922a" opacity=".9"/><circle cx="40" cy="40" r="6" fill="#e8b84b"/></svg>`,
+    bard:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0d0a1a"/><ellipse cx="30" cy="50" rx="14" ry="20" fill="none" stroke="#c678e0" stroke-width="3"/><line x1="44" y1="30" x2="44" y2="70" stroke="#c678e0" stroke-width="2"/><line x1="44" y1="35" x2="60" y2="28" stroke="#c678e0" stroke-width="2"/><line x1="44" y1="45" x2="60" y2="38" stroke="#e8b84b" stroke-width="1.5"/><line x1="44" y1="55" x2="60" y2="48" stroke="#e8b84b" stroke-width="1.5"/><circle cx="30" cy="50" r="4" fill="#c678e0"/></svg>`,
+    cleric:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0a0a1a"/><rect x="36" y="12" width="8" height="56" rx="2" fill="#f5d27a"/><rect x="16" y="32" width="48" height="8" rx="2" fill="#f5d27a"/><circle cx="40" cy="36" r="5" fill="#e8b84b"/><circle cx="40" cy="36" r="3" fill="#f5d27a"/></svg>`,
+    druid:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#061208"/><path d="M40 10 C25 20 15 35 18 52 C22 65 36 72 40 72 C44 72 58 65 62 52 C65 35 55 20 40 10Z" fill="#2d6b3a" opacity=".8"/><path d="M40 15 C30 25 25 38 28 50 C31 60 38 66 40 66" fill="none" stroke="#58d68d" stroke-width="2"/><circle cx="40" cy="42" r="8" fill="#58d68d" opacity=".6"/><path d="M32 30 Q40 22 48 30" fill="none" stroke="#58d68d" stroke-width="2"/></svg>`,
+    fighter:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0d0804"/><path d="M38 10 L42 10 L44 60 L42 65 L38 65 L36 60 Z" fill="#b8a88a"/><path d="M28 22 L52 22 L52 26 L28 26 Z" fill="#c9922a"/><path d="M30 60 L50 60 L52 68 L28 68 Z" fill="#b8a88a" opacity=".6"/><circle cx="40" cy="14" r="5" fill="#e8b84b" opacity=".8"/></svg>`,
+    monk:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0a0a0a"/><circle cx="40" cy="20" r="10" fill="none" stroke="#76d7c4" stroke-width="2"/><path d="M28 32 L40 28 L52 32 L55 55 L40 60 L25 55 Z" fill="none" stroke="#76d7c4" stroke-width="2"/><line x1="25" y1="40" x2="16" y2="55" stroke="#76d7c4" stroke-width="2"/><line x1="55" y1="40" x2="64" y2="55" stroke="#76d7c4" stroke-width="2"/><circle cx="40" cy="20" r="4" fill="#76d7c4" opacity=".5"/></svg>`,
+    paladin:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0a0a14"/><path d="M20 18 L60 18 L60 50 Q60 68 40 74 Q20 68 20 50 Z" fill="none" stroke="#5dade2" stroke-width="2.5"/><path d="M38 25 L42 25 L42 55 L38 55 Z" fill="#5dade2"/><path d="M28 35 L52 35 L52 39 L28 39 Z" fill="#5dade2"/><circle cx="40" cy="35" r="4" fill="#e8b84b"/></svg>`,
+    ranger:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#060e06"/><path d="M20 65 L20 20 Q20 15 25 18 L60 38" fill="none" stroke="#58d68d" stroke-width="3" stroke-linecap="round"/><path d="M55 35 L70 15" stroke="#b8a88a" stroke-width="1.5"/><path d="M68 13 L74 20 L60 20 Z" fill="#b8a88a"/><circle cx="20" cy="20" r="3" fill="#58d68d"/></svg>`,
+    rogue:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#050508"/><path d="M25 65 L55 15" stroke="#c0392b" stroke-width="2.5"/><path d="M22 62 L28 68 L55 12 L49 8 Z" fill="#7a6a52" opacity=".8"/><path d="M48 8 L56 14 L55 12 Z" fill="#c0392b"/><circle cx="25" cy="65" r="4" fill="#7a6a52"/></svg>`,
+    sorcerer:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0a0614"/><circle cx="40" cy="40" r="22" fill="none" stroke="#c678e0" stroke-width="1.5" opacity=".4"/><circle cx="40" cy="40" r="14" fill="none" stroke="#c678e0" stroke-width="2"/><circle cx="40" cy="40" r="6" fill="#c678e0" opacity=".8"/><path d="M40 18 L42 26 L40 24 L38 26 Z" fill="#e8b84b"/><path d="M40 62 L42 54 L40 56 L38 54 Z" fill="#e8b84b"/><path d="M18 40 L26 42 L24 40 L26 38 Z" fill="#e8b84b"/><path d="M62 40 L54 42 L56 40 L54 38 Z" fill="#e8b84b"/></svg>`,
+    warlock:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#050310"/><path d="M40 12 L55 35 L68 35 L57 50 L62 68 L40 55 L18 68 L23 50 L12 35 L25 35 Z" fill="#7d3c98" opacity=".7"/><circle cx="40" cy="42" r="10" fill="none" stroke="#c39bd3" stroke-width="2"/><ellipse cx="40" cy="42" rx="4" ry="7" fill="#c39bd3" opacity=".8"/></svg>`,
+    wizard:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#060a14"/><path d="M40 8 L50 32 L74 32 L55 48 L62 72 L40 56 L18 72 L25 48 L6 32 L30 32 Z" fill="none" stroke="#5dade2" stroke-width="1.5" opacity=".6"/><circle cx="40" cy="40" r="8" fill="#5dade2" opacity=".5"/><circle cx="40" cy="40" r="4" fill="#e8b84b"/></svg>`,
+    artificer:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#080c0a"/><circle cx="40" cy="40" r="18" fill="none" stroke="#76d7c4" stroke-width="2"/><path d="M40 22 L40 18 M40 62 L40 58 M22 40 L18 40 M62 40 L58 40" stroke="#76d7c4" stroke-width="2" stroke-linecap="round"/><circle cx="40" cy="40" r="6" fill="#76d7c4" opacity=".6"/><path d="M30 30 L50 50 M50 30 L30 50" stroke="#e8b84b" stroke-width="1.5"/></svg>`,
+  },
+  race:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#060e08"/><circle cx="40" cy="28" r="14" fill="none" stroke="#58d68d" stroke-width="2"/><path d="M16 72 Q16 48 40 48 Q64 48 64 72" fill="none" stroke="#58d68d" stroke-width="2"/><circle cx="40" cy="28" r="6" fill="#58d68d" opacity=".5"/></svg>`,
+  item:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0a060e"/><polygon points="40,12 52,30 70,32 57,46 60,65 40,55 20,65 23,46 10,32 28,30" fill="none" stroke="#c39bd3" stroke-width="2"/><polygon points="40,20 48,32 62,34 53,44 55,58 40,50 25,58 27,44 18,34 32,32" fill="#c39bd3" opacity=".3"/><circle cx="40" cy="40" r="5" fill="#c39bd3"/></svg>`,
+  weapon:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0e0606"/><path d="M20 65 L58 12" stroke="#e74c3c" stroke-width="3" stroke-linecap="round"/><path d="M55 10 L65 18 L58 12 Z" fill="#e74c3c"/><path d="M16 62 L24 68 L20 65 Z" fill="#7a6a52"/><path d="M32 45 L38 38 L42 42 L36 49 Z" fill="#b8a88a" opacity=".8"/></svg>`,
+  armor:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#060a0e"/><path d="M20 22 L60 22 L60 52 Q60 68 40 74 Q20 68 20 52 Z" fill="none" stroke="#5dade2" stroke-width="2.5"/><path d="M28 30 L52 30 L52 50 Q52 62 40 66 Q28 62 28 50 Z" fill="#5dade2" opacity=".2"/></svg>`,
+  monster:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0e0505"/><circle cx="40" cy="36" r="16" fill="#c0392b" opacity=".3"/><ellipse cx="33" cy="32" rx="4" ry="5" fill="#e74c3c" opacity=".9"/><ellipse cx="47" cy="32" rx="4" ry="5" fill="#e74c3c" opacity=".9"/><path d="M28 46 Q34 52 40 50 Q46 52 52 46" fill="none" stroke="#e74c3c" stroke-width="2"/><path d="M30 50 L30 56 M35 52 L35 58 M40 53 L40 59 M45 52 L45 58 M50 50 L50 56" stroke="#c0392b" stroke-width="1.5"/><path d="M20 20 L30 30 M60 20 L50 30" stroke="#e74c3c" stroke-width="2"/></svg>`,
+  feat:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#0e0a02"/><path d="M40 10 L46 28 L66 28 L50 40 L56 58 L40 46 L24 58 L30 40 L14 28 L34 28 Z" fill="#f39c12" opacity=".8"/><path d="M40 18 L44 30 L57 30 L47 38 L51 50 L40 42 L29 50 L33 38 L23 30 L36 30 Z" fill="#e8b84b" opacity=".5"/></svg>`,
+  background:`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="#060c0a"/><rect x="18" y="14" width="44" height="52" rx="3" fill="none" stroke="#76d7c4" stroke-width="2"/><path d="M18 28 L62 28" stroke="#76d7c4" stroke-width="1.5" opacity=".5"/><line x1="26" y1="36" x2="54" y2="36" stroke="#76d7c4" stroke-width="1.5"/><line x1="26" y1="44" x2="54" y2="44" stroke="#76d7c4" stroke-width="1.5" opacity=".6"/><line x1="26" y1="52" x2="44" y2="52" stroke="#76d7c4" stroke-width="1.5" opacity=".4"/><circle cx="28" cy="21" r="3" fill="#76d7c4" opacity=".7"/></svg>`,
+};
+
+function getLibSvg(type,name){
+  const n=(name||'').toLowerCase();
+  if(type==='class'&&LIB_SVG.class[n])return LIB_SVG.class[n];
+  if(type==='class')return LIB_SVG.class.fighter||'';
+  return LIB_SVG[type]||LIB_SVG.item;
+}
+
+function closeLibDetail(){
+  document.getElementById('lib-detail-view').style.display='none';
+  document.getElementById('lib-search-view').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+async function libFetch(url){
+  const cached=_libCache[url];if(cached)return cached;
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),8000);
+  try{
+    const resp=await fetch(url,{signal:ctrl.signal});
+    clearTimeout(timer);
+    if(!resp.ok)throw new Error('HTTP '+resp.status);
+    const data=await resp.json();
+    _libCache[url]=data;
+    return data;
+  }catch(e){clearTimeout(timer);throw e;}
+}
+
+async function searchLibrary(){
+  const q=(document.getElementById('library-search').value||'').trim();
+  const type=libCurrentCategory;
+  const loading=document.getElementById('library-loading');
+  const results=document.getElementById('library-results');
+
+  if(!q&&!type){
+    results.innerHTML=`<div style="text-align:center;padding:3.5rem;">
+      <div style="font-size:2.8rem;margin-bottom:.85rem;">🏛</div>
+      <div style="font-family:'Cinzel',serif;color:var(--gold3);font-size:1.1rem;margin-bottom:.65rem;">Welcome to the Library</div>
+      <div style="color:var(--text3);font-size:.9rem;max-width:420px;margin:0 auto;line-height:1.7;">Search for any class, race, monster, item, feat, or background — or click a category tab above to browse.</div>
+    </div>`;
+    return;
+  }
+  loading.style.display='';results.innerHTML='';
+  try{
+    let items=[];
+    if(type){
+      let base=LIB_OPEN5E[type]||`https://api.open5e.com/v1/${type}s/?limit=100&ordering=name`;
+      const url=q?base.replace('?','?search='+encodeURIComponent(q)+'&'):base;
+      const data=await libFetch(url);
+      items=(data.results||[]).map(r=>({...r,_type:type}));
+      // Paginate — follow next links for complete results
+      let next=data.next;
+      while(next&&items.length<300){
+        try{const d=await libFetch(next);items.push(...(d.results||[]).map(r=>({...r,_type:type})));next=d.next;}catch{break;}
+      }
+      // For classes: also search without ordering to catch Artificer from alt sources
+      if(type==='class'&&!q){
+        try{
+          const d2=await libFetch('https://api.open5e.com/v1/classes/?limit=100&document__slug=a5e');
+          d2.results?.forEach(r=>{if(!items.find(x=>x.name.toLowerCase()===r.name.toLowerCase()))items.push({...r,_type:'class'});});
+        }catch{}
+      }
+    } else if(q){
+      // Search across all types except spells
+      const fetches=await Promise.allSettled(LIB_TYPES.map(t=>{
+        const base=(LIB_OPEN5E[t]||`https://api.open5e.com/v1/${t}s/?limit=8`).split('?')[0];
+        return libFetch(base+'?search='+encodeURIComponent(q)+'&limit=8').then(d=>(d.results||[]).map(r=>({...r,_type:t})));
+      }));
+      fetches.forEach(f=>{if(f.status==='fulfilled')items.push(...f.value);});
+    }
+    renderLibResults(items,type||'mixed',q);
+  }catch(e){
+    console.error(e);
+    results.innerHTML=`<div class="text-dim" style="text-align:center;padding:2rem;">⚠ Could not load library data. Check your internet connection.</div>`;
+  }
+  loading.style.display='none';
+}
+
+function renderLibResults(items,type,q){
+  const results=document.getElementById('library-results');
+  if(!items.length){
+    results.innerHTML=`<div class="text-dim" style="text-align:center;padding:2.5rem;"><span style="font-size:2rem;display:block;margin-bottom:.65rem;">🔍</span>No results found${q?' for "'+q+'"':''}.</div>`;
+    return;
+  }
+  if(type==='mixed'){
+    const groups={};
+    items.forEach(r=>{const t=r._type||'item';if(!groups[t])groups[t]=[];groups[t].push(r);});
+    let html='';
+    // Show in a preferred order
+    const order=['class','race','monster','item','weapon','armor','feat','background'];
+    [...order,...Object.keys(groups).filter(t=>!order.includes(t))].forEach(t=>{
+      if(!groups[t]||!groups[t].length)return;
+      html+=`<div style="margin-bottom:1.75rem;">
+        <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${LIB_COLORS[t]||'var(--gold)'};padding:.4rem 0 .65rem;border-bottom:1px solid var(--border);margin-bottom:.9rem;">${LIB_ICONS[t]||'📄'} ${t.charAt(0).toUpperCase()+t.slice(1)}s</div>
+        <div class="lib-card-grid">${groups[t].map(r=>renderLibBrowseCard(r,t)).join('')}</div>
+      </div>`;
+    });
+    results.innerHTML=html;
+  } else {
+    results.innerHTML=`<div class="lib-card-grid">${items.map(r=>renderLibBrowseCard(r,type)).join('')}</div>`;
+  }
+}
+
+function stripHtml(h){return h?h.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim():'';}
+function truncate(s,n){const t=stripHtml(s||'');return t.length>n?t.slice(0,n)+'…':t;}
+
+function renderLibBrowseCard(r,type){
+  const color=LIB_COLORS[type]||'var(--gold)';
+  const svgBanner=getLibSvg(type,r.name);
+  // Strict one-line subtitle + max 2-line description
+  let sub='';
+  if(type==='class')sub='Hit Die: '+(r.hit_dice||'d8')+(r.spellcasting_ability?' · '+r.spellcasting_ability:'');
+  else if(type==='race')sub=(r.speed?'Speed '+r.speed+' ft':'')+(r.asi_desc?' · '+r.asi_desc.split(',')[0].split('.')[0]:'');
+  else if(type==='item')sub=(r.rarity||'')+(r.type?' · '+r.type:'');
+  else if(type==='weapon')sub=(r.category||r.weapon_category||'Weapon')+(r.damage_dice?' · '+r.damage_dice+' '+(r.damage_type||''):'');
+  else if(type==='armor')sub='AC '+(r.ac_string||r.base_ac||'?')+(r.category?' · '+r.category:'');
+  else if(type==='monster')sub='CR '+(r.challenge_rating||'?')+' · '+(r.type||'')+(r.size?' · '+r.size:'');
+  else if(type==='feat')sub=r.prerequisite?'Req: '+r.prerequisite.slice(0,40):'No prerequisite';
+  else if(type==='background')sub='Background'+(r.skill_proficiencies?' · '+r.skill_proficiencies.split(',').slice(0,2).join(', '):'');
+  // Short desc — strictly 2 lines via CSS, ~140 char input
+  const desc=truncate(r.desc||r.traits||'',140);
+  const slug=encodeURIComponent(r.slug||r.key||'');
+  const safeName=(r.name||'').replace(/"/g,'&quot;');
+  return`<div class="lib-browse-card" onclick="openLibDetail('${type}','${slug}',this)" data-slug="${r.slug||r.key||''}" data-type="${type}" data-name="${safeName}" style="cursor:pointer;">
+    <div class="lbc-badge" style="background:${color}22;border-color:${color};color:${color};">${type}</div>
+    <div class="lbc-img-placeholder" style="background:linear-gradient(160deg,${color}15,var(--bg3));">${svgBanner}</div>
+    <div class="lbc-body">
+      <div class="lbc-name">${r.name||'Unknown'}</div>
+      <div class="lbc-sub" style="color:${color};font-size:.75rem;">${sub}</div>
+      <div class="lbc-desc">${desc||'<span style="color:var(--text3);font-style:italic;">Click to view details →</span>'}</div>
+    </div>
+  </div>`;
+}
+
+async function openLibDetail(type,slugEncoded,cardEl){
+  const slug=decodeURIComponent(slugEncoded||'');
+  const name=cardEl?.dataset?.name||'';
+  document.getElementById('lib-search-view').style.display='none';
+  document.getElementById('lib-detail-view').style.display='block';
+  document.getElementById('lib-detail-content').innerHTML='<div style="text-align:center;padding:3rem;color:var(--gold2);font-family:Cinzel,serif;">⏳ Loading...</div>';
+  window.scrollTo({top:0,behavior:'smooth'});
+  let r=_libCache['detail_'+type+'_'+slug];
+  if(!r&&slug){
+    try{
+      const base=(LIB_OPEN5E[type]||`https://api.open5e.com/v1/${type}s/`).split('?')[0];
+      const url=base+(base.endsWith('/')?'':'/')+slug+'/';
+      const resp=await libFetch(url);
+      if(resp&&resp.name)r=resp;
+    }catch{}
+  }
+  if(!r&&name){
+    try{
+      const base=(LIB_OPEN5E[type]||`https://api.open5e.com/v1/${type}s/`).split('?')[0];
+      const d=await libFetch(base+'?search='+encodeURIComponent(name)+'&limit=5');
+      r=(d.results||[]).find(x=>x.name.toLowerCase()===name.toLowerCase())||d.results?.[0];
+    }catch{}
+  }
+  if(!r){document.getElementById('lib-detail-content').innerHTML='<div class="text-dim" style="text-align:center;padding:2rem;">Could not load full details for this entry.</div>';return;}
+  if(slug)_libCache['detail_'+type+'_'+slug]=r;
+  document.getElementById('lib-detail-content').innerHTML=await buildWikiPage(r,type);
+}
+
+async function buildWikiPage(r,type){
+  const color=LIB_COLORS[type]||'var(--gold)';
+  const svgBanner=getLibSvg(type,r.name);
+  let html=`<div class="wiki-page">`;
+  html+=`<div class="wiki-header" style="border-top-color:${color};">
+    <div style="width:80px;height:80px;flex-shrink:0;border:2px solid ${color}44;border-radius:4px;overflow:hidden;">${svgBanner}</div>
+    <div class="wiki-header-info" style="flex:1;">
+      <div class="wiki-subtitle" style="color:${color};">${type.toUpperCase()}</div>
+      <h1>${r.name||'Unknown'}</h1>
+      <div class="wiki-tags">`;
+  if(type==='class')html+=`<span class="tag" style="color:${color};border-color:${color}66;">Hit Die: ${r.hit_dice||'?'}</span>${r.spellcasting_ability?`<span class="tag">Casts via ${r.spellcasting_ability}</span>`:''}`;
+  if(type==='race'&&r.speed)html+=`<span class="tag">Speed: ${r.speed} ft</span>`;
+  if(type==='monster'){html+=`<span class="tag">CR ${r.challenge_rating||'?'}</span><span class="tag">${r.type||''}</span><span class="tag">${r.size||''}</span>`;}
+  if(type==='item')html+=`<span class="tag">${r.rarity||''}</span>${r.requires_attunement?'<span class="tag">Requires Attunement</span>':''}`;
+  if(type==='weapon')html+=`<span class="tag">${r.category||r.weapon_category||'Weapon'}</span>${r.damage_dice?`<span class="tag">${r.damage_dice} ${r.damage_type||''}</span>`:''}`;
+  if(type==='feat')html+=`<span class="tag" style="color:#f39c12;border-color:#f39c12;">Prerequisite: ${r.prerequisite||'None'}</span>`;
+  html+=`</div></div></div>`;
+
+  if(type==='class') html+=await buildClassWiki(r);
+  else if(type==='race') html+=buildRaceWiki(r);
+  else if(type==='monster') html+=buildMonsterWiki(r);
+  else if(type==='item'||type==='weapon'||type==='armor') html+=buildItemWiki(r,type);
+  else if(type==='feat') html+=buildFeatWiki(r);
+  else if(type==='background') html+=buildBackgroundWiki(r);
+  else html+=buildGenericWiki(r);
+
+  // Smart "Add to Character" section
+  const players=state.characters.filter(c=>c.type==='player');
+  const slug=r.slug||r.key||'';
+  const addLabel={class:'→ Class field',race:'→ Race field',subclass:'→ Subclass field',background:'→ Background field',feat:'→ Feat chips',item:'→ Equipment',weapon:'→ Equipment',armor:'→ Equipment',monster:'not applicable'};
+  if(type!=='monster'){
+    html+=`<div style="background:var(--panel);border:1px solid var(--border);border-top:2px solid ${color};padding:1rem;margin-top:1rem;">
+      <div style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:.6rem;">Add to Character <span style="color:${color};">${addLabel[type]||''}</span></div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+        ${players.map(c=>`<button class="btn btn-ghost btn-sm" onclick="addLibItemToChar(${state.characters.indexOf(c)},'${(r.name||'').replace(/'/g,"\\'")}','${type}','${slug}')">+ ${c.name}</button>`).join('')}
+        ${!players.length?'<span class="text-dim">No player characters yet. Create one in the Characters tab.</span>':''}
+      </div>
+    </div>`;
+  }
+  html+='</div>';
+  return html;
+}
+
+async function buildClassWiki(r){
+  let html=`<div class="wiki-two-col" style="margin-bottom:1rem;">
+    <div class="wiki-section" style="border-top:3px solid var(--gold);">
+      <h2>Proficiencies</h2>
+      ${r.prof_armor?`<p><strong style="color:var(--gold3);">Armor:</strong> ${r.prof_armor}</p>`:''}
+      ${r.prof_weapons?`<p><strong style="color:var(--gold3);">Weapons:</strong> ${r.prof_weapons}</p>`:''}
+      ${r.prof_tools?`<p><strong style="color:var(--gold3);">Tools:</strong> ${r.prof_tools}</p>`:''}
+      ${r.prof_saving_throws?`<p><strong style="color:var(--gold3);">Saving Throws:</strong> ${r.prof_saving_throws}</p>`:''}
+      ${r.prof_skills?`<p><strong style="color:var(--gold3);">Skills:</strong> ${r.prof_skills}</p>`:''}
+    </div>
+    <div class="wiki-section" style="border-top:3px solid var(--gold);">
+      <h2>Quick Info</h2>
+      ${r.hit_dice?`<p><strong style="color:var(--gold3);">Hit Dice:</strong> ${r.hit_dice}</p>`:''}
+      ${r.spellcasting_ability?`<p><strong style="color:var(--gold3);">Spellcasting Ability:</strong> ${r.spellcasting_ability}</p>`:''}
+      ${r.subtypes_name?`<p><strong style="color:var(--gold3);">Subclass Feature:</strong> ${r.subtypes_name}</p>`:''}
+    </div>
+  </div>`;
+  if(r.desc)html+=`<div class="wiki-section"><h2>Description</h2>${formatWikiDesc(r.desc)}</div>`;
+  const hasSlots=[1,2,3,4,5,6,7,8,9].some(i=>r[`spell_slots_level_${i}`]);
+  if(hasSlots||r.spellcasting_ability){
+    html+=`<div class="wiki-section"><h2>Spell Slots by Level</h2><div style="overflow-x:auto;"><table class="wiki-table"><thead><tr><th>Lvl</th><th>Prof</th>`;
+    for(let i=1;i<=9;i++)html+=`<th>${i}${['st','nd','rd','th','th','th','th','th','th'][i-1]}</th>`;
+    html+=`</tr></thead><tbody>`;
+    const prof=[2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6];
+    for(let lv=1;lv<=20;lv++){
+      html+=`<tr><td style="font-family:'Cinzel',serif;color:var(--gold3);">${lv}</td><td>+${prof[lv-1]}</td>`;
+      for(let sl=1;sl<=9;sl++)html+=`<td style="color:var(--text2);">${r[`spell_slots_level_${sl}`]||'—'}</td>`;
+      html+=`</tr>`;
+    }
+    html+=`</tbody></table></div></div>`;
+  }
+  // Build merged subclass list: API + hardcoded ALL_SUBCLASSES
+  let apiSubs=[];
+  try{
+    const d1=await libFetch(`https://api.open5e.com/v1/subclasses/?search=${encodeURIComponent(r.name)}&limit=50`);
+    apiSubs=d1.results||[];
+    // Also try fetching page 2 if more
+    if(d1.next){const d2=await libFetch(d1.next);apiSubs.push(...(d2.results||[]));}
+  }catch{}
+  // Hardcoded subclasses for this class
+  const className=r.name.replace(/^(The\s+)?/i,'').trim();
+  const hardcoded=ALL_SUBCLASSES[className]||[];
+  // Merge: prefer API entries (have slug for detail fetch), fill gaps from hardcoded
+  const allSubNames=new Set(apiSubs.map(s=>s.name.toLowerCase()));
+  const merged=[
+    ...apiSubs.map(s=>({name:s.name,desc:s.desc||s.subtype||'',slug:s.slug||'',fromApi:true})),
+    ...hardcoded.filter(s=>!allSubNames.has(s.name.toLowerCase())).map(s=>({...s,slug:'',fromApi:false}))
+  ];
+  if(merged.length){
+    html+=`<div class="wiki-section"><h2>Subclasses <span style="color:var(--text3);font-size:.75rem;font-weight:400;">(${merged.length} — click to view)</span></h2>
+      <div class="wiki-subclass-list">
+        ${merged.map(s=>`<div class="wiki-subclass-chip" onclick="${s.fromApi&&s.slug?`openLibDetail('subclass','${encodeURIComponent(s.slug)}',{dataset:{name:'${(s.name||'').replace(/'/g,"\\'")}',type:'subclass'}})`:`showSubclassInline(${JSON.stringify({name:s.name,desc:s.desc,class:r.name}).replace(/"/g,'&quot;')})`}">
+          <div class="sc-name">${s.name}</div>
+          <div class="sc-sub" style="font-size:.72rem;color:var(--text3);margin-top:.15rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${truncate(s.desc||'',90)}</div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }
+  return html;
+}
+
+function buildRaceWiki(r){
+  let html=`<div class="wiki-two-col" style="margin-bottom:1rem;">
+    <div class="wiki-section" style="border-top:3px solid #58d68d;">
+      <h2>Racial Traits</h2>
+      ${r.speed?`<p><strong style="color:#58d68d;">Speed:</strong> ${r.speed} ft</p>`:''}
+      ${r.asi_desc?`<p><strong style="color:#58d68d;">Ability Score Increase:</strong> ${r.asi_desc}</p>`:''}
+      ${r.age?`<p><strong style="color:#58d68d;">Age:</strong> ${r.age}</p>`:''}
+      ${r.size?`<p><strong style="color:#58d68d;">Size:</strong> ${r.size}</p>`:''}
+      ${r.languages?`<p><strong style="color:#58d68d;">Languages:</strong> ${r.languages}</p>`:''}
+    </div>
+    <div class="wiki-section" style="border-top:3px solid #58d68d;">
+      <h2>Subraces</h2>
+      ${(r.subraces&&r.subraces.length)?
+        `<div class="wiki-subclass-list">${r.subraces.map(s=>`<div class="wiki-subclass-chip" style="border-color:#2e7d32;"><div class="sc-name" style="color:#58d68d;">${s.name}</div><div class="sc-sub">${s.asi_desc||''}</div></div>`).join('')}</div>`:
+        '<p style="color:var(--text3);">No subraces in SRD.</p>'}
+    </div>
+  </div>`;
+  if(r.desc)html+=`<div class="wiki-section"><h2>Description</h2>${formatWikiDesc(r.desc)}</div>`;
+  const traits=r.traits||[];
+  if(traits.length){html+=`<div class="wiki-section"><h2>Racial Trait Details</h2>`;traits.forEach(t=>{html+=`<h3>${t.name||''}</h3><p>${stripHtml(t.desc||t.description||'')}</p>`;});html+=`</div>`;}
+  else if(r.traits_desc)html+=`<div class="wiki-section"><h2>Traits</h2>${formatWikiDesc(r.traits_desc)}</div>`;
+  return html;
+}
+
+function buildMonsterWiki(r){
+  const spd=typeof r.speed==='object'?Object.entries(r.speed).map(([k,v])=>k+': '+v).join(', '):(r.speed||'?');
+  let html=`<div class="wiki-section" style="border-top:3px solid #c0392b;margin-bottom:1rem;">
+    <h2>Combat Stats</h2>
+    <table class="wiki-table"><thead><tr><th>HP</th><th>AC</th><th>Speed</th><th>CR</th><th>XP</th></tr></thead>
+    <tbody><tr><td><strong style="color:var(--red2)">${r.hit_points||'?'}</strong>${r.hit_dice?' ('+r.hit_dice+')':''}</td>
+    <td>${r.armor_class||'?'}${r.armor_desc?' ('+r.armor_desc+')':''}</td><td>${spd}</td>
+    <td>${r.challenge_rating||'?'}</td><td>${r.xp?r.xp.toLocaleString():'-'}</td></tr></tbody></table>
+  </div>
+  <div class="wiki-section" style="margin-bottom:1rem;"><h2>Ability Scores</h2>
+    <table class="wiki-table"><thead><tr><th>STR</th><th>DEX</th><th>CON</th><th>INT</th><th>WIS</th><th>CHA</th></tr></thead>
+    <tbody><tr>${['strength','dexterity','constitution','intelligence','wisdom','charisma'].map(a=>{const v=r[a]||10;const m=Math.floor((v-10)/2);return`<td><strong style="color:var(--gold2);">${v}</strong> <span style="color:var(--text3);">(${m>=0?'+':''}${m})</span></td>`}).join('')}</tr></tbody></table>
+    <div style="margin-top:.75rem;">
+    ${r.saving_throws?`<p><strong style="color:var(--gold3);">Saving Throws:</strong> ${r.saving_throws}</p>`:''}
+    ${r.skills?`<p><strong style="color:var(--gold3);">Skills:</strong> ${r.skills}</p>`:''}
+    ${r.senses?`<p><strong style="color:var(--gold3);">Senses:</strong> ${r.senses}</p>`:''}
+    ${r.languages?`<p><strong style="color:var(--gold3);">Languages:</strong> ${r.languages}</p>`:''}
+    ${r.damage_immunities?`<p><strong style="color:var(--gold3);">Immunities:</strong> ${r.damage_immunities}</p>`:''}
+    ${r.damage_resistances?`<p><strong style="color:var(--gold3);">Resistances:</strong> ${r.damage_resistances}</p>`:''}
+    ${r.condition_immunities?`<p><strong style="color:var(--gold3);">Condition Immunities:</strong> ${r.condition_immunities}</p>`:''}
+    </div>
+  </div>`;
+  if(r.special_abilities&&r.special_abilities.length){html+=`<div class="wiki-section"><h2>Special Abilities</h2>`;r.special_abilities.forEach(a=>{html+=`<h3>${a.name}</h3><p>${stripHtml(a.desc||'')}</p>`;});html+=`</div>`;}
+  if(r.actions&&r.actions.length){html+=`<div class="wiki-section" style="border-left:4px solid var(--red2);"><h2>⚔ Actions</h2>`;r.actions.forEach(a=>{html+=`<h3>${a.name}</h3><p>${stripHtml(a.desc||'')}</p>`;});html+=`</div>`;}
+  if(r.legendary_actions&&r.legendary_actions.length){html+=`<div class="wiki-section" style="border-left:4px solid var(--gold);"><h2>⭐ Legendary Actions</h2>`;r.legendary_actions.forEach(a=>{html+=`<h3>${a.name}</h3><p>${stripHtml(a.desc||'')}</p>`;});html+=`</div>`;}
+  if(r.reactions&&r.reactions.length){html+=`<div class="wiki-section"><h2>Reactions</h2>`;r.reactions.forEach(a=>{html+=`<h3>${a.name}</h3><p>${stripHtml(a.desc||'')}</p>`;});html+=`</div>`;}
+  return html;
+}
+
+function buildItemWiki(r,type){
+  let html=`<div class="wiki-section" style="border-top:3px solid #c39bd3;margin-bottom:1rem;"><h2>Item Details</h2>`;
+  if(r.type)html+=`<p><strong style="color:#c39bd3;">Type:</strong> ${r.type}</p>`;
+  if(r.rarity)html+=`<p><strong style="color:#c39bd3;">Rarity:</strong> ${r.rarity}</p>`;
+  if(r.requires_attunement)html+=`<p><strong style="color:#c39bd3;">Attunement:</strong> ${r.requires_attunement}</p>`;
+  if(r.weapon_category)html+=`<p><strong style="color:#c39bd3;">Category:</strong> ${r.weapon_category}</p>`;
+  if(r.damage_dice)html+=`<p><strong style="color:#c39bd3;">Damage:</strong> ${r.damage_dice} ${r.damage_type||''}</p>`;
+  if(r.ac_string)html+=`<p><strong style="color:#c39bd3;">AC:</strong> ${r.ac_string}</p>`;
+  if(r.properties&&r.properties.length)html+=`<p><strong style="color:#c39bd3;">Properties:</strong> ${Array.isArray(r.properties)?r.properties.join(', '):r.properties}</p>`;
+  if(r.cost)html+=`<p><strong style="color:#c39bd3;">Cost:</strong> ${r.cost}</p>`;
+  if(r.weight)html+=`<p><strong style="color:#c39bd3;">Weight:</strong> ${r.weight} lb</p>`;
+  html+=`</div>`;
+  if(r.desc)html+=`<div class="wiki-section"><h2>Description</h2>${formatWikiDesc(r.desc)}</div>`;
+  return html;
+}
+
+function buildFeatWiki(r){
+  // Always show full description — feats ARE their effects
+  const prereq=r.prerequisite||r.prerequisite_str||'None';
+  let html=`<div class="wiki-section" style="border-top:3px solid #f39c12;margin-bottom:1rem;">
+    <h2>Feat Details</h2>
+    <p><strong style="color:#f39c12;">Prerequisite:</strong> ${prereq}</p>
+  </div>`;
+  if(r.desc){
+    // Parse bold benefit headers and render cleanly
+    const cleaned=r.desc
+      .replace(/\*\*([^*]+)\*\*/g,'<strong style="color:var(--gold3);">$1</strong>')
+      .replace(/\*([^*]+)\*/g,'<em>$1</em>')
+      .replace(/\n\n/g,'</p><p style="margin:.55rem 0;">')
+      .replace(/\n/g,'<br>');
+    html+=`<div class="wiki-section"><h2>Description & Effects</h2>
+      <div style="color:var(--text2);font-size:.9rem;line-height:1.8;"><p style="margin:.55rem 0;">${cleaned}</p></div>
+    </div>`;
+  } else {
+    html+=`<div class="wiki-section"><p style="color:var(--text3);">Full feat description unavailable in free SRD. Check official sourcebooks.</p></div>`;
+  }
+  return html;
+}
+
+function buildBackgroundWiki(r){
+  let html='';
+  if(r.skill_proficiencies||r.tool_proficiencies){
+    html+=`<div class="wiki-section" style="border-top:3px solid #76d7c4;margin-bottom:1rem;"><h2>Proficiencies & Equipment</h2>
+      ${r.skill_proficiencies?`<p><strong style="color:#76d7c4;">Skills:</strong> ${r.skill_proficiencies}</p>`:''}
+      ${r.tool_proficiencies?`<p><strong style="color:#76d7c4;">Tools:</strong> ${r.tool_proficiencies}</p>`:''}
+      ${r.languages?`<p><strong style="color:#76d7c4;">Languages:</strong> ${r.languages}</p>`:''}
+      ${r.equipment?`<p><strong style="color:#76d7c4;">Starting Equipment:</strong> ${r.equipment}</p>`:''}
+    </div>`;
+  }
+  if(r.feature)html+=`<div class="wiki-section"><h2>Feature: ${r.feature}</h2>${formatWikiDesc(r.feature_desc||'')}</div>`;
+  if(r.desc)html+=`<div class="wiki-section"><h2>Description</h2>${formatWikiDesc(r.desc)}</div>`;
+  return html;
+}
+
+function buildGenericWiki(r){
+  let html='';
+  if(r.desc)html+=`<div class="wiki-section"><h2>Description</h2>${formatWikiDesc(r.desc)}</div>`;
+  return html;
+}
+
+// Show non-API subclass in a detail overlay inside the library
+function showSubclassInline(data){
+  const color=LIB_COLORS.subclass||'#c9922a';
+  const svg=getLibSvg('class',data.class||'');
+  document.getElementById('lib-search-view').style.display='none';
+  document.getElementById('lib-detail-view').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('lib-detail-content').innerHTML=`<div class="wiki-page">
+    <div class="wiki-header" style="border-top-color:${color};">
+      <div style="width:80px;height:80px;flex-shrink:0;border:2px solid ${color}44;border-radius:4px;overflow:hidden;">${svg}</div>
+      <div class="wiki-header-info" style="flex:1;">
+        <div class="wiki-subtitle" style="color:${color};">SUBCLASS · ${data.class||''}</div>
+        <h1>${data.name||''}</h1>
+      </div>
+    </div>
+    <div class="wiki-section" style="border-top:3px solid ${color};">
+      <h2>Subclass Features</h2>
+      ${formatWikiDesc(data.desc||'No additional details available in the free SRD. Check official sourcebooks for full feature descriptions.')}
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border);padding:.85rem;margin-top:.65rem;color:var(--text3);font-size:.82rem;">
+      📚 Full subclass details (feature tables, level progressions) are in official D&D 5e sourcebooks. The SRD only covers core subclasses.
+    </div>
+  </div>`;
+}
+
+function formatWikiDesc(text){
+  if(!text)return'';
+  return'<div style="color:var(--text2);font-size:.9rem;line-height:1.75;">'+
+    '<p>'+text
+      .replace(/\*\*(.+?)\*\*/g,'<strong style="color:var(--gold3);">$1</strong>')
+      .replace(/\*(.+?)\*/g,'<em>$1</em>')
+      .replace(/#+\s*(.+)/g,'</p><h3 style="font-family:Cinzel,serif;font-size:.82rem;color:var(--gold3);margin:.85rem 0 .35rem;">$1</h3><p>')
+      .replace(/\n\n+/g,'</p><p style="margin-bottom:.65rem;">')
+      .replace(/\n/g,'<br>')
+    +'</p></div>';
+}
+
+// ===== SMART ADD-TO-CHARACTER FROM LIBRARY =====
+function addLibItemToChar(idx,itemName,type,slug){
+  const c=state.characters[idx];if(!c)return;
+  slug=slug||'';
+  const dest={class:'class field',race:'race field',subclass:'subclass field',background:'background field',feat:'Feats list',item:'Equipment',weapon:'Equipment',armor:'Equipment'};
+  switch(type){
+    case 'class':
+      c.class=itemName;c.classSlug=slug;break;
+    case 'race':
+      c.race=itemName;c.raceSlug=slug;break;
+    case 'subclass':
+      c.subclass=itemName;c.subclassSlug=slug;break;
+    case 'background':
+      c.background=itemName;c.backgroundSlug=slug;break;
+    case 'feat':
+      if(!c.charFeats)c.charFeats=[];
+      if(!c.charFeats.find(f=>f.name===itemName))c.charFeats.push({name:itemName,type:'feat',slug});
+      break;
+    case 'spell':
+      if(!c.spellList)c.spellList=[];
+      if(!c.spellList.find(s=>s.name===itemName))c.spellList.push({name:itemName,level:'?',school:'?'});
+      break;
+    default:
+      if(!c.charEquipItems)c.charEquipItems=[];
+      if(!c.charEquipItems.find(e=>e.name===itemName))c.charEquipItems.push({name:itemName,type,slug});
+      break;
+  }
+  save();
+  // Re-render if this character sheet is open
+  if(state.activeCharIdx===idx)renderCharSheet(c);
+  const d=dest[type]||'Equipment';
+  // Brief toast-style notification
+  const toast=document.createElement('div');
+  toast.style.cssText='position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--gold);color:var(--gold3);font-family:Cinzel,serif;font-size:.75rem;padding:.65rem 1.1rem;z-index:9999;border-radius:2px;box-shadow:0 4px 20px rgba(0,0,0,.7);animation:fadeIn .2s ease;';
+  toast.textContent='✓ '+itemName+' → '+c.name+' ('+d+')';
+  document.body.appendChild(toast);
+  setTimeout(()=>toast.remove(),2500);
+}
+
+function removeCharEquipItem(idx,name){
+  const c=state.characters[idx];if(!c)return;
+  c.charEquipItems=(c.charEquipItems||[]).filter(e=>e.name!==name);
+  save();renderCharSheet(c);
+}
+function removeCharFeat(idx,name){
+  const c=state.characters[idx];if(!c)return;
+  c.charFeats=(c.charFeats||[]).filter(f=>f.name!==name);
+  save();renderCharSheet(c);
+}
+
+function searchLibraryForItem(name,type){
+  showPage('library');
+  setTimeout(()=>{
+    document.getElementById('library-search').value=name||'';
+    if(type){
+      libCurrentCategory=type;
+      document.querySelectorAll('#page-library .type-tab').forEach(b=>{
+        b.classList.remove('active');
+        if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+type+"'"))b.classList.add('active');
+      });
+    }
+    searchLibrary();
+  },120);
+}
+
+// ===== RANDOM CHARACTER GENERATOR =====
+// All playable races with full ASI data (PHB, Volo's, Mordenkainen's, Tasha's, Ravnica, Theros, etc.)
+const RCG_RACE_DATA={
+  'Human':            {asi:{str:1,dex:1,con:1,int:1,wis:1,cha:1},speed:30,size:'Medium'},
+  'Variant Human':    {asi:{},speed:30,size:'Medium',note:'Choose 2 stats +1, 1 skill, 1 feat'},
+  'High Elf':         {asi:{dex:2,int:1},speed:30,size:'Medium'},
+  'Wood Elf':         {asi:{dex:2,wis:1},speed:35,size:'Medium'},
+  'Drow':             {asi:{dex:2,cha:1},speed:30,size:'Medium'},
+  'Hill Dwarf':       {asi:{con:2,wis:1},speed:25,size:'Medium'},
+  'Mountain Dwarf':   {asi:{con:2,str:2},speed:25,size:'Medium'},
+  'Lightfoot Halfling':{asi:{dex:2,cha:1},speed:25,size:'Small'},
+  'Stout Halfling':   {asi:{dex:2,con:1},speed:25,size:'Small'},
+  'Half-Elf':         {asi:{cha:2},speed:30,size:'Medium',note:'+1 to any 2 other stats'},
+  'Half-Orc':         {asi:{str:2,con:1},speed:30,size:'Medium'},
+  'Tiefling':         {asi:{int:1,cha:2},speed:30,size:'Medium'},
+  'Dragonborn':       {asi:{str:2,cha:1},speed:30,size:'Medium'},
+  'Forest Gnome':     {asi:{int:2,dex:1},speed:25,size:'Small'},
+  'Rock Gnome':       {asi:{int:2,con:1},speed:25,size:'Small'},
+  'Deep Gnome':       {asi:{int:2,dex:1},speed:25,size:'Small'},
+  // Volo's Guide
+  'Aasimar':          {asi:{cha:2},speed:30,size:'Medium'},
+  'Fallen Aasimar':   {asi:{str:1,cha:2},speed:30,size:'Medium'},
+  'Protector Aasimar':{asi:{wis:1,cha:2},speed:30,size:'Medium'},
+  'Scourge Aasimar':  {asi:{con:1,cha:2},speed:30,size:'Medium'},
+  'Firbolg':          {asi:{wis:2,str:1},speed:30,size:'Medium'},
+  'Goliath':          {asi:{str:2,con:1},speed:30,size:'Medium'},
+  'Kenku':            {asi:{dex:2,wis:1},speed:30,size:'Medium'},
+  'Lizardfolk':       {asi:{con:2,wis:1},speed:30,size:'Medium'},
+  'Tabaxi':           {asi:{dex:2,cha:1},speed:30,size:'Medium'},
+  'Triton':           {asi:{str:1,con:1,cha:1},speed:30,size:'Medium'},
+  'Bugbear':          {asi:{str:2,dex:1},speed:30,size:'Medium'},
+  'Goblin':           {asi:{dex:2,con:1},speed:30,size:'Small'},
+  'Hobgoblin':        {asi:{con:2,int:1},speed:30,size:'Medium'},
+  'Kobold':           {asi:{dex:2},speed:30,size:'Small'},
+  'Orc':              {asi:{str:2,con:1},speed:30,size:'Medium'},
+  'Yuan-Ti Pureblood':{asi:{int:1,cha:2},speed:30,size:'Medium'},
+  // Mordenkainen's
+  'Githyanki':        {asi:{str:2,int:1},speed:30,size:'Medium'},
+  'Githzerai':        {asi:{wis:2,int:1},speed:30,size:'Medium'},
+  // Eberron / other
+  'Changeling':       {asi:{cha:2},speed:30,size:'Medium',note:'+1 to 2 other stats'},
+  'Kalashtar':        {asi:{wis:2,cha:1},speed:30,size:'Medium'},
+  'Shifter (Beasthide)':{asi:{con:1},speed:30,size:'Medium'},
+  'Shifter (Longtooth)':{asi:{str:1},speed:30,size:'Medium'},
+  'Shifter (Swiftstride)':{asi:{dex:1,cha:1},speed:35,size:'Medium'},
+  'Shifter (Wildhunt)':{asi:{wis:2},speed:30,size:'Medium'},
+  'Warforged':        {asi:{con:2},speed:30,size:'Medium',note:'+1 to 1 other stat'},
+  // Ravnica / Theros
+  'Centaur':          {asi:{str:2,wis:1},speed:40,size:'Medium'},
+  'Loxodon':          {asi:{con:2,wis:1},speed:30,size:'Medium'},
+  'Minotaur':         {asi:{str:2,con:1},speed:30,size:'Medium'},
+  'Simic Hybrid':     {asi:{con:2},speed:30,size:'Medium',note:'+1 to 1 other stat'},
+  'Vedalken':         {asi:{int:2,wis:1},speed:30,size:'Medium'},
+  'Leonin':           {asi:{str:1,con:2},speed:35,size:'Medium'},
+  'Satyr':            {asi:{dex:1,cha:2},speed:35,size:'Medium'},
+  // Tasha's / other
+  'Fairy':            {asi:{dex:1,wis:1},speed:30,size:'Small'},
+  'Harengon':         {asi:{dex:1},speed:30,size:'Small'},
+  'Hexblood':         {asi:{wis:1,cha:1},speed:30,size:'Medium'},
+  'Reborn':           {asi:{con:1,int:1},speed:30,size:'Medium'},
+  'Dhampir':          {asi:{dex:1,cha:1},speed:35,size:'Medium'},
+  'Owlfolk':          {asi:{int:1,wis:2},speed:25,size:'Small'},
+  'Rabbitfolk':       {asi:{dex:2,wis:1},speed:30,size:'Small'},
+  'Dragonkin':        {asi:{str:1,cha:1},speed:30,size:'Medium'},
+  'Tortle':           {asi:{str:2,wis:1},speed:30,size:'Medium'},
+  'Grung':            {asi:{dex:2,con:1},speed:25,size:'Small'},
+  'Sea Elf':          {asi:{dex:2,con:1},speed:30,size:'Medium'},
+  'Eladrin':          {asi:{dex:2,int:1},speed:30,size:'Medium'},
+  'Shadar-kai':       {asi:{dex:2,con:1},speed:30,size:'Medium'},
+};
+const RCG_RACES=Object.keys(RCG_RACE_DATA);
+const RCG_CLASSES=['Barbarian','Bard','Cleric','Druid','Fighter','Monk','Paladin','Ranger','Rogue','Sorcerer','Warlock','Wizard','Artificer'];
+const RCG_BACKGROUNDS=['Acolyte','Charlatan','Criminal','Entertainer','Folk Hero','Guild Artisan','Hermit','Noble','Outlander','Sage','Sailor','Soldier','Urchin','Anthropologist','Archaeologist','City Watch','Clan Crafter','Cloistered Scholar','Courtier','Far Traveler','Feylost','Fisher','Gladiator','Haunted One','Inheritor','Knight','Marine','Mercenary Veteran','Outlander','Pirate','Ruined','Urban Bounty Hunter'];
+const RCG_ALIGN=['Lawful Good','Neutral Good','Chaotic Good','Lawful Neutral','True Neutral','Chaotic Neutral'];
+// Stat priority: [primary, secondary, tertiary, ...rest in order]
+const RCG_STAT_PRIORITY={
+  Barbarian: ['str','con','dex','wis','int','cha'],
+  Bard:      ['cha','dex','con','wis','int','str'],
+  Cleric:    ['wis','con','str','cha','dex','int'],
+  Druid:     ['wis','con','dex','int','cha','str'],
+  Fighter:   ['str','con','dex','wis','int','cha'],
+  Monk:      ['dex','wis','con','str','int','cha'],
+  Paladin:   ['str','cha','con','wis','dex','int'],
+  Ranger:    ['dex','wis','con','str','int','cha'],
+  Rogue:     ['dex','cha','int','con','wis','str'],
+  Sorcerer:  ['cha','con','dex','wis','int','str'],
+  Warlock:   ['cha','con','dex','wis','int','str'],
+  Wizard:    ['int','con','dex','wis','cha','str'],
+  Artificer: ['int','con','dex','wis','cha','str'],
+};
+const RCG_EQUIP={Barbarian:'Greataxe, 2 handaxes, explorer\'s pack, 4 javelins',Bard:'Rapier, diplomat\'s pack, lute, leather armor, dagger',Cleric:'Mace, scale mail, shield, holy symbol, priest\'s pack',Druid:'Wooden shield, scimitar, leather armor, explorer\'s pack, druidic focus',Fighter:'Chain mail, longsword, shield, light crossbow, dungeoneer\'s pack',Monk:'Shortsword, dungeoneer\'s pack, 10 darts',Paladin:'Longsword, shield, 5 javelins, priest\'s pack, holy symbol',Ranger:'Scale mail, 2 shortswords, explorer\'s pack, longbow, 20 arrows',Rogue:'Rapier, shortbow, burglar\'s pack, leather armor, 2 daggers, thieves\' tools',Sorcerer:'Light crossbow, 20 bolts, component pouch, dungeoneer\'s pack, 2 daggers',Warlock:'Light crossbow, 20 bolts, component pouch, scholar\'s pack, leather armor, 2 daggers',Wizard:'Quarterstaff, component pouch, scholar\'s pack, spellbook',Artificer:'Light crossbow, 20 bolts, thieves\' tools, dungeoneer\'s pack'};
+const RCG_HIT_DIE={Barbarian:12,Fighter:10,Paladin:10,Ranger:10,Bard:8,Cleric:8,Druid:8,Monk:8,Rogue:8,Warlock:8,Sorcerer:6,Wizard:6,Artificer:8};
+const RCG_NAME_PRE=['Aer','Bran','Cal','Dar','Eld','Fal','Gor','Hel','Ith','Jor','Kal','Lir','Myr','Nor','Ost','Pyr','Ran','Ser','Thal','Urn','Val','Wen','Xan','Yor','Zar','Adr','Bel','Cor','Dev','Fen'];
+const RCG_NAME_SUF=['an','en','in','on','us','ar','er','ir','or','ax','ex','as','es','is','os','ald','eld','orn','ath','eth','ith','ara','ira','ona','una'];
+
+function generateRandomCharacter(){
+  const rand=arr=>arr[Math.floor(Math.random()*arr.length)];
+  const roll4d6=()=>{const d=[rollDie(6),rollDie(6),rollDie(6),rollDie(6)].sort((a,b)=>b-a);return d[0]+d[1]+d[2];};
+  const race=rand(RCG_RACES);
+  const cls=rand(RCG_CLASSES);
+  const bg=rand(RCG_BACKGROUNDS);
+  const align=rand(RCG_ALIGN);
+  const name=rand(RCG_NAME_PRE)+rand(RCG_NAME_SUF);
+  const raceData=RCG_RACE_DATA[race]||{asi:{},speed:30};
+  const bonuses=raceData.asi||{};
+  const priority=RCG_STAT_PRIORITY[cls]||['str','dex','con','int','wis','cha'];
+  // Roll 6 values, assign highest → primary stat priority
+  const rolls=[roll4d6(),roll4d6(),roll4d6(),roll4d6(),roll4d6(),roll4d6()].sort((a,b)=>b-a);
+  const raw={};
+  priority.forEach((stat,i)=>{raw[stat]=rolls[i]||8;});
+  const stats={};
+  ['str','dex','con','int','wis','cha'].forEach(s=>{
+    stats[s]=Math.min(20,(raw[s]||8)+(bonuses[s]||0));
+  });
+  const hd=RCG_HIT_DIE[cls]||8;
+  const conMod=Math.floor((stats.con-10)/2);
+  const maxHp=hd+conMod;
+  const dexMod=Math.floor((stats.dex-10)/2);
+  const char={
+    id:Date.now(),type:state.currentCharType||'player',name,race,class:cls,subclass:'',level:1,background:bg,alignment:align,
+    ...stats,hp:maxHp,maxHp,ac:10+dexMod,speed:raceData.speed||30,profBonus:2,initiative:dexMod,
+    skills:[],equipment:RCG_EQUIP[cls]||'',charEquipItems:[],charFeats:[],
+    features:'',spellsKnown:'',spellSlots:'',backstory:name+' is a '+race+' '+cls+' with a '+bg+' background.',
+  };
+  state.characters.push(char);
+  state.activeCharIdx=state.characters.length-1;
+  renderCharList();renderCharSheet(state.characters[state.activeCharIdx]);save();
+  const toast=document.createElement('div');
+  toast.style.cssText='position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--gold);color:var(--gold3);font-family:Cinzel,serif;font-size:.75rem;padding:.65rem 1.2rem;z-index:9999;border-radius:2px;box-shadow:0 4px 20px rgba(0,0,0,.7);';
+  toast.textContent='🎲 '+name+' the '+race+' '+cls+' has been created!';
+  document.body.appendChild(toast);setTimeout(()=>toast.remove(),3000);
+}
+
+// ===== COMPREHENSIVE SUBCLASS DATA (SRD + Non-SRD) =====
+// Used to supplement the Open5e API which only has SRD subclasses
+const ALL_SUBCLASSES={
+  Barbarian:[
+    {name:'Path of the Berserker',desc:'Frenzied rage, bonus attacks and mindless frenzy at the cost of exhaustion.'},
+    {name:'Path of the Totem Warrior',desc:'Spirit animal totem grants magical boons — Bear, Eagle, Wolf, Elk, or Tiger.'},
+    {name:'Path of the Ancestral Guardian',desc:'Spectral ancestors protect your allies and distract your foes.'},
+    {name:'Path of the Battlerager',desc:'Spiked armor becomes a weapon. Dwarf-only in most settings.'},
+    {name:'Path of the Beast',desc:'Unleash an inner beast — claws, bite, tail. Gain bestial transformation features.'},
+    {name:'Path of Wild Magic',desc:'Rage triggers surges of wild magic. Roll on a wild surge table each rage.'},
+    {name:'Path of the Zealot',desc:'Divine fury channels deity power — radiant/necrotic damage and resurrection boons.'},
+    {name:'Path of the Storm Herald',desc:'Rage creates an aura of arctic, desert, or sea storm effects.'},
+    {name:'Path of Giants',desc:'Speak Giant, hurl weapons, grow to Large size during rage.'},
+    {name:'Path of the Depths',desc:'Aquatic fury — water breath, swim speed, tentacle attacks.'},
+  ],
+  Bard:[
+    {name:'College of Lore',desc:'Additional Magical Secrets, Cutting Words to reduce enemy rolls.'},
+    {name:'College of Valor',desc:'Combat inspiration, medium armor and shields, extra attack.'},
+    {name:'College of Glamour',desc:'Enchanting presence — Mantle of Inspiration, charm effects from the Feywild.'},
+    {name:'College of Swords',desc:'Fighting style, Blade Flourish — Defensive, Slashing, Mobile flourishes.'},
+    {name:'College of Whispers',desc:'Psychic blades, shadow lore to impersonate, steal shadow.'},
+    {name:'College of Creation',desc:'Note of Potential, Animating Performance — bring objects to life.'},
+    {name:'College of Eloquence',desc:'Universal Speech, Unfailing Inspiration, powerful Cutting Words.'},
+    {name:'College of Spirits',desc:'Tales from Beyond — channel spirits through a focus for random effects.'},
+    {name:'College of Tragedy',desc:'Performance of Grief, Poetry in Misery — inspiration through sadness.'},
+  ],
+  Cleric:[
+    {name:'Knowledge Domain',desc:'Blessings of Knowledge, Channel Divinity: Read Thoughts, Visions of the Past.'},
+    {name:'Life Domain',desc:'Disciple of Life, Preserve Life, Supreme Healing.'},
+    {name:'Light Domain',desc:'Radiance of the Dawn, Warding Flare, Corona of Light.'},
+    {name:'Nature Domain',desc:'Acolyte of Nature, Dampen Elements, Master of Nature.'},
+    {name:'Tempest Domain',desc:'Destructive Wrath, Thunderbolt Strike, Storm Born.'},
+    {name:'Trickery Domain',desc:'Invoke Duplicity, Cloak of Shadows, Divine Strike with poison.'},
+    {name:'War Domain',desc:'War Priest, Channel Divinity: Guided Strike, Avatar of Battle.'},
+    {name:'Arcana Domain',desc:'Arcane Initiate, Channel Divinity: Arcane Abjuration, Spell Breaker.'},
+    {name:'Death Domain',desc:'Reaper, Channel Divinity: Touch of Death, Improved Reaper.'},
+    {name:'Forge Domain',desc:'Blessing of the Forge, Channel Divinity: Artisan\'s Blessing, Soul of the Forge.'},
+    {name:'Grave Domain',desc:'Circle of Mortality, Sentinel at Death\'s Door, Keeper of Souls.'},
+    {name:'Order Domain',desc:'Voice of Authority, Channel Divinity: Order\'s Demand, Order\'s Wrath.'},
+    {name:'Peace Domain',desc:'Emboldening Bond, Channel Divinity: Balm of Peace, Protective Bond.'},
+    {name:'Twilight Domain',desc:'Twilight Sanctuary, Steps of Night, Twilight Shroud.'},
+    {name:'Unity Domain',desc:'Shared Burden, Channel Divinity: Shared Solace (Ravnica).'},
+  ],
+  Druid:[
+    {name:'Circle of the Land',desc:'Land types grant bonus spells: Arctic, Coast, Desert, Forest, Grassland, Mountain, Swamp, Underdark.'},
+    {name:'Circle of the Moon',desc:'Combat Wild Shape, elemental forms, powerful beast CR scaling.'},
+    {name:'Circle of Dreams',desc:'Balm of the Summer Court, Hearth of Moonlight and Shadow, Walker in Dreams.'},
+    {name:'Circle of the Shepherd',desc:'Spirit Totem (Bear, Hawk, Unicorn), Faithful Summons, Guardian Spirit.'},
+    {name:'Circle of Spores',desc:'Halo of Spores, Symbiotic Entity, Spreading Spores, Fungal Body.'},
+    {name:'Circle of Stars',desc:'Star Map, Starry Form (Archer, Chalice, Dragon), Twinkling Constellations.'},
+    {name:'Circle of Wildfire',desc:'Wildfire Spirit, Enhanced Bond, Blazing Revival, Cauterizing Flames.'},
+    {name:'Circle of the Ascendant Dragon',desc:'Draconic Wild Shape, elemental damage options, dragon features.'},
+    {name:'Circle of the Isle',desc:'Aquatic wild shapes, swimming, coastal magic.'},
+    {name:'Circle of the Primeval',desc:'Titanic Beast — dinosaur wild shapes, increased CR cap.'},
+  ],
+  Fighter:[
+    {name:'Champion',desc:'Improved Critical (19-20), Remarkable Athlete, Additional Fighting Style.'},
+    {name:'Battle Master',desc:'Maneuvers using Superiority Dice — 16 tactical options.'},
+    {name:'Eldritch Knight',desc:'Spellcasting (Abjuration/Evocation), War Magic, Eldritch Strike.'},
+    {name:'Arcane Archer',desc:'Arcane Shot options — Banishing Arrow, Grasping Arrow, Shadow Arrow, etc.'},
+    {name:'Cavalier',desc:'Mounted Combatant focus — Unwavering Mark, Hold the Line, Ferocious Charge.'},
+    {name:'Echo Knight',desc:'Manifest Echo, Legion of One, Unleash Incarnation. (Explorer\'s Guide)'},
+    {name:'Psi Warrior',desc:'Psionic Power, Telekinetic Adept, Guarded Mind. (Tasha\'s)'},
+    {name:'Rune Knight',desc:'Rune Carving — Cloud Rune, Fire Rune, Stone Rune, etc., Giant form.'},
+    {name:'Samurai',desc:'Fighting Spirit, Elegant Courtier, Strength Before Death.'},
+    {name:'Banneret (Purple Dragon Knight)',desc:'Rallying Cry, Royal Envoy, Bulwark.'},
+  ],
+  Monk:[
+    {name:'Way of the Open Hand',desc:'Open Hand Technique — knock prone, push, prevent reactions. Wholeness of Body.'},
+    {name:'Way of Shadow',desc:'Shadow Arts spellcasting, Shadow Step teleportation, Cloak of Shadows.'},
+    {name:'Way of the Four Elements',desc:'Elemental Disciplines — fire, water, earth, air abilities costing ki.'},
+    {name:'Way of the Astral Self',desc:'Astral Arms, Body, and Visage — Wisdom-based attacks.'},
+    {name:'Way of the Drunken Master',desc:'Drunken Technique, Tipsy Sway, Drunkard\'s Luck, Intoxicated Frenzy.'},
+    {name:'Way of the Kensei',desc:'Kensei Weapons, One with the Blade, Sharpen the Blade, Unerring Accuracy.'},
+    {name:'Way of the Long Death',desc:'Touch of Death, Hour of Reaping, Mastery of Death.'},
+    {name:'Way of Mercy',desc:'Hands of Healing and Harm, Physician\'s Touch, Flurry of Healing and Harm.'},
+    {name:'Way of the Sun Soul',desc:'Radiant Sun Bolt, Searing Arc Strike, Searing Sunburst.'},
+    {name:'Way of the Ascendant Dragon',desc:'Draconic Disciple, Dragon Wings, Aspect of the Wyrm, Draconic Presence.'},
+    {name:'Way of the Cobalt Soul',desc:'Extract Aspects, Extort Truth, Mind of Mercury. (Critical Role)'},
+  ],
+  Paladin:[
+    {name:'Oath of Devotion',desc:'Sacred Weapon, Aura of Devotion, Holy Nimbus.'},
+    {name:'Oath of the Ancients',desc:'Nature\'s Wrath, Aura of Warding, Undying Sentinel.'},
+    {name:'Oath of Vengeance',desc:'Vow of Enmity, Relentless Avenger, Soul of Vengeance, Avenging Angel.'},
+    {name:'Oath of Conquest',desc:'Conquering Presence, Guided Strike, Aura of Conquest, Scornful Rebuke.'},
+    {name:'Oath of the Crown',desc:'Champion Challenge, Turn the Tide, Unyielding Saint.'},
+    {name:'Oath of Glory',desc:'Inspiring Smite, Aura of Alacrity, Glorious Defense, Living Legend.'},
+    {name:'Oath of Redemption',desc:'Emissary of Peace, Protective Spirit, Emissary of Redemption.'},
+    {name:'Oath of the Watchers',desc:'Abjure the Extraplanar, Vigilant Rebuke, Mortal Bulwark.'},
+    {name:'Oathbreaker',desc:'Broken oath — Control Undead, Aura of Hate, Dread Lord.'},
+    {name:'Oath of Treachery',desc:'Poison Strike, Aura of Treachery (Unearthed Arcana).'},
+  ],
+  Ranger:[
+    {name:'Hunter',desc:'Hunter\'s Prey — Colossus Slayer, Giant Killer, Horde Breaker. Defensive Tactics.'},
+    {name:'Beast Master',desc:'Ranger\'s Companion — a beast that fights beside you.'},
+    {name:'Gloom Stalker',desc:'Dread Ambusher, Stalker\'s Flurry, Shadowy Dodge. Underdark specialist.'},
+    {name:'Horizon Walker',desc:'Ethereal Step, Distant Strike, Spectral Defense. Planar hunter.'},
+    {name:'Monster Slayer',desc:'Hunter\'s Sense, Slayer\'s Prey, Supernatural Defense, Slayer\'s Counter.'},
+    {name:'Drake Warden',desc:'Drake Companion — bond with a drake that grows in power.'},
+    {name:'Fey Wanderer',desc:'Dreadful Strikes, Otherworldly Glamour, Beguiling Twist, Misty Wanderer.'},
+    {name:'Swarmkeeper',desc:'Gathered Swarm — swarm of spirits assists with attacks and movement.'},
+  ],
+  Rogue:[
+    {name:'Thief',desc:'Fast Hands, Second-Story Work, Supreme Sneak, Use Magic Device, Thief\'s Reflexes.'},
+    {name:'Arcane Trickster',desc:'Spellcasting (Enchantment/Illusion), Magical Ambush, Spell Thief.'},
+    {name:'Assassin',desc:'Assassinate — always Surprise on first round. Impostor, Death Strike.'},
+    {name:'Inquisitive',desc:'Ear for Deceit, Eye for Detail, Insightful Fighting, Steady Eye, Unerring Eye.'},
+    {name:'Mastermind',desc:'Master of Intrigue, Master of Tactics (Help as bonus action), Soul of Deceit.'},
+    {name:'Phantom',desc:'Whispers of the Dead, Wails from the Grave, Ghost Walk, Death\'s Friend.'},
+    {name:'Scout',desc:'Skirmisher, Survivalist, Superior Mobility, Ambush Master, Sudden Strike.'},
+    {name:'Soulknife',desc:'Psychic Blades, Soul Blades, Psychic Veil, Rend Mind.'},
+    {name:'Swashbuckler',desc:'Fancy Footwork, Rakish Audacity, Panache, Elegant Maneuver, Master Duelist.'},
+  ],
+  Sorcerer:[
+    {name:'Draconic Bloodline',desc:'Dragon Ancestor, Draconic Resilience, Elemental Affinity, Dragon Wings, Draconic Presence.'},
+    {name:'Wild Magic',desc:'Wild Magic Surge table, Tides of Chaos, Bend Luck, Controlled Chaos, Spell Bombardment.'},
+    {name:'Aberrant Mind',desc:'Psionic Spells, Telepathic Speech, Psionic Sorcery, Revelation in Flesh, Warping Implosion.'},
+    {name:'Clockwork Soul',desc:'Restore Balance, Bastion of Law, Trance of Order, Clockwork Cavalcade.'},
+    {name:'Divine Soul',desc:'Divine Magic spell access, Favored by the Gods, Empowered Healing, Otherworldly Wings, Unearthly Recovery.'},
+    {name:'Shadow Magic',desc:'Eyes of the Dark, Strength of the Grave, Hound of Ill Omen, Shadow Walk, Umbral Form.'},
+    {name:'Storm Sorcery',desc:'Wind Speaker, Tempestuous Magic, Heart of the Storm, Storm Guide, Storm\'s Fury, Wind Soul.'},
+    {name:'Lunar Sorcery',desc:'Moon Fire, Lunar Embodiment, Lunar Boons, Waxing and Waning phases.'},
+  ],
+  Warlock:[
+    {name:'The Archfey',desc:'Fey Presence, Misty Escape, Beguiling Defenses, Dark Delirium.'},
+    {name:'The Fiend',desc:'Dark One\'s Blessing, Dark One\'s Own Luck, Fiendish Resilience, Hurl Through Hell.'},
+    {name:'The Great Old One',desc:'Awakened Mind, Entropic Ward, Thought Shield, Create Thrall.'},
+    {name:'The Celestial',desc:'Bonus Cantrips, Healing Light, Radiant Soul, Celestial Resilience, Searing Vengeance.'},
+    {name:'The Fathomless',desc:'Tentacle of the Deeps, Gift of the Sea, Oceanic Soul, Guardian Coil, Grasping Tentacles.'},
+    {name:'The Genie',desc:'Genie\'s Vessel — Dao, Djinni, Efreeti, or Marid. Bottled Respite, Genie\'s Wrath.'},
+    {name:'The Hexblade',desc:'Hexblade\'s Curse, Hex Warrior, Accursed Specter, Armor of Hexes, Master of Hexes.'},
+    {name:'The Undead',desc:'Form of Dread, Grave Touched, Necrotic Husk, Spirit Projection.'},
+    {name:'The Undying',desc:'Among the Dead, Defy Death, Undying Nature, Indestructible Life.'},
+    {name:'The Seeker',desc:'Seeker\'s Speech, Astral Refuge, Far Wanderer, Astral Sequestration (UA).'},
+  ],
+  Wizard:[
+    {name:'School of Abjuration',desc:'Abjuration Savant, Arcane Ward, Projected Ward, Improved Abjuration, Spell Resistance.'},
+    {name:'School of Conjuration',desc:'Conjuration Savant, Minor Conjuration, Benign Transposition, Focused Conjuration, Durable Summons.'},
+    {name:'School of Divination',desc:'Divination Savant, Portent (2 dice), Expert Divination, The Third Eye, Greater Portent.'},
+    {name:'School of Enchantment',desc:'Enchantment Savant, Hypnotic Gaze, Instinctive Charm, Split Enchantment, Alter Memories.'},
+    {name:'School of Evocation',desc:'Evocation Savant, Sculpt Spells, Potent Cantrip, Empowered Evocation, Overchannel.'},
+    {name:'School of Illusion',desc:'Illusion Savant, Improved Minor Illusion, Malleable Illusions, Illusory Self, Illusory Reality.'},
+    {name:'School of Necromancy',desc:'Necromancy Savant, Grim Harvest, Undead Thralls, Inured to Undeath, Command Undead.'},
+    {name:'School of Transmutation',desc:'Transmutation Savant, Minor Alchemy, Transmuter\'s Stone, Shapechanger, Master Transmuter.'},
+    {name:'Bladesinging',desc:'Bladesong (AC, speed, concentration bonus), Extra Attack, Song of Defense, Song of Victory.'},
+    {name:'Chronurgy Magic',desc:'Chronal Shift, Temporal Awareness, Momentary Stasis, Convergent Future.'},
+    {name:'Graviturgy Magic',desc:'Adjust Density, Gravity Well, Violent Attraction, Event Horizon.'},
+    {name:'Order of Scribes',desc:'Awakened Spellbook, Manifest Mind, Master Scrivener, One with the Word.'},
+    {name:'War Magic',desc:'Arcane Deflection, Tactical Wit, Power Surge, Durable Magic, Deflecting Shroud.'},
+  ],
+  Artificer:[
+    {name:'Alchemist',desc:'Experimental Elixir (6 random effects each day), Alchemical Savant, Restorative Reagents, Chemical Mastery.'},
+    {name:'Armorer',desc:'Arcane Armor (Guardian or Infiltrator mode), Armor Modifications, Perfected Armor.'},
+    {name:'Artillerist',desc:'Eldritch Cannon (Flamethrower, Force Ballista, Protector), Arcane Firearm, Fortified Position.'},
+    {name:'Battle Smith',desc:'Battle Ready, Steel Defender construct companion, Arcane Jolt, Improved Defender.'},
+  ],
+};
+
+
 // ===== SESSION SETUP =====
 const campId=sessionStorage.getItem('grimoire-active-camp');
 const campName=sessionStorage.getItem('grimoire-active-camp-name');
@@ -518,8 +1567,9 @@ function showPage(id){
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   document.querySelectorAll('nav button').forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'"))b.classList.add('active');});
-  if(id==='spells')renderSpells();
-  if(id==='map')setTimeout(initMap,55);
+  if(id==='spells'){renderSpells();renderSpellBackBtn();}
+  if(id!=='spells'){const b=document.getElementById('spell-back-btn');if(b&&spellReturnCharIdx===null)b.remove();}
+  if(id==='map')setTimeout(mbInit,55);
   if(id==='dashboard')updateDashboard();
   if(id==='reference')renderReferenceContent();
 }
@@ -627,12 +1677,20 @@ function toggleCond(id,cond){
   if(i===-1)c.conditions.push(cond);else c.conditions.splice(i,1);
   renderInitiative();save();
 }
+function toggleCondActive(cond){
+  if(!state.combatants.length)return;
+  const c=state.combatants[state.currentTurn];if(!c)return;
+  toggleCond(c.id,cond);
+}
 function removeCombatant(id){state.combatants=state.combatants.filter(c=>c.id!==id);if(state.currentTurn>=state.combatants.length)state.currentTurn=0;renderInitiative();save();}
 
 function renderInitiative(){
   const el=document.getElementById('initiative-list');
   document.getElementById('round-num').textContent=state.currentRound;
-  if(!state.combatants.length){el.innerHTML='<div class="empty-state"><span class="empty-icon">⚔</span>Add combatants to begin</div>';return;}
+  const condTarget=document.getElementById('init-cond-target');
+  if(!state.combatants.length){el.innerHTML='<div class="empty-state"><span class="empty-icon">⚔</span>Add combatants to begin</div>';if(condTarget)condTarget.textContent='No combatants';return;}
+  const active=state.combatants[state.currentTurn];
+  if(condTarget)condTarget.textContent=active?'→ '+active.name:'—';
   const typeIcon={player:'🧙',enemy:'💀',ally:'✨'};
   el.innerHTML=state.combatants.map((c,i)=>{
     const pct=Math.max(0,Math.min(100,(c.hp/c.maxHp)*100));
@@ -659,14 +1717,14 @@ function calcMod(s){const m=Math.floor((s-10)/2);return(m>=0?'+':'')+m;}
 
 const SKILLS=[{n:'Acrobatics',s:'dex'},{n:'Animal Handling',s:'wis'},{n:'Arcana',s:'int'},{n:'Athletics',s:'str'},{n:'Deception',s:'cha'},{n:'History',s:'int'},{n:'Insight',s:'wis'},{n:'Intimidation',s:'cha'},{n:'Investigation',s:'int'},{n:'Medicine',s:'wis'},{n:'Nature',s:'int'},{n:'Perception',s:'wis'},{n:'Performance',s:'cha'},{n:'Persuasion',s:'cha'},{n:'Religion',s:'int'},{n:'Sleight of Hand',s:'dex'},{n:'Stealth',s:'dex'},{n:'Survival',s:'wis'}];
 
-function switchCharType(type,btn){state.currentCharType=type;document.querySelectorAll('.type-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.activeCharIdx=null;document.getElementById('char-sheet-area').innerHTML='<div class="empty-state" style="padding:3.5rem;"><span class="empty-icon">⚔</span>Select or create a character</div>';renderCharList();}
+function switchCharType(type,btn){state.currentCharType=type;document.querySelectorAll('.type-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.activeCharIdx=null;closeCharFullView();renderCharList();}
 
 function newCharacter(){
   const name=prompt('Character name:');if(!name)return;
   state.characters.push({id:Date.now(),type:state.currentCharType,name,race:'',class:'',subclass:'',level:1,hp:10,maxHp:10,ac:10,speed:30,profBonus:2,initiative:0,str:10,dex:10,con:10,int:10,wis:10,cha:10,skills:[],equipment:'',features:'',spellsKnown:'',spellSlots:'',backstory:'',background:'',alignment:''});
   state.activeCharIdx=state.characters.length-1;renderCharList();renderCharSheet(state.characters[state.activeCharIdx]);save();
 }
-function deleteCharacter(){if(state.activeCharIdx===null)return alert('Select a character first');if(!confirm('Delete?'))return;state.characters.splice(state.activeCharIdx,1);state.activeCharIdx=null;document.getElementById('char-sheet-area').innerHTML='<div class="empty-state" style="padding:3.5rem;"><span class="empty-icon">⚔</span>Select or create a character</div>';renderCharList();save();}
+function deleteCharacter(){if(state.activeCharIdx===null)return alert('Select a character first');if(!confirm('Delete?'))return;state.characters.splice(state.activeCharIdx,1);state.activeCharIdx=null;closeCharFullView();renderCharList();save();}
 
 function renderCharList(){
   const el=document.getElementById('char-list');
@@ -681,23 +1739,143 @@ function renderCharList(){
   }).join('');
 }
 function selectChar(idx){state.activeCharIdx=idx;renderCharList();renderCharSheet(state.characters[idx]);}
+function closeCharFullView(){
+  document.getElementById('char-full-view').style.display='none';
+  document.getElementById('char-list-view').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function addCharToInitFromFull(){
+  if(state.activeCharIdx===null)return;
+  addCharToInit(state.activeCharIdx);
+}
+
+function deleteCharFromFull(){
+  if(state.activeCharIdx===null)return;
+  if(!confirm('Delete this character?'))return;
+  state.characters.splice(state.activeCharIdx,1);
+  state.activeCharIdx=null;
+  save();renderCharList();closeCharFullView();
+}
+function renderCharSpellSearch(idx){
+  const c=state.characters[idx];
+  const searchEl=document.getElementById('char-spell-search-'+idx);
+  const levelEl=document.getElementById('char-spell-level-'+idx);
+  const resultsEl=document.getElementById('char-spell-results-'+idx);
+  if(!searchEl||!resultsEl)return;
+
+  const search=searchEl.value.toLowerCase();
+  const levelFilter=levelEl?levelEl.value:'';
+  const allSpells=[...(state.spells||[]),...(state.customSpells||[])];
+  const charSpellNames=(c.spellList||[]).map(s=>s.name);
+
+  if(!allSpells.length){
+    resultsEl.innerHTML='<div style="padding:.6rem;color:var(--text3);font-size:.8rem;">No spells loaded — go to the Spells tab and click "Load All SRD Spells" first.</div>';
+    return;
+  }
+
+  let filtered=allSpells.filter(s=>{
+    if(levelFilter&&s.level!==levelFilter)return false;
+    if(search&&!s.name.toLowerCase().includes(search))return false;
+    return true;
+  }).slice(0,40);
+
+  if(!filtered.length){resultsEl.innerHTML='<div style="padding:.6rem;color:var(--text3);font-size:.8rem;">No spells found.</div>';return;}
+
+  resultsEl.innerHTML=filtered.map(s=>{
+    const already=charSpellNames.includes(s.name);
+    const sc='school-'+(s.school||'').toLowerCase();
+    return`<div style="display:flex;align-items:center;justify-content:space-between;padding:.35rem .6rem;border-bottom:1px solid rgba(74,58,37,.25);${already?'opacity:.5':''}">
+      <div>
+        <span style="font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold3);">${s.name}</span>
+        <span class="tag ${sc}" style="margin-left:.35rem;">${s.level}</span>
+        <span style="font-size:.72rem;color:var(--text3);margin-left:.3rem;">${s.school||''}</span>
+      </div>
+      <button onclick="${already?'':'addSpellToChar('+idx+',\''+s.name.replace(/'/g,"\\'")+'\')'}" 
+        style="background:${already?'transparent':'var(--gold)'};border:1px solid ${already?'var(--border)':'var(--gold)'};color:${already?'var(--text3)':'#0d0a07'};font-family:'Cinzel',serif;font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:.2rem .55rem;cursor:${already?'default':'pointer'};border-radius:2px;">
+        ${already?'Added':'+ Add'}
+      </button>
+    </div>`;
+  }).join('');
+}
+
+function addSpellToChar(idx,spellName){
+  const c=state.characters[idx];
+  if(!c.spellList)c.spellList=[];
+  if(c.spellList.find(s=>s.name===spellName))return;
+  const allSpells=[...(state.spells||[]),...(state.customSpells||[])];
+  const spell=allSpells.find(s=>s.name===spellName);
+  if(!spell)return;
+  // Ensure level is always a string label
+  const levelNames = ["Cantrip","1st","2nd","3rd","4th","5th","6th","7th","8th","9th"];
+  let spellLevel = spell.level;
+  if (typeof spellLevel === 'number') {
+    spellLevel = levelNames[spellLevel] || String(spellLevel);
+  }
+  // If it's a string but a number (e.g. '1'), convert to label
+  if (typeof spellLevel === 'string' && /^[0-9]$/.test(spellLevel)) {
+    spellLevel = levelNames[parseInt(spellLevel)] || spellLevel;
+  }
+  c.spellList.push({
+    name: spell.name,
+    level: spellLevel,
+    school: spell.school,
+    castTime: spell.castTime,
+    concentration: spell.concentration,
+    ritual: spell.ritual
+  });
+  console.log('DEBUG: spellList after add:', c.spellList);
+  save();
+  renderCharSheet(c);
+}
+
+function removeSpellFromChar(idx,spellName){
+  const c=state.characters[idx];
+  if(!c.spellList)return;
+  c.spellList=c.spellList.filter(s=>s.name!==spellName);
+  save();
+}
 function getClassEmoji(cls){const m={fighter:'⚔',wizard:'🧙',rogue:'🗡',cleric:'✝',druid:'🌿',bard:'🎵',ranger:'🏹',paladin:'🛡',sorcerer:'✨',warlock:'👁',barbarian:'💪',monk:'🥋'};return m[(cls||'').toLowerCase()]||'⚔';}
 function updateChar(idx,field,val){state.characters[idx][field]=val;if(field==='hp'||field==='maxHp'){const c=state.characters[idx];const el=document.getElementById('hpbar-'+idx);if(el){const pct=Math.max(0,Math.min(100,parseInt(c.hp)/parseInt(c.maxHp)*100));el.style.width=pct+'%';}}save();}
 function toggleSkill(idx,sn,el){const c=state.characters[idx];if(!c.skills)c.skills=[];const i=c.skills.indexOf(sn);if(i===-1){c.skills.push(sn);el.classList.add('on');el.textContent='●';}else{c.skills.splice(i,1);el.classList.remove('on');el.textContent='';}save();}
 
 // HP Calculator
-function calcHP(idx){
-  const c=state.characters[idx];
-  const cls=(c.class||'').toLowerCase();
-  const hitDie={barbarian:12,fighter:10,paladin:10,ranger:10,bard:8,cleric:8,druid:8,monk:8,rogue:8,warlock:8,sorcerer:6,wizard:6};
-  const hd=hitDie[cls]||8;
-  const conMod=Math.floor((parseInt(c.con)||10-10)/2);
-  const lvl=parseInt(c.level)||1;
-  const maxHpCalc=hd+(conMod)+(lvl-1)*(Math.ceil(hd/2)+1+conMod);
-  const el=document.getElementById('hpcalc-result-'+idx);
-  if(el){el.textContent='Suggested Max HP: '+maxHpCalc+' ('+cls||'?'+', d'+hd+', '+lvl+' lvl, Con '+calcMod(parseInt(c.con)||10)+')';}
-  state.characters[idx].maxHp=maxHpCalc;
-  const hpIn=document.getElementById('maxhp-input-'+idx);if(hpIn)hpIn.value=maxHpCalc;
+function calcHP(idx) {
+  const c = state.characters[idx];
+  const cls = (c.class || '').toLowerCase();
+  const race = (c.race || '').toLowerCase();
+  const feats = (c.features || '').toLowerCase();
+  const hitDie = {
+    barbarian: 12, fighter: 10, paladin: 10, ranger: 10,
+    bard: 8, cleric: 8, druid: 8, monk: 8, rogue: 8, warlock: 8,
+    sorcerer: 6, wizard: 6
+  };
+  const hd = hitDie[cls] || 8;
+  const lvl = parseInt(c.level) || 1;
+  const conMod = Math.floor(((parseInt(c.con) || 10) - 10) / 2); // ← fixed
+
+  let perLevelBonus = 0;
+  if (race.includes('hill dwarf')) perLevelBonus += 1;
+  if (feats.includes('tough')) perLevelBonus += 2;
+
+  // Level 1: max hit die + con mod + per-level bonuses
+  // Level 2+: floor(hd/2)+1 per level + con mod + per-level bonuses
+  const avg = Math.floor(hd / 2) + 1;
+  let maxHpCalc = (hd + conMod + perLevelBonus)
+                + (lvl - 1) * (avg + conMod + perLevelBonus);
+
+  const el = document.getElementById('hpcalc-result-' + idx);
+  if (el) {
+    let details = '(' + (cls || '?') + ', d' + hd + ', ' + lvl + ' lvl, Con ' + calcMod(parseInt(c.con) || 10);
+    if (race.includes('hill dwarf')) details += ', Hill Dwarf';
+    if (feats.includes('tough')) details += ', Tough';
+    details += ')';
+    el.textContent = 'Suggested Max HP: ' + maxHpCalc + ' ' + details;
+  }
+
+  state.characters[idx].maxHp = maxHpCalc;
+  const hpIn = document.getElementById('maxhp-input-' + idx);
+  if (hpIn) hpIn.value = maxHpCalc;
   save();
 }
 
@@ -705,64 +1883,229 @@ function renderCharSheet(c){
   const idx=state.characters.indexOf(c);
   const hpPct=Math.max(0,Math.min(100,(parseInt(c.hp)||0)/(parseInt(c.maxHp)||1)*100));
   const abils=['str','dex','con','int','wis','cha'];
-  const abilNames={str:'STR',dex:'DEX',con:'CON',int:'INT',wis:'WIS',cha:'CHA'};
-  const area=document.getElementById('char-sheet-area');
-  area.innerHTML=`
-  <div class="card">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin-bottom:.85rem;">
-      <div>
-        <div style="font-family:'Cinzel Decorative',cursive;font-size:1.25rem;color:var(--gold2);">${c.name}</div>
-        <div style="color:var(--text3);font-size:.8rem;">${c.race||'?'} ${c.class||'?'} ${c.subclass?'('+c.subclass+')':''} — Level ${c.level}</div>
+  const abilNames={str:'Strength',dex:'Dexterity',con:'Constitution',int:'Intelligence',wis:'Wisdom',cha:'Charisma'};
+
+  // Switch to full view
+  expandedCharSpell=null;
+  document.getElementById('char-list-view').style.display='none';
+  document.getElementById('char-full-view').style.display='block';
+
+  document.getElementById('char-full-content').innerHTML=`
+  <div style="max-width:1000px;margin:0 auto;">
+
+    <!-- HEADER BAND -->
+    <div style="background:linear-gradient(135deg,#0a0d1a,var(--panel));border:1px solid var(--gold);border-left:6px solid var(--gold);padding:1.5rem 2rem;margin-bottom:1.5rem;display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;">
+      <!-- Avatar / Portrait -->
+      <div style="flex:0 0 130px;">
+        <div style="width:130px;height:130px;background:var(--bg3);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:3.5rem;overflow:hidden;margin-bottom:.5rem;" id="char-portrait-${idx}">
+          ${c.portrait?`<img src="${c.portrait}" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentNode.innerHTML='⚔'">`:(getClassEmoji(c.class)||'⚔')}
+        </div>
+        <input placeholder="Portrait URL..." value="${c.portrait||''}" style="font-size:.7rem;padding:.28rem .45rem;" oninput="updateChar(${idx},'portrait',this.value);const p=document.getElementById('char-portrait-${idx}');p.innerHTML=this.value?'<img src=\\''+this.value+'\\' style=\\'width:100%;height:100%;object-fit:cover;\\'>':(getClassEmoji('${c.class}')||'⚔')">
       </div>
-      <button class="btn btn-sm" onclick="save();alert('Saved ✓')">Save</button>
+
+      <!-- Name + class + meta -->
+      <div style="flex:1;min-width:220px;">
+        <input value="${c.name}" style="font-family:'Cinzel Decorative',cursive;font-size:1.9rem;background:transparent;border:none;border-bottom:2px solid var(--gold);color:var(--gold2);width:100%;padding:.2rem 0;margin-bottom:.6rem;" oninput="updateChar(${idx},'name',this.value);renderCharList()">
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem;">
+          <div style="flex:1;min-width:90px;"><label>Race ${c.raceSlug?`<span class="lib-chip-field-badge" onclick="searchLibraryForItem('${c.race}','race')" title="Open in Library">🔍</span>`:''}</label><input value="${c.race||''}" oninput="updateChar(${idx},'race',this.value)"></div>
+          <div style="flex:1;min-width:90px;"><label>Class ${c.classSlug?`<span class="lib-chip-field-badge" onclick="searchLibraryForItem('${c.class}','class')" title="Open in Library">🔍</span>`:''}</label><input value="${c.class||''}" oninput="updateChar(${idx},'class',this.value)"></div>
+          <div style="flex:1;min-width:90px;"><label>Subclass ${c.subclassSlug?`<span class="lib-chip-field-badge" onclick="searchLibraryForItem('${c.subclass}','subclass')" title="Open in Library">🔍</span>`:''}</label><input value="${c.subclass||''}" oninput="updateChar(${idx},'subclass',this.value)"></div>
+          <div style="flex:0 0 70px;"><label>Level</label><input type="number" value="${c.level||1}" min="1" max="20" oninput="updateChar(${idx},'level',this.value)"></div>
+          <div style="flex:1;min-width:90px;"><label>Background ${c.backgroundSlug?`<span class="lib-chip-field-badge" onclick="searchLibraryForItem('${c.background}','background')" title="Open in Library">🔍</span>`:''}</label><input value="${c.background||''}" oninput="updateChar(${idx},'background',this.value)"></div>
+          <div style="flex:1;min-width:100px;"><label>Alignment</label><input value="${c.alignment||''}" oninput="updateChar(${idx},'alignment',this.value)"></div>
+        </div>
+
+        <!-- HP + AC + key stats row -->
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;">
+          <div style="background:rgba(192,57,43,.12);border:1px solid var(--red2);padding:.5rem .3rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--red2);margin-bottom:.15rem;">Current HP</div>
+            <input type="number" value="${c.hp||0}" oninput="updateChar(${idx},'hp',this.value)" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.5rem;color:var(--red2);text-align:center;width:100%;padding:0;">
+          </div>
+          <div style="background:rgba(192,57,43,.08);border:1px solid var(--border);padding:.5rem .3rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:.15rem;">Max HP</div>
+            <input id="maxhp-input-${idx}" type="number" value="${c.maxHp||10}" oninput="updateChar(${idx},'maxHp',this.value)" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.5rem;color:var(--gold2);text-align:center;width:100%;padding:0;">
+          </div>
+          <div style="background:rgba(201,146,42,.1);border:1px solid var(--gold);padding:.5rem .3rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:.15rem;">AC</div>
+            <input type="number" value="${c.ac||10}" oninput="updateChar(${idx},'ac',this.value)" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.5rem;color:var(--gold2);text-align:center;width:100%;padding:0;">
+          </div>
+          <div style="background:rgba(61,155,82,.1);border:1px solid var(--green2);padding:.5rem .3rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--green2);margin-bottom:.15rem;">Speed</div>
+            <input type="number" value="${c.speed||30}" oninput="updateChar(${idx},'speed',this.value)" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.5rem;color:var(--gold2);text-align:center;width:100%;padding:0;">
+          </div>
+          <div style="background:rgba(155,89,182,.1);border:1px solid var(--accent);padding:.5rem .3rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:#c678e0;margin-bottom:.15rem;">Prof Bonus</div>
+            <input type="number" value="${c.profBonus||2}" oninput="updateChar(${idx},'profBonus',this.value)" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.5rem;color:var(--gold2);text-align:center;width:100%;padding:0;">
+          </div>
+          <div style="background:rgba(201,146,42,.08);border:1px solid var(--border);padding:.5rem .3rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:.15rem;">Initiative</div>
+            <input type="number" value="${c.initiative||0}" oninput="updateChar(${idx},'initiative',this.value)" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.5rem;color:var(--gold2);text-align:center;width:100%;padding:0;">
+          </div>
+        </div>
+
+        <!-- HP bar -->
+        <div style="margin-top:.65rem;">
+          <div class="hp-bar" style="height:10px;">
+            <div class="hp-fill" id="hpbar-${idx}" style="width:${hpPct}%;background:${hpPct>50?'linear-gradient(90deg,var(--green),var(--green2))':hpPct>25?'linear-gradient(90deg,#b7950b,#f39c12)':'linear-gradient(90deg,var(--red),var(--red2))'}"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label>Race</label><input value="${c.race||''}" oninput="updateChar(${idx},'race',this.value)"></div>
-      <div class="form-group"><label>Class</label><input value="${c.class||''}" oninput="updateChar(${idx},'class',this.value)"></div>
-      <div class="form-group"><label>Subclass</label><input value="${c.subclass||''}" oninput="updateChar(${idx},'subclass',this.value)"></div>
-      <div class="form-group"><label>Level</label><input type="number" value="${c.level||1}" min="1" max="20" oninput="updateChar(${idx},'level',this.value)"></div>
-      <div class="form-group"><label>Background</label><input value="${c.background||''}" oninput="updateChar(${idx},'background',this.value)"></div>
-      <div class="form-group"><label>Alignment</label><input value="${c.alignment||''}" oninput="updateChar(${idx},'alignment',this.value)"></div>
-    </div>
+
     <!-- HP CALCULATOR -->
-    <div class="hp-calc-box">
-      <div class="card-title" style="border:none;padding:0;margin-bottom:.4rem;">⚡ HP Calculator (based on class + CON)</div>
-      <div id="hpcalc-result-${idx}" style="color:var(--text3);font-size:.82rem;margin-bottom:.4rem;">Set class, level & CON first, then click calculate.</div>
-      <button class="btn btn-sm btn-green" onclick="calcHP(${idx})">Calculate Max HP</button>
+    <div style="background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--green2);padding:1rem 1.5rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Cinzel',serif;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green2);margin-bottom:.2rem;">⚡ HP Calculator</div>
+        <div style="font-size:.82rem;color:var(--text3);">Set class, level & CON first</div>
+      </div>
+      <button class="btn btn-green btn-sm" onclick="calcHP(${idx})">Calculate Max HP</button>
+      <div id="hpcalc-result-${idx}" style="color:var(--green2);font-family:'Cinzel',serif;font-size:.88rem;"></div>
     </div>
-    <div class="combat-stats">
-      <div class="combat-stat"><input class="val-input" type="number" value="${c.hp||0}" oninput="updateChar(${idx},'hp',this.value)"><span class="vlbl">Current HP</span></div>
-      <div class="combat-stat"><input id="maxhp-input-${idx}" class="val-input" type="number" value="${c.maxHp||10}" oninput="updateChar(${idx},'maxHp',this.value)"><span class="vlbl">Max HP</span></div>
-      <div class="combat-stat"><input class="val-input" type="number" value="${c.ac||10}" oninput="updateChar(${idx},'ac',this.value)"><span class="vlbl">AC</span></div>
-      <div class="combat-stat"><input class="val-input" type="number" value="${c.speed||30}" oninput="updateChar(${idx},'speed',this.value)"><span class="vlbl">Speed ft</span></div>
-      <div class="combat-stat"><input class="val-input" type="number" value="${c.profBonus||2}" oninput="updateChar(${idx},'profBonus',this.value)"><span class="vlbl">Prof Bonus</span></div>
-      <div class="combat-stat"><input class="val-input" type="number" value="${c.initiative||0}" oninput="updateChar(${idx},'initiative',this.value)"><span class="vlbl">Initiative</span></div>
+
+    <!-- ABILITY SCORES -->
+    <div style="background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-bottom:1.25rem;">
+      <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);">Ability Scores</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem;">
+        ${abils.map(a=>`
+          <div style="text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:.35rem;">${abilNames[a]}</div>
+            <div style="background:var(--bg3);border:2px solid var(--border);border-top:3px solid var(--gold);padding:.65rem .25rem;">
+              <input type="number" value="${c[a]||10}" min="1" max="30" oninput="updateChar(${idx},'${a}',this.value);this.nextElementSibling.textContent='('+calcMod(parseInt(this.value||10))+')';" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.5rem;color:var(--gold2);text-align:center;width:100%;padding:0;">
+              <div style="font-family:'Cinzel',serif;font-size:.85rem;color:var(--text2);margin-top:.2rem;">(${calcMod(c[a]||10)})</div>
+            </div>
+          </div>`).join('')}
+      </div>
     </div>
-    <div class="hp-bar"><div class="hp-fill" id="hpbar-${idx}" style="width:${hpPct}%;background:${hpPct>50?'linear-gradient(90deg,var(--green),var(--green2))':hpPct>25?'linear-gradient(90deg,#b7950b,#f39c12)':'linear-gradient(90deg,var(--red),var(--red2));'}"></div></div>
-    <div class="ability-grid">
-      ${abils.map(a=>`<div class="ability-box"><div class="aname">${abilNames[a]}</div><input type="number" value="${c[a]||10}" min="1" max="30" oninput="updateChar(${idx},'${a}',this.value);this.nextElementSibling.textContent='('+calcMod(parseInt(this.value||10))+')'"><div class="amod">(${calcMod(c[a]||10)})</div></div>`).join('')}
-    </div>
-    <div class="grid2">
-      <div class="card" style="background:var(--bg3);">
-        <div class="card-title">Skills</div>
-        <div class="skills-grid">
+
+    <!-- SKILLS + EQUIPMENT -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
+      <div style="background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;">
+        <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);">Skills</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.15rem;">
           ${SKILLS.map(sk=>{
             const hasP=(c.skills||[]).includes(sk.n);
             const mod=Math.floor((parseInt(c[sk.s]||10)-10)/2)+(hasP?parseInt(c.profBonus||2):0);
-            return'<div class="skill-row"><div class="skill-check'+(hasP?' on':'')+'" onclick="toggleSkill('+idx+',"'+sk.n+'",this)">'+(hasP?'●':'')+'</div><span class="skill-mod">'+(mod>=0?'+':'')+mod+'</span><span class="skill-name">'+sk.n+'</span></div>';
+            return`<div class="skill-row">
+              <div class="skill-check${hasP?' on':''}" onclick="toggleSkill(${idx},'${sk.n}',this)">${hasP?'●':''}</div>
+              <span class="skill-mod">${mod>=0?'+':''}${mod}</span>
+              <span class="skill-name">${sk.n}</span>
+            </div>`;
           }).join('')}
         </div>
       </div>
-      <div>
-        <div class="card mb1" style="background:var(--bg3);"><div class="card-title">Equipment</div><textarea rows="4" oninput="updateChar(${idx},'equipment',this.value)">${c.equipment||''}</textarea></div>
-        <div class="card" style="background:var(--bg3);"><div class="card-title">Features & Traits</div><textarea rows="4" oninput="updateChar(${idx},'features',this.value)">${c.features||''}</textarea></div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div style="background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;flex:1;">
+          <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">Equipment & Inventory<span style="font-size:.6rem;font-weight:400;color:var(--text3);text-transform:none;letter-spacing:0;">Library items clickable</span></div>
+          <!-- Library-linked equipment chips -->
+          <div class="char-linked-chips" id="equip-chips-${idx}">
+            ${(c.charEquipItems||[]).map(it=>`<div class="lib-chip"><span class="lc-name" onclick="searchLibraryForItem('${it.name.replace(/'/g,"\\'")}','${it.type||'item'}')" title="Open in Library">🔗 ${it.name}</span><button class="lc-remove" onclick="removeCharEquipItem(${idx},'${it.name.replace(/'/g,"\\'")}')">✕</button></div>`).join('')}
+          </div>
+          <textarea rows="5" style="resize:vertical;line-height:1.65;" oninput="updateChar(${idx},'equipment',this.value)" placeholder="Type items here, or add from Library...">${c.equipment||''}</textarea>
+        </div>
+        <div style="background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;flex:1;">
+          <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">Features & Traits<span style="font-size:.6rem;font-weight:400;color:var(--text3);text-transform:none;letter-spacing:0;">Library feats clickable</span></div>
+          <!-- Library-linked feat chips -->
+          <div class="char-linked-chips" id="feat-chips-${idx}">
+            ${(c.charFeats||[]).map(ft=>`<div class="lib-chip"><span class="lc-name" onclick="searchLibraryForItem('${ft.name.replace(/'/g,"\\'")}','feat')" title="Open in Library">⭐ ${ft.name}</span><button class="lc-remove" onclick="removeCharFeat(${idx},'${ft.name.replace(/'/g,"\\'")}')">✕</button></div>`).join('')}
+          </div>
+          <textarea rows="5" style="resize:vertical;line-height:1.65;" oninput="updateChar(${idx},'features',this.value)" placeholder="Darkvision, Rage, Sneak Attack, or add Feats from Library...">${c.features||''}</textarea>
+        </div>
       </div>
     </div>
-    <div class="grid2 mt1">
-      <div class="card" style="background:var(--bg3);"><div class="card-title">Spells Known / Prepared</div><textarea rows="4" oninput="updateChar(${idx},'spellsKnown',this.value)">${c.spellsKnown||''}</textarea><div class="card-title" style="margin-top:.65rem;">Spell Slots</div><textarea rows="2" placeholder="1st: 4/4  2nd: 3/3..." oninput="updateChar(${idx},'spellSlots',this.value)">${c.spellSlots||''}</textarea></div>
-      <div class="card" style="background:var(--bg3);"><div class="card-title">Backstory & Notes</div><textarea rows="9" oninput="updateChar(${idx},'backstory',this.value)">${c.backstory||''}</textarea></div>
+
+    <!-- SPELLS + BACKSTORY -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
+    <div style="background:var(--panel);border:1px solid var(--border);border-top:3px solid #c678e0;padding:1.25rem 1.5rem;">
+        <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c678e0;margin-bottom:.85rem;padding-bottom:.4rem;border-bottom:1px solid #7d3c98;">✨ Spells</div>
+
+        <!-- SPELL SLOT TRACKER -->
+        <div style="margin-bottom:1.1rem;">
+          <div style="font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:.5rem;">Spell Slots</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;">
+            ${[1,2,3,4,5,6,7,8,9].map(lvl=>{
+              const key='slots_'+lvl;
+              const usedKey='slots_used_'+lvl;
+              const total=parseInt(c[key]||0);
+              const used=parseInt(c[usedKey]||0);
+              const remaining=Math.max(0,total-used);
+              const levelLabel=['1st','2nd','3rd','4th','5th','6th','7th','8th','9th'][lvl-1];
+              return`<div style="background:var(--bg3);border:1px solid ${total>0?'var(--accent)':'var(--border)'};padding:.45rem .5rem;border-radius:2px;">
+                <div style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:1px;text-transform:uppercase;color:${total>0?'#c678e0':'var(--text3)'};margin-bottom:.3rem;">${levelLabel}</div>
+                <div style="display:flex;align-items:center;gap:.3rem;">
+                  <input type="number" value="${total}" min="0" max="9" oninput="updateChar(${idx},'${key}',this.value);renderCharSheet(state.characters[${idx}])" style="width:36px;padding:.18rem .22rem;font-size:.82rem;text-align:center;background:transparent;border:1px solid var(--border);color:var(--gold2);">
+                  <span style="color:var(--text3);font-size:.7rem;">total</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:.3rem;margin-top:.25rem;">
+                  <button onclick="updateChar(${idx},'${usedKey}',Math.min(${total},parseInt(state.characters[${idx}]['${usedKey}']||0)+1));renderCharSheet(state.characters[${idx}])" style="background:var(--red);border:none;color:var(--text);width:20px;height:20px;cursor:pointer;font-size:.75rem;border-radius:2px;">−</button>
+                  <span style="font-family:'Cinzel Decorative',cursive;font-size:.95rem;color:${remaining>0?'var(--green2)':'var(--red2)'};min-width:16px;text-align:center;">${remaining}</span>
+                  <button onclick="updateChar(${idx},'${usedKey}',Math.max(0,parseInt(state.characters[${idx}]['${usedKey}']||0)-1));renderCharSheet(state.characters[${idx}])" style="background:var(--green);border:none;color:var(--text);width:20px;height:20px;cursor:pointer;font-size:.75rem;border-radius:2px;">+</button>
+                  <span style="color:var(--text3);font-size:.7rem;">left</span>
+                </div>
+                ${total>0?`<div style="display:flex;gap:2px;margin-top:.3rem;flex-wrap:wrap;">${Array.from({length:total},(_,i)=>'<div style="width:10px;height:10px;border-radius:50%;background:'+(i<remaining?'var(--accent)':'var(--bg2)')+'border:1px solid var(--accent);"></div>').join('')}</div>`:''}
+              </div>`;
+            }).join('')}
+          </div>
+          <button class="btn btn-ghost btn-sm" style="margin-top:.5rem;" onclick="[1,2,3,4,5,6,7,8,9].forEach(l=>updateChar(${idx},'slots_used_'+l,0));renderCharSheet(state.characters[${idx}])">🔄 Long Rest — Reset All Slots</button>
+        </div>
+
+        <!-- SPELL SEARCH -->
+        <div style="margin-bottom:.85rem;">
+          <div style="font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:.5rem;">Add Spells from Database</div>
+          <div style="display:flex;gap:.4rem;margin-bottom:.4rem;">
+            <input id="char-spell-search-${idx}" placeholder="Search spells by name..." style="flex:1;" oninput="renderCharSpellSearch(${idx})">
+            <select id="char-spell-level-${idx}" onchange="renderCharSpellSearch(${idx})" style="max-width:100px;">
+              <option value="">All Levels</option>
+              <option>Cantrip</option><option>1st</option><option>2nd</option><option>3rd</option>
+              <option>4th</option><option>5th</option><option>6th</option><option>7th</option>
+              <option>8th</option><option>9th</option>
+            </select>
+          </div>
+          <div id="char-spell-results-${idx}" style="max-height:180px;overflow-y:auto;background:var(--bg3);border:1px solid var(--border);border-radius:2px;"></div>
+        </div>
+
+        <!-- SPELLS BY LEVEL -->
+        <div style="font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:.5rem;">Known / Prepared Spells</div>
+        ${(()=>{
+          const levels=['Cantrip','1st','2nd','3rd','4th','5th','6th','7th','8th','9th'];
+          const charSpells=c.spellList||[];
+          return levels.map(lvl=>{
+            const spellsAtLevel=charSpells.filter(s=>s.level===lvl);
+            return`<div style="margin-bottom:.65rem;">
+              <div style="display:flex;align-items:center;justify-content:space-between;background:${lvl==='Cantrip'?'rgba(201,146,42,.12)':'rgba(155,89,182,.12)'};border:1px solid ${lvl==='Cantrip'?'var(--gold)':'var(--accent)'};padding:.35rem .65rem;margin-bottom:.3rem;">
+                <span style="font-family:'Cinzel',serif;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:${lvl==='Cantrip'?'var(--gold2)':'#c678e0'};">${lvl==='Cantrip'?'✦ Cantrips':'✦ '+lvl+' Level'}</span>
+                <span style="font-size:.7rem;color:var(--text3);">${spellsAtLevel.length} spell${spellsAtLevel.length!==1?'s':''}</span>
+              </div>
+              ${spellsAtLevel.length===0
+                ?`<div style="padding:.35rem .65rem;color:var(--text3);font-size:.8rem;font-style:italic;">No ${lvl==='Cantrip'?'cantrips':''+lvl+' level spells'} added yet</div>`
+                :spellsAtLevel.map(s=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:.38rem .65rem;border-bottom:1px solid rgba(74,58,37,.25);background:var(--bg3);">
+                  <div style="cursor:pointer;" onclick="openSpellFromChar('${s.name.replace(/'/g,"\\'")}',${idx})" title="View spell details">
+                    <span style="font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold3);">${s.name}</span>
+                    <span style="font-size:.72rem;color:var(--text3);margin-left:.5rem;">${s.school||''} · ${s.castTime||''}</span>
+                    ${s.concentration?'<span style="font-size:.62rem;background:rgba(155,89,182,.2);color:#c678e0;border:1px solid #7d3c98;padding:.08rem .28rem;border-radius:2px;margin-left:.3rem;">Conc</span>':''}
+                    ${s.ritual?'<span style="font-size:.62rem;background:rgba(201,146,42,.15);color:var(--gold3);border:1px solid var(--border);padding:.08rem .28rem;border-radius:2px;margin-left:.3rem;">Ritual</span>':''}
+                    <span style="font-size:.62rem;color:var(--text3);margin-left:.3rem;">🔍</span>
+                  </div>
+                  <button onclick="removeSpellFromChar(${idx},'${s.name.replace(/'/g,"\\'")}');renderCharSheet(state.characters[${idx}])" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:.9rem;" title="Remove">✕</button>
+                </div>`).join('')
+              }
+            </div>`;
+          }).join('');
+        })()}
+
+      </div>
+      <div style="background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;">
+        <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);">Backstory & Notes</div>
+        <textarea rows="10" style="resize:vertical;line-height:1.7;" oninput="updateChar(${idx},'backstory',this.value)" placeholder="Born in a small village...">${c.backstory||''}</textarea>
+      </div>
     </div>
-    <button class="btn btn-sm mt1" onclick="addCharToInit(${idx})">➕ Add to Initiative</button>
+
+    <!-- BOTTOM ACTIONS -->
+    <div style="display:flex;gap:.65rem;flex-wrap:wrap;padding:1rem 0;">
+      <button class="btn" onclick="addCharToInit(${idx})">➕ Add to Initiative</button>
+      <button class="btn btn-ghost" onclick="save();alert('Saved ✓')">💾 Save Character</button>
+      <button class="btn btn-red btn-sm" onclick="deleteCharFromFull()">🗑 Delete Character</button>
+    </div>
+
   </div>`;
 }
 function addCharToInit(idx){
@@ -777,13 +2120,34 @@ function newMonster(){
   state.monsters.push({id:Date.now(),name,type:'Beast',size:'Medium',alignment:'Unaligned',ac:10,hp:10,speed:'30 ft.',cr:'1',str:10,dex:10,con:10,int:3,wis:10,cha:7,saves:'',skills:'',resistances:'',immunities:'',senses:'',languages:'—',traits:'',actions:'Slam. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6+1) bludgeoning damage.',reactions:'',legendaryActions:''});
   state.activeMonsterIdx=state.monsters.length-1;renderMonsterList();renderMonsterDetail(state.monsters[state.activeMonsterIdx]);save();
 }
-function deleteMonster(){if(state.activeMonsterIdx===null)return alert('Select a monster first');if(!confirm('Delete?'))return;state.monsters.splice(state.activeMonsterIdx,1);state.activeMonsterIdx=null;document.getElementById('monster-detail-area').innerHTML='<div class="empty-state" style="padding:3.5rem;"><span class="empty-icon">💀</span>Select or import a monster</div>';renderMonsterList();save();}
+function deleteMonster(){if(state.activeMonsterIdx===null)return alert('Select a monster first');if(!confirm('Delete?'))return;state.monsters.splice(state.activeMonsterIdx,1);state.activeMonsterIdx=null;renderMonsterList();save();}
 function renderMonsterList(){
   const el=document.getElementById('monster-list');
   if(!state.monsters.length){el.innerHTML='<div class="empty-state"><span class="empty-icon">💀</span>No monsters saved</div>';return;}
   el.innerHTML=state.monsters.map((m,i)=>'<div class="char-item'+(state.activeMonsterIdx===i?' active':'')+'" onclick="selectMonster('+i+')">'+'<div class="char-avatar">💀</div><div class="char-info"><div class="char-name">'+m.name+'</div><div class="char-sub">'+(m.size||'')+' '+(m.type||'')+' — CR '+(m.cr||'?')+'</div></div></div>').join('');
 }
-function selectMonster(idx){state.activeMonsterIdx=idx;renderMonsterList();renderMonsterDetail(state.monsters[idx]);}
+function selectMonster(idx){
+  state.activeMonsterIdx=idx;
+  renderMonsterList();
+  renderMonsterDetail(state.monsters[idx]);
+}
+function closeMonsterFullView(){
+  document.getElementById('monster-full-view').style.display='none';
+  document.getElementById('monster-list-view').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function addMonsterToInitFromFull(){
+  if(state.activeMonsterIdx===null)return;
+  addMonsterToInit(state.activeMonsterIdx);
+}
+
+function deleteMonsterFromFull(){
+  if(!confirm('Delete this monster?'))return;
+  state.monsters.splice(state.activeMonsterIdx,1);
+  state.activeMonsterIdx=null;
+  save();renderMonsterList();closeMonsterFullView();
+}
 function updateMon(idx,f,v){state.monsters[idx][f]=v;save();}
 
 async function importMonsterFromAPI(){
@@ -801,18 +2165,85 @@ async function importMonsterFromAPI(){
       +`</div>`).join('');
   }catch(e){res.innerHTML='<div class="text-dim" style="color:var(--red2);">API error. Check your internet connection.</div>';}
 }
+function parseStatblockText(){
+  const text=document.getElementById('statblock-paste').value.trim();
+  if(!text)return alert('Paste a stat block first');
 
+  const get=(pattern,fallback='')=>{const m=text.match(pattern);return m?m[1].trim():fallback;};
+  const getNum=(pattern,fallback=10)=>{const m=text.match(pattern);return m?parseInt(m[1]):fallback;};
+
+  // Name is usually the first non-empty line
+  const lines=text.split('\n').map(l=>l.trim()).filter(Boolean);
+  const name=lines[0]||'Unknown Monster';
+
+  // Size and type — second line usually "Medium humanoid, neutral"
+  const sizeLine=lines[1]||'';
+  const sizeMatch=sizeLine.match(/^(Tiny|Small|Medium|Large|Huge|Gargantuan)/i);
+  const size=sizeMatch?sizeMatch[1]:'Medium';
+  const typeMatch=sizeLine.match(/(?:Tiny|Small|Medium|Large|Huge|Gargantuan)\s+(\w+[\w\s]*?)(?:,|\(|$)/i);
+  const type=typeMatch?typeMatch[1].trim():'Humanoid';
+  const alignment=sizeLine.includes(',')?sizeLine.split(',').pop().trim():'Unaligned';
+
+  const ac=getNum(/Armor Class\s+(\d+)/i,10);
+  const hp=getNum(/Hit Points\s+(\d+)/i,10);
+  const speed=get(/Speed\s+([^\n]+)/i,'30 ft.');
+  const cr=get(/Challenge\s+([\d/]+)/i,'1');
+
+  // Ability scores — handles both inline and table formats
+  const str=getNum(/STR[\s\n]+(\d+)/i,10);
+  const dex=getNum(/DEX[\s\n]+(\d+)/i,10);
+  const con=getNum(/CON[\s\n]+(\d+)/i,10);
+  const int_=getNum(/INT[\s\n]+(\d+)/i,10);
+  const wis=getNum(/WIS[\s\n]+(\d+)/i,10);
+  const cha=getNum(/CHA[\s\n]+(\d+)/i,10);
+
+  const saves=get(/Saving Throws\s+([^\n]+)/i,'');
+  const skills=get(/Skills\s+([^\n]+)/i,'');
+  const resistances=get(/Damage Resistances?\s+([^\n]+)/i,'');
+  const immunities=get(/Damage Immunities?\s+([^\n]+)/i,'');
+  const senses=get(/Senses\s+([^\n]+)/i,'');
+  const languages=get(/Languages?\s+([^\n]+)/i,'—');
+
+  // Extract actions block — everything after "Actions" header
+  const actionsMatch=text.match(/(?:^|\n)Actions\s*\n([\s\S]*?)(?=\nReactions|\nLegendary|\nBonus Actions|$)/i);
+  const actions=actionsMatch?actionsMatch[1].trim():'';
+
+  const reactionsMatch=text.match(/(?:^|\n)Reactions\s*\n([\s\S]*?)(?=\nActions|\nLegendary|$)/i);
+  const reactions=reactionsMatch?reactionsMatch[1].trim():'';
+
+  const legendaryMatch=text.match(/(?:^|\n)Legendary Actions\s*\n([\s\S]*?)(?=\nActions|\nReactions|$)/i);
+  const legendaryActions=legendaryMatch?legendaryMatch[1].trim():'';
+
+  // Traits — everything between CR and Actions
+  const traitsMatch=text.match(/Challenge[\s\S]*?\n([\s\S]*?)(?=\nActions|$)/i);
+  const traits=traitsMatch?traitsMatch[1].trim():'';
+
+  const monster={
+    id:Date.now(),name,type,size,alignment,
+    ac,hp,speed,cr,
+    str,dex,con,int:int_,wis,cha,
+    saves,skills,resistances,immunities,senses,languages,
+    portrait:'',traits,actions,reactions,legendaryActions
+  };
+
+  state.monsters.push(monster);
+  state.activeMonsterIdx=state.monsters.length-1;
+  renderMonsterList();renderMonsterDetail(monster);save();
+  document.getElementById('statblock-paste').value='';
+  alert('✓ '+name+' imported! Check the stat block and fix anything the parser missed.');
+}
 function importMonsterData(m){
   const parseActions=arr=>(arr||[]).map(a=>a.name+': '+a.desc).join('\n\n');
-  const levelMap={'0':0,'1/8':.125,'1/4':.25,'1/2':.5};
   const monster={
     id:Date.now(),name:m.name,type:m.type||'Beast',size:m.size||'Medium',alignment:m.alignment||'Unaligned',
     ac:m.armor_class||10,hp:m.hit_points||10,speed:typeof m.speed==='object'?Object.entries(m.speed).map(([k,v])=>k+' '+v+'ft').join(', '):(m.speed||'30 ft.'),
     cr:String(m.challenge_rating||0),
     str:m.strength||10,dex:m.dexterity||10,con:m.constitution||10,int:m.intelligence||3,wis:m.wisdom||10,cha:m.charisma||5,
     saves:[m.strength_save,m.dexterity_save,m.constitution_save,m.intelligence_save,m.wisdom_save,m.charisma_save].filter(Boolean).join(', '),
-    skills:(m.skills||''),resistances:(m.damage_resistances||''),immunities:(m.damage_immunities||''),
+    skills:(typeof m.skills==='object'&&m.skills!==null ? Object.entries(m.skills).map(([k,v])=>k.charAt(0).toUpperCase()+k.slice(1)+' +'+v).join(', ') : m.skills||''),
+    resistances:(m.damage_resistances||''),immunities:(m.damage_immunities||''),
     senses:(m.senses||''),languages:(m.languages||'—'),
+    portrait:(m.img_main&&!m.img_main.startsWith('http')?'https://api.open5e.com'+m.img_main:m.img_main||''),
     traits:parseActions(m.special_abilities),actions:parseActions(m.actions),reactions:parseActions(m.reactions),legendaryActions:parseActions(m.legendary_actions)
   };
   state.monsters.push(monster);state.activeMonsterIdx=state.monsters.length-1;
@@ -823,43 +2254,102 @@ function importMonsterData(m){
 function renderMonsterDetail(m){
   const idx=state.monsters.indexOf(m);
   const abils=['str','dex','con','int','wis','cha'];
-  document.getElementById('monster-detail-area').innerHTML=`
-  <div class="monster-card card">
-    <div style="padding-bottom:.5rem;border-bottom:2px solid var(--red2);">
-      <input value="${m.name}" style="font-family:'Cinzel Decorative',cursive;font-size:1.1rem;background:transparent;border:none;color:var(--gold2);width:100%;" oninput="updateMon(${idx},'name',this.value)">
-      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.2rem;">
-        <input value="${m.size||'Medium'}" oninput="updateMon(${idx},'size',this.value)" placeholder="Size" style="width:80px;">
-        <input value="${m.type||'Beast'}" oninput="updateMon(${idx},'type',this.value)" placeholder="Type" style="flex:1;">
-        <input value="${m.alignment||''}" oninput="updateMon(${idx},'alignment',this.value)" placeholder="Alignment" style="flex:1;">
+
+  // Switch to full view
+  document.getElementById('monster-list-view').style.display='none';
+  document.getElementById('monster-full-view').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  document.getElementById('monster-full-content').innerHTML=`
+  <div style="max-width:960px;margin:0 auto;">
+
+    <!-- HEADER BAND -->
+    <div style="background:linear-gradient(135deg,#1a0a0a,var(--panel));border:1px solid var(--red2);border-left:6px solid var(--red2);padding:1.5rem 2rem;margin-bottom:1.5rem;display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;">
+      <!-- Portrait -->
+      <div style="flex:0 0 140px;">
+        <div style="width:140px;height:140px;background:var(--bg3);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:4rem;overflow:hidden;margin-bottom:.5rem;" id="mon-portrait-${idx}">
+          ${m.portrait?`<img src="${m.portrait}" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentNode.innerHTML='💀'">`:'💀'}
+        </div>
+        <input placeholder="Portrait URL..." value="${m.portrait||''}" style="font-size:.72rem;padding:.3rem .5rem;" oninput="updateMon(${idx},'portrait',this.value);const p=document.getElementById('mon-portrait-${idx}');p.innerHTML=this.value?'<img src=\\''+this.value+'\\' style=\\'width:100%;height:100%;object-fit:cover;\\' onerror=\\'this.parentNode.innerHTML=chr(9760)\\'>':'💀'">
+      </div>
+      <!-- Name + meta -->
+      <div style="flex:1;min-width:200px;">
+        <input value="${m.name}" style="font-family:'Cinzel Decorative',cursive;font-size:2rem;background:transparent;border:none;border-bottom:2px solid var(--red2);color:var(--gold2);width:100%;padding:.25rem 0;margin-bottom:.6rem;" oninput="updateMon(${idx},'name',this.value)">
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem;">
+          <div style="flex:0 0 90px;"><label>Size</label><input value="${m.size||'Medium'}" oninput="updateMon(${idx},'size',this.value)"></div>
+          <div style="flex:1;min-width:100px;"><label>Type</label><input value="${m.type||'Beast'}" oninput="updateMon(${idx},'type',this.value)"></div>
+          <div style="flex:1;min-width:120px;"><label>Alignment</label><input value="${m.alignment||''}" oninput="updateMon(${idx},'alignment',this.value)"></div>
+        </div>
+        <!-- Big 4 stats -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;">
+          <div style="background:rgba(192,57,43,.12);border:1px solid var(--red2);padding:.6rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--red2);margin-bottom:.2rem;">Armor Class</div>
+            <input type="number" value="${m.ac||10}" oninput="updateMon(${idx},'ac',this.value)" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.8rem;color:var(--gold2);text-align:center;width:100%;padding:0;">
+          </div>
+          <div style="background:rgba(192,57,43,.12);border:1px solid var(--red2);padding:.6rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--red2);margin-bottom:.2rem;">Hit Points</div>
+            <input type="number" value="${m.hp||10}" oninput="updateMon(${idx},'hp',this.value)" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.8rem;color:var(--red2);text-align:center;width:100%;padding:0;">
+          </div>
+          <div style="background:rgba(192,57,43,.12);border:1px solid var(--red2);padding:.6rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--red2);margin-bottom:.2rem;">Speed</div>
+            <input value="${m.speed||'30 ft.'}" oninput="updateMon(${idx},'speed',this.value)" style="background:transparent;border:none;font-family:'Cinzel',serif;font-size:1rem;color:var(--text);text-align:center;width:100%;padding:.3rem 0;">
+          </div>
+          <div style="background:rgba(192,57,43,.12);border:1px solid var(--red2);padding:.6rem;text-align:center;border-radius:2px;">
+            <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--red2);margin-bottom:.2rem;">Challenge</div>
+            <input value="${m.cr||'1'}" oninput="updateMon(${idx},'cr',this.value)" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.8rem;color:var(--gold);text-align:center;width:100%;padding:0;">
+          </div>
+        </div>
       </div>
     </div>
-    <div style="color:var(--red2);font-size:.8rem;padding:.5rem 0;display:flex;gap:1rem;flex-wrap:wrap;">
-      <span><strong>AC</strong> <input type="number" value="${m.ac||10}" oninput="updateMon(${idx},'ac',this.value)" style="width:45px;display:inline;"></span>
-      <span><strong>HP</strong> <input type="number" value="${m.hp||10}" oninput="updateMon(${idx},'hp',this.value)" style="width:55px;display:inline;"></span>
-      <span><strong>Speed</strong> <input value="${m.speed||'30 ft.'}" oninput="updateMon(${idx},'speed',this.value)" style="width:90px;display:inline;"></span>
-      <span><strong>CR</strong> <input value="${m.cr||'1'}" oninput="updateMon(${idx},'cr',this.value)" style="width:45px;display:inline;"></span>
+
+    <!-- ABILITY SCORES -->
+    <div style="background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-bottom:1.25rem;">
+      <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);">Ability Scores</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem;">
+        ${abils.map(a=>`
+          <div style="text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:.35rem;">${a.toUpperCase()}</div>
+            <div style="background:var(--bg3);border:2px solid var(--border);border-top:3px solid var(--red2);padding:.6rem .25rem;">
+              <input type="number" value="${m[a]||10}" oninput="updateMon(${idx},'${a}',this.value);this.nextElementSibling.textContent='('+calcMod(parseInt(this.value||10))+')';" style="background:transparent;border:none;font-family:'Cinzel Decorative',cursive;font-size:1.5rem;color:var(--gold2);text-align:center;width:100%;padding:0;">
+              <div style="font-family:'Cinzel',serif;font-size:.82rem;color:var(--text2);margin-top:.15rem;">(${calcMod(m[a]||10)})</div>
+            </div>
+          </div>`).join('')}
+      </div>
     </div>
-    <hr style="border-color:var(--red2);margin:.4rem 0;">
-    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.22rem;margin:.5rem 0;">
-      ${abils.map(a=>`<div class="ability-cell-m"><div class="aname">${a.toUpperCase()}</div><input type="number" value="${m[a]||10}" oninput="updateMon(${idx},'${a}',this.value)"><div class="amod2">(${calcMod(m[a]||10)})</div></div>`).join('')}
+
+    <!-- TRAITS GRID -->
+    <div style="background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-bottom:1.25rem;">
+      <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);">Traits & Proficiencies</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem;">
+        <div><label>Saving Throws</label><input value="${m.saves||''}" oninput="updateMon(${idx},'saves',this.value)" placeholder="Con +5, Wis +2..."></div>
+        <div><label>Skills</label><input value="${m.skills||''}" oninput="updateMon(${idx},'skills',this.value)" placeholder="Perception +4, Stealth +2..."></div>
+        <div><label>Damage Resistances</label><input value="${m.resistances||''}" oninput="updateMon(${idx},'resistances',this.value)" placeholder="Fire, Bludgeoning..."></div>
+        <div><label>Damage Immunities</label><input value="${m.immunities||''}" oninput="updateMon(${idx},'immunities',this.value)" placeholder="Poison, Psychic..."></div>
+        <div><label>Senses</label><input value="${m.senses||''}" oninput="updateMon(${idx},'senses',this.value)" placeholder="Darkvision 60 ft., Passive Perception 12"></div>
+        <div><label>Languages</label><input value="${m.languages||'—'}" oninput="updateMon(${idx},'languages',this.value)" placeholder="Common, Goblin..."></div>
+      </div>
     </div>
-    <hr style="border-color:var(--red2);margin:.4rem 0;">
-    <div style="font-size:.86rem;color:var(--text2);line-height:1.65;">
-      <div><strong style="color:var(--gold3);">Saves:</strong> <input value="${m.saves||''}" oninput="updateMon(${idx},'saves',this.value)" style="display:inline;width:calc(100% - 60px);"></div>
-      <div><strong style="color:var(--gold3);">Resistances:</strong> <input value="${m.resistances||''}" oninput="updateMon(${idx},'resistances',this.value)" style="display:inline;width:calc(100% - 100px);"></div>
-      <div><strong style="color:var(--gold3);">Immunities:</strong> <input value="${m.immunities||''}" oninput="updateMon(${idx},'immunities',this.value)" style="display:inline;width:calc(100% - 90px);"></div>
-      <div><strong style="color:var(--gold3);">Senses:</strong> <input value="${m.senses||''}" oninput="updateMon(${idx},'senses',this.value)" style="display:inline;width:calc(100% - 65px);"></div>
-      <div><strong style="color:var(--gold3);">Languages:</strong> <input value="${m.languages||'—'}" oninput="updateMon(${idx},'languages',this.value)" style="display:inline;width:calc(100% - 80px);"></div>
+
+    <!-- ACTIONS PANELS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
+      <div style="background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;">
+        <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:.65rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);">Special Traits</div>
+        <textarea rows="5" style="resize:vertical;line-height:1.65;" oninput="updateMon(${idx},'traits',this.value)" placeholder="Legendary Resistance, Magic Resistance...">${m.traits||''}</textarea>
+      </div>
+      <div style="background:var(--panel);border:1px solid var(--border);border-top:3px solid var(--red2);padding:1.25rem 1.5rem;">
+        <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red2);margin-bottom:.65rem;padding-bottom:.4rem;border-bottom:1px solid var(--red2);">Actions</div>
+        <textarea rows="5" style="resize:vertical;line-height:1.65;" oninput="updateMon(${idx},'actions',this.value)" placeholder="Multiattack, weapon attacks...">${m.actions||''}</textarea>
+      </div>
+      <div style="background:var(--panel);border:1px solid var(--border);padding:1.25rem 1.5rem;">
+        <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:.65rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);">Reactions</div>
+        <textarea rows="4" style="resize:vertical;line-height:1.65;" oninput="updateMon(${idx},'reactions',this.value)" placeholder="Parry, Shield...">${m.reactions||''}</textarea>
+      </div>
+      <div style="background:var(--panel);border:1px solid var(--border);border-top:3px solid #9b59b6;padding:1.25rem 1.5rem;">
+        <div style="font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c678e0;margin-bottom:.65rem;padding-bottom:.4rem;border-bottom:1px solid #7d3c98;">Legendary Actions</div>
+        <textarea rows="4" style="resize:vertical;line-height:1.65;" oninput="updateMon(${idx},'legendaryActions',this.value)" placeholder="Can take 3 legendary actions...">${m.legendaryActions||''}</textarea>
+      </div>
     </div>
-    <hr style="border-color:var(--border);margin:.5rem 0;">
-    <div class="form-group"><label style="color:var(--text2);">Traits</label><textarea rows="2" oninput="updateMon(${idx},'traits',this.value)">${m.traits||''}</textarea></div>
-    <div class="form-group"><label style="color:var(--red2);">Actions</label><textarea rows="4" oninput="updateMon(${idx},'actions',this.value)">${m.actions||''}</textarea></div>
-    <div class="form-group"><label>Reactions</label><textarea rows="2" oninput="updateMon(${idx},'reactions',this.value)">${m.reactions||''}</textarea></div>
-    <div class="form-group"><label style="color:var(--accent2);">Legendary Actions</label><textarea rows="2" oninput="updateMon(${idx},'legendaryActions',this.value)">${m.legendaryActions||''}</textarea></div>
-    <div style="display:flex;gap:.6rem;margin-top:.75rem;flex-wrap:wrap;">
-      <button class="btn btn-sm" onclick="addMonsterToInit(${idx})">➕ Add to Initiative</button>
-      <button class="btn btn-ghost btn-sm" onclick="save();alert('Saved ✓')">💾 Save</button>
-    </div>
+
   </div>`;
 }
 function addMonsterToInit(idx){
@@ -869,37 +2359,111 @@ function addMonsterToInit(idx){
 }
 
 // ===== SPELLS (Open5e API) =====
-let spellSort={col:'level_int',dir:1},expandedSpell=null;
+let spellSort={col:'level_int',dir:1},expandedSpell=null,expandedCharSpell=null,spellReturnCharIdx=null;
+
+function openSpellFromChar(spellName,charIdx){
+  spellReturnCharIdx=charIdx;
+  showPage('spells');
+  renderSpells();
+  // expand the spell and scroll to it after render
+  expandedSpell=spellName;
+  renderSpells();
+  // search for it so it's visible
+  const searchEl=document.getElementById('spell-search');
+  if(searchEl){searchEl.value=spellName;filterSpells();}
+  // show back button
+  renderSpellBackBtn();
+  setTimeout(()=>{
+    const rows=document.querySelectorAll('#spell-tbody tr');
+    if(rows.length)rows[0].scrollIntoView({behavior:'smooth',block:'center'});
+  },80);
+}
+
+function renderSpellBackBtn(){
+  const existing=document.getElementById('spell-back-btn');
+  if(existing)existing.remove();
+  if(spellReturnCharIdx===null)return;
+  const charName=(state.characters[spellReturnCharIdx]||{}).name||'Character';
+  const btn=document.createElement('button');
+  btn.id='spell-back-btn';
+  btn.className='btn btn-ghost';
+  btn.style.cssText='position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;box-shadow:0 4px 20px rgba(0,0,0,.8);';
+  btn.innerHTML='← Back to '+charName;
+  btn.onclick=()=>{
+    const idx=spellReturnCharIdx;
+    spellReturnCharIdx=null;
+    btn.remove();
+    // clear the search filter
+    const searchEl=document.getElementById('spell-search');
+    if(searchEl)searchEl.value='';
+    expandedSpell=null;
+    showPage('characters');
+    selectChar(idx);
+  };
+  document.body.appendChild(btn);
+}
 const levelToInt={'Cantrip':0,'1st':1,'2nd':2,'3rd':3,'4th':4,'5th':5,'6th':6,'7th':7,'8th':8,'9th':9};
 
-async function loadSpellsFromAPI(){
-  document.getElementById('spell-loading').style.display='block';
-  document.getElementById('spell-tbody').innerHTML='';
-  let spells=[],url='https://api.open5e.com/v1/spells/?limit=500&format=json';
-  try{
-    while(url){
-      const resp=await fetch(url);const data=await resp.json();
-      spells=spells.concat(data.results||[]);
-      url=data.next;
+async function loadSpellsFromAPI() {
+  document.getElementById('spell-loading').style.display = 'block';
+  document.getElementById('spell-tbody').innerHTML = '';
+  let spells = [], url = 'https://api.open5e.com/v1/spells/?limit=500&format=json';
+
+  try {
+    while (url) {
+      const resp = await fetch(url);
+      const data = await resp.json();
+      spells = spells.concat(data.results || []);
+      url = data.next;
     }
-    state.spells=spells.map(s=>({
-      name:s.name||'',
-      level:s.level||'Cantrip',
-      level_int:levelToInt[s.level]??0,
-      school:(s.school||'').charAt(0).toUpperCase()+(s.school||'').slice(1),
-      castTime:s.casting_time||'',
-      range:s.range||'',
-      duration:s.duration||'',
-      components:s.components||'',
-      concentration:(s.duration||'').toLowerCase().includes('concentration'),
-      ritual:s.ritual==='yes'||s.ritual===true,
-      classes:(s.dnd_class||s.classes||''),
-      description:s.desc||'',
-      higherLevel:s.higher_level||''
-    }));
-    save();document.getElementById('spell-loading').style.display='none';
-    renderSpells();updateDashboard();
-  }catch(e){document.getElementById('spell-loading').style.display='none';document.getElementById('spell-tbody').innerHTML='<tr><td colspan="8" style="color:var(--red2);text-align:center;padding:1rem;">Failed to load spells. Check your internet connection.</td></tr>';}
+
+    // ✅ Fix: correct level mapping
+    const levelNames = [
+      "Cantrip",
+      "1st",
+      "2nd",
+      "3rd",
+      "4th",
+      "5th",
+      "6th",
+      "7th",
+      "8th",
+      "9th"
+    ];
+
+    state.spells = spells.map(s => {
+      // Convert Open5e's level (0–9 or string) → correct readable level
+      let li = parseInt(s.level);
+
+      if (isNaN(li) || li < 0 || li > 9) li = 0; // fix invalid API values
+
+      return {
+        name: s.name || '',
+        level: levelNames[li],     // ✅ use readable level string
+        level_int: li,             // ✅ numeric level value
+        school: (s.school || '').charAt(0).toUpperCase() + (s.school || '').slice(1),
+        castTime: s.casting_time || '',
+        range: s.range || '',
+        duration: s.duration || '',
+        components: s.components || '',
+        concentration: (s.duration || '').toLowerCase().includes('concentration'),
+        ritual: s.ritual === 'yes' || s.ritual === true,
+        classes: (s.dnd_class || s.classes || ''),
+        description: s.desc || '',
+        higherLevel: s.higher_level || ''
+      };
+    });
+
+    save();
+    document.getElementById('spell-loading').style.display = 'none';
+    renderSpells();
+    updateDashboard();
+
+  } catch (e) {
+    document.getElementById('spell-loading').style.display = 'none';
+    document.getElementById('spell-tbody').innerHTML =
+      '<tr><td colspan="8" style="color:var(--red2);text-align:center;padding:1rem;">Failed to load spells. Check your internet connection.</td></tr>';
+  }
 }
 
 function sortSpells(col){if(spellSort.col===col)spellSort.dir*=-1;else{spellSort.col=col;spellSort.dir=1;}renderSpells();}
@@ -958,56 +2522,533 @@ function saveCustomSpell(){
   state.customSpells.push(s);save();document.getElementById('add-spell-modal').classList.remove('open');renderSpells();updateDashboard();
 }
 
-// ===== MAP =====
-const TILES=[{e:'⬜',n:'Floor'},{e:'⬛',n:'Wall'},{e:'🌿',n:'Grass'},{e:'🟫',n:'Dirt'},{e:'💧',n:'Water'},{e:'🌲',n:'Tree'},{e:'🔥',n:'Fire'},{e:'🪨',n:'Rock'},{e:'🚪',n:'Door'},{e:'⬆',n:'Stairs'},{e:'🛏',n:'Bed'},{e:'💀',n:'Bones'},{e:'🕯',n:'Candle'},{e:'🌑',n:'Dark'}];
-const TOKENS=['🧙','⚔','🏹','🛡','👁','💀','🐉','👹','🧌','🤺'];
-let mapData=[],mapTokens=[],mapSize=30,cellSize=24,selTile='⬜',mapTool='paint',isDrawing=false;
+// ===== MAP BUILDER =====
+var mb = {
+  canvas:null, ctx:null,
+  G:30, CELL:48, zoom:1, ox:0, oy:0,
+  tool:'paint', selTile:'stone_floor', selEmoji:'🧙',
+  tiles:[], tokens:[], labels:[], fog:[],
+  showGrid:true, fogOn:false, isoOn:false, fogBrush:3,
+  hist:[], fut:[], maxHist:60,
+  down:false, lastX:-1, lastY:-1,
+  panStart:null, rectA:null, measA:null, measB:null,
+  imgCache:{}, customTiles:[]
+};
 
-function initMap(){
-  const c=document.getElementById('map-canvas');if(!c)return;
-  mapSize=parseInt(document.getElementById('map-size').value)||30;
-  cellSize=Math.min(24,Math.floor(Math.min(window.innerWidth-280,960)/mapSize));
-  c.width=mapSize*cellSize;c.height=mapSize*cellSize;
-  if(!mapData.length||mapData.length!==mapSize)mapData=Array.from({length:mapSize},()=>Array(mapSize).fill('⬜'));
-  setupTilePalette();
-  c.onmousedown=e=>{isDrawing=true;handleMapEvt(e,c);};
-  c.onmousemove=e=>{if(isDrawing)handleMapEvt(e,c);};
-  c.onmouseup=()=>isDrawing=false;c.onmouseleave=()=>isDrawing=false;
-  c.ontouchstart=e=>{e.preventDefault();isDrawing=true;handleTouch(e,c);};
-  c.ontouchmove=e=>{e.preventDefault();if(isDrawing)handleTouch(e,c);};
-  c.ontouchend=()=>isDrawing=false;
-  drawMap(c);renderLegend();renderTokenList();
+var MB_TILES = [
+  {k:'stone_floor', n:'Stone Floor',  cat:'Dungeon',  bg:'#4a4040', g:'#3a3030'},
+  {k:'stone_wall',  n:'Stone Wall',   cat:'Dungeon',  bg:'#1e1a18', g:'#2a2420'},
+  {k:'wood_floor',  n:'Wood Floor',   cat:'Dungeon',  bg:'#6b4c2a', g:'#5a3c1e'},
+  {k:'flagstone',   n:'Flagstone',    cat:'Dungeon',  bg:'#5a5048', g:'#4a4038'},
+  {k:'dirt_floor',  n:'Dirt Floor',   cat:'Dungeon',  bg:'#5c3d1a', g:'#4a2e12'},
+  {k:'pit',         n:'Pit',          cat:'Dungeon',  bg:'#080606', g:'#181212'},
+  {k:'ice_floor',   n:'Ice Floor',    cat:'Dungeon',  bg:'#b8d8e8', g:'#90b8c8'},
+  {k:'lava_floor',  n:'Lava Floor',   cat:'Dungeon',  bg:'#8b2000', g:'#cc4400'},
+  {k:'grass',       n:'Grass',        cat:'Nature',   bg:'#2d5a1b', g:'#3d7a25'},
+  {k:'forest',      n:'Forest',       cat:'Nature',   bg:'#1a3a10', g:'#2d5a1b'},
+  {k:'water',       n:'Water',        cat:'Nature',   bg:'#1a4a6b', g:'#2a6a9b'},
+  {k:'deep_water',  n:'Deep Water',   cat:'Nature',   bg:'#0a1e3a', g:'#1a3a6b'},
+  {k:'sand',        n:'Sand',         cat:'Nature',   bg:'#c8a44a', g:'#b8943a'},
+  {k:'snow',        n:'Snow',         cat:'Nature',   bg:'#dce8f0', g:'#c8d8e0'},
+  {k:'swamp',       n:'Swamp',        cat:'Nature',   bg:'#3a4a20', g:'#2a3a15'},
+  {k:'mountain',    n:'Mountain',     cat:'Nature',   bg:'#6a6058', g:'#5a5048'},
+  {k:'door_c',      n:'Door Closed',  cat:'Objects',  bg:'#6b4c2a', g:'#4a3010', icon:'🚪'},
+  {k:'door_o',      n:'Door Open',    cat:'Objects',  bg:'#3a2810', g:'#2a1808', icon:'🔓'},
+  {k:'stairs_up',   n:'Stairs Up',    cat:'Objects',  bg:'#5a5048', g:'#4a4038', icon:'⬆'},
+  {k:'stairs_dn',   n:'Stairs Down',  cat:'Objects',  bg:'#3a3028', g:'#2a2018', icon:'⬇'},
+  {k:'pillar',      n:'Pillar',       cat:'Objects',  bg:'#5a5048', g:'#8a8078'},
+  {k:'altar',       n:'Altar',        cat:'Objects',  bg:'#3a2a48', g:'#6a4a88', icon:'🕯'},
+  {k:'chest',       n:'Chest',        cat:'Objects',  bg:'#6b4c2a', g:'#c8941a', icon:'📦'},
+  {k:'campfire',    n:'Campfire',     cat:'Objects',  bg:'#1a0e08', g:'#5a2800', icon:'🔥'},
+  {k:'bookshelf',   n:'Bookshelf',    cat:'Objects',  bg:'#4a3010', g:'#8a6040', icon:'📚'},
+  {k:'throne',      n:'Throne',       cat:'Objects',  bg:'#3a2a10', g:'#c8941a', icon:'👑'},
+  {k:'trap',        n:'Trap',         cat:'Objects',  bg:'#3a0a0a', g:'#8a2020', icon:'⚠'},
+  {k:'barrel',      n:'Barrel',       cat:'Objects',  bg:'#5a3c1e', g:'#4a2e12', icon:'🛢'},
+  {k:'void',        n:'Void',         cat:'Special',  bg:'#030202', g:'#030202'},
+  {k:'magic_circ',  n:'Magic Circle', cat:'Special',  bg:'#0a0818', g:'#4a2a88', icon:'🔮'},
+  {k:'teleport',    n:'Teleporter',   cat:'Special',  bg:'#1a0a2a', g:'#8a4aff', icon:'✨'},
+  {k:'blood',       n:'Blood Stain',  cat:'Special',  bg:'#4a0a0a', g:'#7a1a1a', icon:'🩸'},
+  {k:'rubble',      n:'Rubble',       cat:'Special',  bg:'#3a3228', g:'#5a5248', icon:'💥'},
+  {k:'fog_tile',    n:'Fog/Mystery',  cat:'Special',  bg:'#1a1820', g:'#3a3848', icon:'🌫'},
+];
+
+var MB_TOKEN_EMOJIS = ['🧙','⚔','🛡','🏹','👁','💀','🐉','👹','🧌','🤺','🧝','🦇','🐺','🦅','🗡','🔮','💎','🕯','🚫','👑','🧟','🐀'];
+
+function mbGetTile(k) {
+  var i;
+  for (i=0;i<mb.customTiles.length;i++) if(mb.customTiles[i].k===k) return mb.customTiles[i];
+  for (i=0;i<MB_TILES.length;i++) if(MB_TILES[i].k===k) return MB_TILES[i];
+  return MB_TILES[0];
 }
-function setupTilePalette(){
-  document.getElementById('tile-palette').innerHTML=TILES.map(t=>`<span title="${t.n}" style="font-size:1.1rem;cursor:pointer;padding:.18rem;border:2px solid ${t.e===selTile?'var(--gold)':'transparent'};border-radius:3px;" onclick="selTile='${t.e}';document.querySelectorAll('#tile-palette span').forEach(s=>s.style.borderColor='transparent');this.style.borderColor='var(--gold)'">${t.e}</span>`).join('');
-}
-function setMapTool(t,btn){mapTool=t;document.querySelectorAll('.map-tool-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
-function handleMapEvt(e,c){const r=c.getBoundingClientRect();applyTool(Math.floor((e.clientX-r.left)/(r.width/mapSize)),Math.floor((e.clientY-r.top)/(r.height/mapSize)),c);}
-function handleTouch(e,c){const t=e.touches[0];const r=c.getBoundingClientRect();applyTool(Math.floor((t.clientX-r.left)/(r.width/mapSize)),Math.floor((t.clientY-r.top)/(r.height/mapSize)),c);}
-function applyTool(x,y,c){
-  if(x<0||y<0||x>=mapSize||y>=mapSize)return;
-  if(mapTool==='paint'){mapData[y][x]=selTile;drawMap(c);}
-  else if(mapTool==='erase'){mapData[y][x]='⬜';drawMap(c);}
-  else if(mapTool==='fill'){floodFill(x,y,mapData[y][x],selTile,c);}
-  else if(mapTool==='token'){const name=prompt('Token name:','Hero')||'Token';mapTokens.push({x,y,emoji:TOKENS[Math.floor(Math.random()*TOKENS.length)],name});drawMap(c);renderTokenList();}
-}
-function floodFill(x,y,target,rep,c){if(target===rep)return;const stack=[[x,y]];while(stack.length){const[cx,cy]=stack.pop();if(cx<0||cy<0||cx>=mapSize||cy>=mapSize||mapData[cy][cx]!==target)continue;mapData[cy][cx]=rep;stack.push([cx+1,cy],[cx-1,cy],[cx,cy+1],[cx,cy-1]);}drawMap(c);}
-function drawMap(c){
-  const ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);
-  const cs=cellSize;ctx.font=Math.max(10,cs-4)+'px serif';ctx.textAlign='center';ctx.textBaseline='middle';
-  for(let y=0;y<mapSize;y++)for(let x=0;x<mapSize;x++){
-    ctx.fillStyle='#1a1208';ctx.fillRect(x*cs,y*cs,cs,cs);
-    ctx.strokeStyle='rgba(74,58,37,.3)';ctx.lineWidth=.5;ctx.strokeRect(x*cs,y*cs,cs,cs);
-    if(mapData[y][x]&&mapData[y][x]!=='⬜')ctx.fillText(mapData[y][x],x*cs+cs/2,y*cs+cs/2);
+
+function mbDrawCell(ctx, px, py, cs, tile, alpha) {
+  if (alpha !== undefined) ctx.globalAlpha = alpha;
+  ctx.fillStyle = tile.bg;
+  ctx.fillRect(px, py, cs, cs);
+  var fg = tile.g || tile.bg;
+  var k = tile.k || '';
+  var i, r, bw, bh;
+
+  if (k === 'stone_wall') {
+    ctx.strokeStyle = fg; ctx.lineWidth = 0.5;
+    bw = cs/2; bh = cs/3;
+    for (r=0; r<3; r++) {
+      var off = (r%2) ? bw/2 : 0;
+      ctx.strokeRect(px-off, py+r*bh, bw, bh);
+      ctx.strokeRect(px+bw-off, py+r*bh, bw, bh);
+      ctx.strokeRect(px+2*bw-off, py+r*bh, bw, bh);
+    }
+  } else if (k === 'stone_floor') {
+    ctx.strokeStyle = fg+'aa'; ctx.lineWidth = 0.4;
+    ctx.beginPath(); ctx.moveTo(px+cs*0.3,py+cs*0.1); ctx.lineTo(px+cs*0.5,py+cs*0.45); ctx.lineTo(px+cs*0.7,py+cs*0.85); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(px+cs*0.1,py+cs*0.6); ctx.lineTo(px+cs*0.28,py+cs*0.9); ctx.stroke();
+  } else if (k === 'wood_floor') {
+    ctx.strokeStyle = fg; ctx.lineWidth = 0.5;
+    for (r=0; r<4; r++) ctx.strokeRect(px, py+r*cs/4, cs, cs/4);
+    ctx.beginPath(); ctx.moveTo(px+cs*0.5,py); ctx.lineTo(px+cs*0.5,py+cs*0.5); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(px+cs*0.25,py+cs*0.5); ctx.lineTo(px+cs*0.25,py+cs); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(px+cs*0.75,py+cs*0.5); ctx.lineTo(px+cs*0.75,py+cs); ctx.stroke();
+  } else if (k === 'flagstone') {
+    ctx.strokeStyle = fg; ctx.lineWidth = 0.5;
+    ctx.strokeRect(px+cs*0.02, py+cs*0.02, cs*0.48, cs*0.48);
+    ctx.strokeRect(px+cs*0.52, py+cs*0.27, cs*0.46, cs*0.48);
+    ctx.strokeRect(px+cs*0.02, py+cs*0.52, cs*0.72, cs*0.44);
+  } else if (k === 'dirt_floor' || k === 'sand') {
+    ctx.fillStyle = fg;
+    for (i=0; i<8; i++) {
+      ctx.beginPath();
+      ctx.arc(px+((i*97+13)%Math.floor(cs*0.8))+cs*0.1, py+((i*53+27)%Math.floor(cs*0.8))+cs*0.1, cs*0.04, 0, 6.28);
+      ctx.fill();
+    }
+  } else if (k === 'pit') {
+    ctx.strokeStyle = fg; ctx.lineWidth = 1.2;
+    for (i=0; i<4; i++) { var dd=i*cs/9; ctx.strokeRect(px+dd,py+dd,cs-dd*2,cs-dd*2); }
+  } else if (k === 'ice_floor') {
+    ctx.strokeStyle = fg; ctx.lineWidth = 0.5;
+    ctx.beginPath(); ctx.moveTo(px+cs*0.15,py+cs*0.15); ctx.lineTo(px+cs*0.85,py+cs*0.85); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(px+cs*0.85,py+cs*0.15); ctx.lineTo(px+cs*0.15,py+cs*0.85); ctx.stroke();
+    ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,cs*0.25,0,6.28); ctx.stroke();
+  } else if (k === 'lava_floor') {
+    ctx.fillStyle = fg+'aa';
+    for (i=0; i<4; i++) {
+      ctx.beginPath();
+      ctx.arc(px+((i*37+11)%Math.floor(cs*0.7))+cs*0.15, py+((i*61+19)%Math.floor(cs*0.7))+cs*0.15, cs*0.1, Math.PI, 0);
+      ctx.fill();
+    }
+  } else if (k === 'grass') {
+    ctx.fillStyle = fg;
+    for (i=0; i<5; i++) ctx.fillRect(px+i*cs/5+cs*0.06, py+cs*0.65, cs*0.05, cs*0.28);
+  } else if (k === 'forest') {
+    ctx.fillStyle = fg; ctx.beginPath(); ctx.arc(px+cs/2,py+cs*0.38,cs*0.32,0,6.28); ctx.fill();
+    ctx.fillStyle = tile.bg; ctx.beginPath(); ctx.arc(px+cs/2,py+cs*0.38,cs*0.15,0,6.28); ctx.fill();
+    ctx.fillStyle = fg+'88'; ctx.fillRect(px+cs*0.44,py+cs*0.65,cs*0.12,cs*0.28);
+  } else if (k === 'water') {
+    ctx.strokeStyle = fg; ctx.lineWidth = 1.5;
+    for (i=0;i<3;i++) { ctx.beginPath(); ctx.arc(px+cs*(0.2+i*0.28),py+cs*0.5,cs*0.1,Math.PI,0,false); ctx.stroke(); }
+  } else if (k === 'deep_water') {
+    ctx.fillStyle = fg;
+    for (i=0;i<3;i++) { ctx.beginPath(); ctx.arc(px+cs*(0.22+i*0.27),py+cs*0.5,cs*0.08,Math.PI,0); ctx.fill(); }
+  } else if (k === 'snow') {
+    ctx.fillStyle = fg+'aa';
+    ctx.beginPath(); ctx.arc(px+cs*0.35,py+cs*0.38,cs*0.22,0,6.28); ctx.fill();
+    ctx.beginPath(); ctx.arc(px+cs*0.65,py+cs*0.5,cs*0.14,0,6.28); ctx.fill();
+  } else if (k === 'swamp') {
+    ctx.fillStyle = fg; ctx.beginPath(); ctx.arc(px+cs*0.4,py+cs*0.5,cs*0.28,0,6.28); ctx.fill();
+    ctx.fillStyle = tile.bg; ctx.beginPath(); ctx.arc(px+cs*0.55,py+cs*0.42,cs*0.12,0,6.28); ctx.fill();
+  } else if (k === 'mountain') {
+    ctx.fillStyle = fg;
+    ctx.beginPath(); ctx.moveTo(px+cs*0.5,py+cs*0.1); ctx.lineTo(px+cs*0.1,py+cs*0.88); ctx.lineTo(px+cs*0.9,py+cs*0.88); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = tile.bg;
+    ctx.beginPath(); ctx.moveTo(px+cs*0.5,py+cs*0.1); ctx.lineTo(px+cs*0.34,py+cs*0.42); ctx.lineTo(px+cs*0.66,py+cs*0.42); ctx.closePath(); ctx.fill();
+  } else if (k === 'pillar') {
+    ctx.fillStyle = fg; ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,cs*0.38,0,6.28); ctx.fill();
+    ctx.fillStyle = tile.bg; ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,cs*0.2,0,6.28); ctx.fill();
+  } else if (k === 'stairs_up') {
+    ctx.fillStyle = fg;
+    for (i=0;i<4;i++) ctx.fillRect(px+i*cs/4, py+(3-i)*cs/5, cs/4, cs/5);
+  } else if (k === 'stairs_dn') {
+    ctx.fillStyle = fg;
+    for (i=0;i<4;i++) ctx.fillRect(px+i*cs/4, py+i*cs/5, cs/4, cs/5);
+  } else if (k === 'magic_circ') {
+    ctx.strokeStyle = fg; ctx.lineWidth = 0.9;
+    ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,cs*0.38,0,6.28); ctx.stroke();
+    ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,cs*0.22,0,6.28); ctx.stroke();
+    ctx.beginPath();
+    for (i=0;i<5;i++) {
+      var ang = -Math.PI/2 + (2*Math.PI*i*2/5);
+      var rx = px+cs/2 + cs*0.34*Math.cos(ang);
+      var ry = py+cs/2 + cs*0.34*Math.sin(ang);
+      if (i===0) ctx.moveTo(rx,ry); else ctx.lineTo(rx,ry);
+    }
+    ctx.closePath(); ctx.stroke();
+  } else if (k === 'teleport') {
+    ctx.strokeStyle = fg; ctx.lineWidth = 0.9;
+    ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,cs*0.38,0,6.28); ctx.stroke();
+    ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,cs*0.25,0,6.28); ctx.stroke();
+    ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,cs*0.11,0,6.28); ctx.stroke();
   }
-  mapTokens.forEach(t=>{ctx.font=Math.max(10,cs-4)+'px serif';ctx.fillText(t.emoji,t.x*cs+cs/2,t.y*cs+cs/2);ctx.fillStyle='rgba(232,184,75,.85)';ctx.font='bold '+Math.max(6,cs/3.2)+'px Cinzel,serif';ctx.fillText(t.name.substring(0,4),t.x*cs+cs/2,t.y*cs+cs-1);});
+
+  if (tile.icon) {
+    ctx.font = Math.max(9,cs*0.46)+'px serif';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(tile.icon, px+cs/2, py+cs/2);
+  }
+  if (alpha !== undefined) ctx.globalAlpha=1;
 }
-function renderLegend(){document.getElementById('legend-list').innerHTML=TILES.map(t=>'<div style="display:flex;align-items:center;gap:.38rem;">'+t.e+'<span style="color:var(--text2);">'+t.n+'</span></div>').join('');}
-function renderTokenList(){document.getElementById('map-tokens').innerHTML=mapTokens.map((t,i)=>'<div style="display:flex;align-items:center;gap:.38rem;">'+t.emoji+' '+t.name+' <button onclick="mapTokens.splice('+i+',1);drawMap(document.getElementById(\'map-canvas\'));renderTokenList()" style="background:none;border:none;color:var(--text3);cursor:pointer;">✕</button></div>').join('');}
-function clearTokens(){mapTokens=[];drawMap(document.getElementById('map-canvas'));renderTokenList();}
-function clearMap(){if(confirm('Clear map?')){mapData=Array.from({length:mapSize},()=>Array(mapSize).fill('⬜'));mapTokens=[];drawMap(document.getElementById('map-canvas'));renderTokenList();}}
-function resizeMap(){mapSize=parseInt(document.getElementById('map-size').value);mapData=[];mapTokens=[];initMap();}
-function saveMapPNG(){const c=document.getElementById('map-canvas');const a=document.createElement('a');a.download='dnd-map.png';a.href=c.toDataURL();a.click();}
+
+function mbDrawIsoCell(ctx, gx, gy, cs, tile, W) {
+  var tw=cs, th=cs*0.5;
+  var sx = W/2 + (gx-gy)*tw/2;
+  var sy = mb.oy + (gx+gy)*th/2;
+  var fh = cs*0.2;
+  ctx.beginPath(); ctx.moveTo(sx+tw/2,sy); ctx.lineTo(sx+tw,sy+th/2); ctx.lineTo(sx+tw/2,sy+th); ctx.lineTo(sx,sy+th/2); ctx.closePath();
+  ctx.fillStyle=tile.bg; ctx.fill();
+  ctx.strokeStyle=(tile.g||tile.bg)+'55'; ctx.lineWidth=0.5; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(sx,sy+th/2); ctx.lineTo(sx+tw/2,sy+th); ctx.lineTo(sx+tw/2,sy+th+fh); ctx.lineTo(sx,sy+th/2+fh); ctx.closePath();
+  ctx.fillStyle=tile.bg+'99'; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(sx+tw/2,sy+th); ctx.lineTo(sx+tw,sy+th/2); ctx.lineTo(sx+tw,sy+th/2+fh); ctx.lineTo(sx+tw/2,sy+th+fh); ctx.closePath();
+  ctx.fillStyle=tile.bg+'66'; ctx.fill();
+}
+
+function mbDraw() {
+  var c=mb.canvas; if(!c)return;
+  var ctx=mb.ctx, W=c.width, H=c.height, cs=mb.CELL*mb.zoom;
+  ctx.fillStyle='#060402'; ctx.fillRect(0,0,W,H);
+  var gx, gy;
+  for (gy=0;gy<mb.G;gy++) {
+    for (gx=0;gx<mb.G;gx++) {
+      var tile=mbGetTile(mb.tiles[gy][gx]);
+      if (mb.isoOn) {
+        mbDrawIsoCell(ctx,gx,gy,cs,tile,W);
+      } else {
+        var px=mb.ox+gx*cs, py=mb.oy+gy*cs;
+        if(px+cs<0||py+cs<0||px>W||py>H) continue;
+        mbDrawCell(ctx,px,py,cs,tile);
+      }
+    }
+  }
+  if (mb.showGrid && !mb.isoOn) {
+    ctx.strokeStyle='rgba(74,58,37,0.28)'; ctx.lineWidth=0.5;
+    var x0=Math.max(0,Math.floor(-mb.ox/cs)), x1=Math.min(mb.G,Math.ceil((W-mb.ox)/cs));
+    var y0=Math.max(0,Math.floor(-mb.oy/cs)), y1=Math.min(mb.G,Math.ceil((H-mb.oy)/cs));
+    ctx.beginPath();
+    for (gx=x0;gx<=x1;gx++){ctx.moveTo(mb.ox+gx*cs,mb.oy+y0*cs);ctx.lineTo(mb.ox+gx*cs,mb.oy+y1*cs);}
+    for (gy=y0;gy<=y1;gy++){ctx.moveTo(mb.ox+x0*cs,mb.oy+gy*cs);ctx.lineTo(mb.ox+x1*cs,mb.oy+gy*cs);}
+    ctx.stroke();
+  }
+  var i;
+  for (i=0;i<mb.labels.length;i++) {
+    var lbl=mb.labels[i];
+    var lpx=mb.ox+lbl.x*cs+cs/2, lpy=mb.oy+lbl.y*cs+cs/2;
+    ctx.font='bold '+(cs*0.27)+'px Cinzel,serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillStyle='rgba(0,0,0,0.6)'; ctx.fillText(lbl.t,lpx+1,lpy+1);
+    ctx.fillStyle=lbl.c||'#f5d27a'; ctx.fillText(lbl.t,lpx,lpy);
+  }
+  for (i=0;i<mb.tokens.length;i++) mbDrawToken(ctx,mb.tokens[i],cs);
+  if (mb.fogOn) {
+    ctx.fillStyle='rgba(8,6,4,0.82)';
+    for (gy=0;gy<mb.G;gy++) for (gx=0;gx<mb.G;gx++) if(mb.fog[gy][gx]) ctx.fillRect(mb.ox+gx*cs,mb.oy+gy*cs,cs,cs);
+  }
+  if (mb.measA && mb.measB) {
+    var ma={x:mb.ox+(mb.measA.x+0.5)*cs,y:mb.oy+(mb.measA.y+0.5)*cs};
+    var mb2={x:mb.ox+(mb.measB.x+0.5)*cs,y:mb.oy+(mb.measB.y+0.5)*cs};
+    ctx.strokeStyle='#f5d27a'; ctx.lineWidth=2; ctx.setLineDash([5,4]);
+    ctx.beginPath(); ctx.moveTo(ma.x,ma.y); ctx.lineTo(mb2.x,mb2.y); ctx.stroke();
+    ctx.setLineDash([]);
+    var dist=Math.round(Math.sqrt(Math.pow(mb.measB.x-mb.measA.x,2)+Math.pow(mb.measB.y-mb.measA.y,2))*5);
+    ctx.font='bold '+(cs*0.3)+'px Cinzel,serif'; ctx.textAlign='center'; ctx.textBaseline='bottom';
+    ctx.fillStyle='rgba(0,0,0,0.7)'; ctx.fillText(dist+' ft',(ma.x+mb2.x)/2+1,(ma.y+mb2.y)/2);
+    ctx.fillStyle='#f5d27a'; ctx.fillText(dist+' ft',(ma.x+mb2.x)/2,(ma.y+mb2.y)/2);
+    var tip=document.getElementById('mb-tip'); if(tip){tip.textContent='📏 '+dist+' ft';tip.style.display='block';}
+  } else {var tip2=document.getElementById('mb-tip');if(tip2)tip2.style.display='none';}
+}
+
+function mbDrawToken(ctx,tok,cs) {
+  var c=mb.canvas; if(!c)return;
+  var px=mb.ox+tok.x*cs, py=mb.oy+tok.y*cs, r=cs*0.38;
+  if(px+cs<0||py+cs<0||px>c.width||py>c.height)return;
+  ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,r,0,6.28);
+  ctx.fillStyle=tok.bg||'#1e2e4a'; ctx.fill();
+  ctx.strokeStyle=tok.br||'#e8b84b'; ctx.lineWidth=Math.max(1,cs/20); ctx.stroke();
+  if(tok.img&&mb.imgCache[tok.img]){
+    ctx.save(); ctx.beginPath(); ctx.arc(px+cs/2,py+cs/2,r*0.9,0,6.28); ctx.clip();
+    ctx.drawImage(mb.imgCache[tok.img],px+cs/2-r*0.9,py+cs/2-r*0.9,r*1.8,r*1.8); ctx.restore();
+  } else {
+    ctx.font=Math.max(9,r*1.1)+'px serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(tok.e||'⚔',px+cs/2,py+cs/2);
+  }
+  if(tok.n){
+    var fsz=Math.max(6,cs*0.17);
+    ctx.font='bold '+fsz+'px Cinzel,serif'; ctx.textAlign='center'; ctx.textBaseline='top';
+    ctx.fillStyle='rgba(0,0,0,0.65)'; ctx.fillText(tok.n.slice(0,8),px+cs/2+0.5,py+cs*0.8+0.5);
+    ctx.fillStyle='#f5d27a'; ctx.fillText(tok.n.slice(0,8),px+cs/2,py+cs*0.8);
+  }
+}
+
+function mbEvtCell(e,c){
+  var r=c.getBoundingClientRect(), cs=mb.CELL*mb.zoom;
+  return {x:Math.floor((e.clientX-r.left-mb.ox)/cs), y:Math.floor((e.clientY-r.top-mb.oy)/cs), cx:e.clientX-r.left, cy:e.clientY-r.top};
+}
+function mbTouch(e){var t=e.touches[0]||e.changedTouches[0];return{clientX:t.clientX,clientY:t.clientY};}
+
+function mbInit() {
+  var c=document.getElementById('mb-canvas'), wrap=document.getElementById('mb-wrap');
+  if(!c||!wrap){console.warn('Map canvas not found');return;}
+  mb.canvas=c; mb.ctx=c.getContext('2d');
+  var w=wrap.clientWidth, h=wrap.clientHeight;
+  if(w<20){w=Math.max(400,window.innerWidth-400);}
+  if(h<20){h=Math.max(400,window.innerHeight-260);}
+  c.width=w; c.height=h;
+  if(!mb.tiles.length) mbResetGrid();
+  mbBuildPalette(); mbBuildTokenPicker(); mbUpdatePreview(); mbFit();
+  c.onmousedown=function(e){mb.down=true;mbOnDown(e,c);};
+  c.onmousemove=function(e){mbOnMove(e,c);};
+  c.onmouseup=function(e){mbOnUp(e,c);mb.down=false;};
+  c.onmouseleave=function(){mb.down=false;mb.lastX=-1;mb.lastY=-1;mb.panStart=null;};
+  c.oncontextmenu=function(e){e.preventDefault();};
+  c.ontouchstart=function(e){e.preventDefault();mb.down=true;mbOnDown(mbTouch(e),c);};
+  c.ontouchmove=function(e){e.preventDefault();mbOnMove(mbTouch(e),c);};
+  c.ontouchend=function(e){e.preventDefault();mb.down=false;mbOnUp(mbTouch(e),c);};
+  wrap.onwheel=function(e){
+    e.preventDefault();
+    var r=c.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top;
+    var f=e.deltaY<0?1.15:0.87;
+    var wx=(mx-mb.ox)/mb.zoom, wy=(my-mb.oy)/mb.zoom;
+    mb.zoom=Math.min(5,Math.max(0.1,mb.zoom*f));
+    mb.ox=mx-wx*mb.zoom; mb.oy=my-wy*mb.zoom;
+    var el=document.getElementById('mb-zlabel'); if(el)el.textContent=Math.round(mb.zoom*100)+'%';
+    mbDraw();
+  };
+  document.removeEventListener('keydown',mbKey);
+  document.addEventListener('keydown',mbKey);
+  mbRenderTList();
+  var gb=document.getElementById('mbt-grid');
+  if(gb){gb.style.background=mb.showGrid?'var(--gold)':'transparent';gb.style.color=mb.showGrid?'#0d0a07':'var(--text2)';gb.style.borderColor=mb.showGrid?'var(--gold)':'var(--border)';}
+}
+
+function mbOnDown(e,c){
+  var p=mbEvtCell(e,c);
+  if((e.button&&e.button===2)||mb.tool==='pan'){mb.panStart={cx:p.cx,cy:p.cy,ox:mb.ox,oy:mb.oy};c.style.cursor='grabbing';return;}
+  if(mb.tool==='token'){mbPlaceTok(p.x,p.y);return;}
+  if(mb.tool==='label'){mbPlaceLbl(p.x,p.y);return;}
+  if(mb.tool==='measure'){mb.measA={x:p.x,y:p.y};mb.measB=null;mbDraw();return;}
+  if(mb.tool==='rect'||mb.tool==='line'){mb.rectA={x:p.x,y:p.y};return;}
+  mbHistPush(); mbApply(p.x,p.y);
+}
+function mbOnMove(e,c){
+  var p=mbEvtCell(e,c);
+  if(mb.panStart){mb.ox=mb.panStart.ox+(p.cx-mb.panStart.cx);mb.oy=mb.panStart.oy+(p.cy-mb.panStart.cy);mbDraw();return;}
+  if(mb.tool==='measure'&&mb.down&&mb.measA){mb.measB={x:p.x,y:p.y};mbDraw();return;}
+  if(!mb.down)return;
+  if((mb.tool==='rect'||mb.tool==='line')&&mb.rectA){mbDraw();mbDrawPreview(p.x,p.y);return;}
+  if(p.x===mb.lastX&&p.y===mb.lastY)return;
+  mb.lastX=p.x; mb.lastY=p.y; mbApply(p.x,p.y);
+}
+function mbOnUp(e,c){
+  var p=mbEvtCell(e,c);
+  if(mb.panStart){mb.panStart=null;c.style.cursor=mb.tool==='pan'?'grab':'crosshair';return;}
+  if(mb.tool==='rect'&&mb.rectA){
+    mbHistPush();
+    var x0=Math.min(mb.rectA.x,p.x),x1=Math.max(mb.rectA.x,p.x),y0=Math.min(mb.rectA.y,p.y),y1=Math.max(mb.rectA.y,p.y);
+    for(var ry=y0;ry<=y1;ry++) for(var rx=x0;rx<=x1;rx++) mbSetCell(rx,ry);
+    mb.rectA=null; mbDraw(); return;
+  }
+  if(mb.tool==='line'&&mb.rectA){
+    mbHistPush(); mbBresenham(mb.rectA.x,mb.rectA.y,p.x,p.y); mb.rectA=null; mbDraw(); return;
+  }
+  mb.rectA=null;
+}
+
+function mbApply(x,y){
+  if(x<0||y<0||x>=mb.G||y>=mb.G)return;
+  if(mb.tool==='paint') mbSetCell(x,y);
+  else if(mb.tool==='erase') mb.tiles[y][x]='stone_floor';
+  else if(mb.tool==='fill'){mbHistPush();mbFill(x,y,mb.tiles[y][x],mb.selTile);}
+  else if(mb.tool==='fog'&&mb.fogOn){
+    var b=mb.fogBrush,fx,fy;
+    for(fy=-b;fy<=b;fy++) for(fx=-b;fx<=b;fx++){var nx=x+fx,ny=y+fy;if(nx>=0&&ny>=0&&nx<mb.G&&ny<mb.G)mb.fog[ny][nx]=!mb.fog[ny][nx];}
+  }
+  mbDraw();
+}
+function mbSetCell(x,y){if(x>=0&&y>=0&&x<mb.G&&y<mb.G)mb.tiles[y][x]=mb.selTile;}
+function mbFill(x,y,target,rep){
+  if(target===rep)return;
+  var stack=[[x,y]],vis={};
+  while(stack.length){
+    var curr=stack.pop(),cx=curr[0],cy=curr[1],key=cx+','+cy;
+    if(vis[key]||cx<0||cy<0||cx>=mb.G||cy>=mb.G||mb.tiles[cy][cx]!==target)continue;
+    vis[key]=1; mb.tiles[cy][cx]=rep;
+    stack.push([cx+1,cy],[cx-1,cy],[cx,cy+1],[cx,cy-1]);
+  }
+}
+function mbBresenham(x0,y0,x1,y1){
+  var dx=Math.abs(x1-x0),dy=Math.abs(y1-y0),sx=x0<x1?1:-1,sy=y0<y1?1:-1,err=dx-dy;
+  while(true){mbSetCell(x0,y0);if(x0===x1&&y0===y1)break;var e2=2*err;if(e2>-dy){err-=dy;x0+=sx;}if(e2<dx){err+=dx;y0+=sy;}}
+}
+
+function mbDrawPreview(cx,cy){
+  if(!mb.rectA)return;
+  mbDraw();
+  var ctx=mb.ctx,cs=mb.CELL*mb.zoom,tile=mbGetTile(mb.selTile);
+  var i,x0,x1,y0,y1;
+  if(mb.tool==='rect'){
+    x0=Math.min(mb.rectA.x,cx);x1=Math.max(mb.rectA.x,cx);y0=Math.min(mb.rectA.y,cy);y1=Math.max(mb.rectA.y,cy);
+    for(var ry=y0;ry<=y1;ry++) for(var rx=x0;rx<=x1;rx++) mbDrawCell(ctx,mb.ox+rx*cs,mb.oy+ry*cs,cs,tile,0.5);
+  } else {
+    var bx=mb.rectA.x,by=mb.rectA.y,dx=Math.abs(cx-bx),dy=Math.abs(cy-by),sx=bx<cx?1:-1,sy=by<cy?1:-1,err=dx-dy;
+    while(true){mbDrawCell(ctx,mb.ox+bx*cs,mb.oy+by*cs,cs,tile,0.5);if(bx===cx&&by===cy)break;var e2=2*err;if(e2>-dy){err-=dy;bx+=sx;}if(e2<dx){err+=dy;by+=sy;}}
+  }
+}
+
+function mbTool(name,btn){
+  mb.tool=name;
+  document.querySelectorAll('.mb-tool-btn').forEach(function(b){b.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  var c=mb.canvas; if(c)c.style.cursor=name==='pan'?'grab':name==='token'||name==='label'?'cell':'crosshair';
+  var fc=document.getElementById('mb-fog-ctrl'); if(fc)fc.style.display=(name==='fog'&&mb.fogOn)?'block':'none';
+}
+function mbZoomBy(f){
+  var c=mb.canvas; if(!c)return;
+  var cx=c.width/2,cy=c.height/2,wx=(cx-mb.ox)/mb.zoom,wy=(cy-mb.oy)/mb.zoom;
+  mb.zoom=Math.min(5,Math.max(0.1,mb.zoom*f));
+  mb.ox=cx-wx*mb.zoom; mb.oy=cy-wy*mb.zoom;
+  var el=document.getElementById('mb-zlabel'); if(el)el.textContent=Math.round(mb.zoom*100)+'%';
+  mbDraw();
+}
+function mbFit(){
+  var c=mb.canvas; if(!c)return;
+  var s=Math.min(c.width/(mb.G*mb.CELL),c.height/(mb.G*mb.CELL))*0.92;
+  mb.zoom=s; mb.ox=(c.width-mb.G*mb.CELL*mb.zoom)/2; mb.oy=(c.height-mb.G*mb.CELL*mb.zoom)/2;
+  var el=document.getElementById('mb-zlabel'); if(el)el.textContent=Math.round(mb.zoom*100)+'%';
+  mbDraw();
+}
+function mbToggle(what,btn){
+  if(what==='grid'){mb.showGrid=!mb.showGrid;btn.style.background=mb.showGrid?'var(--gold)':'transparent';btn.style.color=mb.showGrid?'#0d0a07':'var(--text2)';btn.style.borderColor=mb.showGrid?'var(--gold)':'var(--border)';}
+  if(what==='fog'){mb.fogOn=!mb.fogOn;btn.classList.toggle('active',mb.fogOn);var fc=document.getElementById('mb-fog-ctrl');if(fc)fc.style.display=mb.fogOn?'block':'none';if(mb.fogOn)mbTool('fog',document.getElementById('mbt-paint'));}
+  if(what==='iso'){mb.isoOn=!mb.isoOn;btn.classList.toggle('active',mb.isoOn);mbFit();}
+  mbDraw();
+}
+function mbFogAll(val){for(var y=0;y<mb.G;y++)for(var x=0;x<mb.G;x++)mb.fog[y][x]=val;mbDraw();}
+function mbResetGrid(){
+  mb.tiles=Array.from({length:mb.G},function(){return Array(mb.G).fill('stone_floor');});
+  mb.fog=Array.from({length:mb.G},function(){return Array(mb.G).fill(false);});
+}
+function mbResize(sz){
+  mb.G=parseInt(sz)||30; mbResetGrid(); mb.tokens=[];mb.labels=[];mb.hist=[];mb.fut=[];
+  mbRenderTList(); if(mb.canvas)mbFit();
+}
+function mbClear(){if(!confirm('Clear entire map?'))return;mbHistPush();mbResetGrid();mb.tokens=[];mb.labels=[];mbRenderTList();mbDraw();}
+function mbClearTokens(){mb.tokens=[];mb.labels=[];mbRenderTList();mbDraw();}
+function mbHistPush(){mb.hist.push(JSON.stringify(mb.tiles));if(mb.hist.length>mb.maxHist)mb.hist.shift();mb.fut=[];}
+function mbUndo(){if(!mb.hist.length)return;mb.fut.push(JSON.stringify(mb.tiles));mb.tiles=JSON.parse(mb.hist.pop());mbDraw();}
+function mbRedo(){if(!mb.fut.length)return;mb.hist.push(JSON.stringify(mb.tiles));mb.tiles=JSON.parse(mb.fut.pop());mbDraw();}
+
+function mbBuildPalette(){
+  var allTiles=MB_TILES.concat(mb.customTiles);
+  var cats=['Dungeon','Nature','Objects','Special'];
+  var html='';
+  cats.forEach(function(cat){
+    var grp=allTiles.filter(function(t){return t.cat===cat;});
+    if(!grp.length)return;
+    html+='<div style="font-family:Cinzel,serif;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:.28rem 0 .18rem;">'+cat+'</div>';
+    html+='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:.38rem;">';
+    grp.forEach(function(tile){
+      var a=tile.k===mb.selTile;
+      html+='<div id="mpp_'+tile.k+'" title="'+tile.n+'" onclick="mbSelTile(\''+tile.k+'\')" style="aspect-ratio:1;cursor:pointer;border:2px solid '+(a?'var(--gold)':'transparent')+';border-radius:2px;overflow:hidden;"><canvas id="mpc_'+tile.k+'" width="40" height="40"></canvas></div>';
+    });
+    html+='</div>';
+  });
+  var pal=document.getElementById('mb-palette'); if(pal)pal.innerHTML=html;
+  allTiles.forEach(function(tile){var pc=document.getElementById('mpc_'+tile.k);if(!pc)return;mbDrawCell(pc.getContext('2d'),0,0,40,tile);});
+}
+function mbSelTile(k){
+  mb.selTile=k;
+  document.querySelectorAll('[id^="mpp_"]').forEach(function(el){el.style.borderColor='transparent';});
+  var el=document.getElementById('mpp_'+k); if(el)el.style.borderColor='var(--gold)';
+  mbUpdatePreview();
+}
+function mbUpdatePreview(){
+  var tile=mbGetTile(mb.selTile);
+  var n=document.getElementById('mb-prev-name'); if(n)n.textContent=tile.n;
+  var pc=document.getElementById('mb-prev'); if(pc){var c2=pc.getContext('2d');c2.clearRect(0,0,44,44);mbDrawCell(c2,0,0,44,tile);}
+}
+function mbCustomColor(){
+  var col=document.getElementById('mb-cc').value,k='cc_'+Date.now();
+  mb.customTiles.push({k:k,n:'Custom',cat:'Special',bg:col,g:col+'88'});
+  mb.selTile=k; mbBuildPalette(); mbUpdatePreview();
+}
+function mbBuildTokenPicker(){
+  var tp=document.getElementById('mb-tpicker'); if(!tp)return;
+  tp.innerHTML=MB_TOKEN_EMOJIS.map(function(e){
+    return '<span title="'+e+'" onclick="mb.selEmoji=\''+e+'\';document.querySelectorAll(\'#mb-tpicker span\').forEach(function(s){s.style.borderColor=\'transparent\'});this.style.borderColor=\'var(--gold)\'" style="font-size:1.1rem;cursor:pointer;padding:1px;border:2px solid '+(e===mb.selEmoji?'var(--gold)':'transparent')+';border-radius:3px;">'+e+'</span>';
+  }).join('');
+}
+function mbPlaceTok(x,y){
+  var name=prompt('Token name (cancel = skip):'); if(name===null)return;
+  var cols=['#1e2e4a','#3a1a1a','#1a3a1a','#2a1a3a','#3a2a1a'];
+  mb.tokens.push({id:Date.now(),x:x,y:y,e:mb.selEmoji,n:name,bg:cols[mb.tokens.length%5],br:'#e8b84b'});
+  mbRenderTList(); mbDraw();
+}
+function mbPlaceLbl(x,y){var t=prompt('Label text:');if(!t)return;mb.labels.push({id:Date.now(),x:x,y:y,t:t,c:'#f5d27a'});mbRenderTList();mbDraw();}
+function mbRenderTList(){
+  var el=document.getElementById('mb-tlist'); if(!el)return;
+  var items=[];
+  mb.tokens.forEach(function(t,i){
+    items.push('<div style="display:flex;align-items:center;gap:.28rem;padding:.18rem .3rem;background:var(--bg3);border-radius:2px;font-size:.76rem;">'+(t.img?'🖼':t.e)+' <span style="flex:1;color:var(--text2);">'+(t.n||'Token')+'</span><button onclick="mb.tokens.splice('+i+',1);mbRenderTList();mbDraw()" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:.75rem;">✕</button></div>');
+  });
+  mb.labels.forEach(function(l,i){
+    items.push('<div style="display:flex;align-items:center;gap:.28rem;padding:.18rem .3rem;background:var(--bg3);border-radius:2px;font-size:.76rem;">𝐓 <span style="flex:1;color:var(--gold3);">'+l.t+'</span><button onclick="mb.labels.splice('+i+',1);mbRenderTList();mbDraw()" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:.75rem;">✕</button></div>');
+  });
+  el.innerHTML=items.length?items.join(''):'<div style="color:var(--text3);font-size:.72rem;">No tokens placed</div>';
+}
+function mbUploadTok(input){
+  var file=input.files[0]; if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    var img=new Image(); img.onload=function(){
+      var key='img_'+Date.now(); mb.imgCache[key]=img;
+      var name=prompt('Token name:',file.name.replace(/\.[^.]+$/,''))||'Custom';
+      mb.tokens.push({id:Date.now(),x:Math.floor(mb.G/2),y:Math.floor(mb.G/2),e:'🖼',img:key,n:name,bg:'#1e2e4a',br:'#e8b84b'});
+      mbRenderTList(); mbDraw();
+    };
+    img.src=ev.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function mbExport(){
+  var cs=32,s=mb.G,off=document.createElement('canvas');
+  off.width=s*cs; off.height=s*cs;
+  var octx=off.getContext('2d');
+  octx.fillStyle='#060402'; octx.fillRect(0,0,off.width,off.height);
+  for(var ey=0;ey<s;ey++) for(var ex=0;ex<s;ex++) mbDrawCell(octx,ex*cs,ey*cs,cs,mbGetTile(mb.tiles[ey][ex]));
+  if(mb.showGrid){
+    octx.strokeStyle='rgba(74,58,37,0.4)'; octx.lineWidth=0.5;
+    for(var gi=0;gi<=s;gi++){octx.beginPath();octx.moveTo(gi*cs,0);octx.lineTo(gi*cs,s*cs);octx.stroke();octx.beginPath();octx.moveTo(0,gi*cs);octx.lineTo(s*cs,gi*cs);octx.stroke();}
+  }
+  var sc=mb.canvas,sx=mb.ctx,sz=mb.zoom,sox=mb.ox,soy=mb.oy;
+  mb.canvas=off;mb.ctx=octx;mb.zoom=1;mb.ox=0;mb.oy=0;
+  for(var et=0;et<mb.tokens.length;et++) mbDrawToken(octx,mb.tokens[et],cs);
+  mb.canvas=sc;mb.ctx=sx;mb.zoom=sz;mb.ox=sox;mb.oy=soy;
+  var a=document.createElement('a');a.download='dnd-map.png';a.href=off.toDataURL('image/png');a.click();
+}
+function mbKey(e){
+  if(!document.getElementById('page-map').classList.contains('active'))return;
+  var k=e.key;
+  if(e.ctrlKey&&k==='z'){e.preventDefault();mbUndo();return;}
+  if(e.ctrlKey&&(k==='y'||k==='r')){e.preventDefault();mbRedo();return;}
+  var kmap={'1':'mbt-paint','e':'mbt-erase','E':'mbt-erase','f':'mbt-fill','F':'mbt-fill','r':'mbt-rect','R':'mbt-rect','l':'mbt-line','L':'mbt-line','t':'mbt-token','T':'mbt-token','x':'mbt-label','X':'mbt-label','m':'mbt-measure','M':'mbt-measure',' ':'mbt-pan'};
+  if(kmap[k]){var btn=document.getElementById(kmap[k]);if(btn){e.preventDefault();mbTool(btn.id.replace('mbt-',''),btn);}}
+  if(k==='+'||k==='=')mbZoomBy(1.2);
+  if(k==='-')mbZoomBy(0.83);
+}
+
+// Compatibility shims
+function initMap(){mbInit();}
+function setMapTool(t,btn){mbTool(t,btn);}
+function clearMap(){mbClear();}
+function clearTokens(){mbClearTokens();}
+function saveMapPNG(){mbExport();}
+function resizeMap(){var s=document.getElementById('mb-size-sel');if(s)mbResize(s.value);}
 
 // ===== NOTES =====
 function newNote(){const t=prompt('Note title:');if(!t)return;state.notes.push({id:Date.now(),title:t,content:'',date:new Date().toLocaleDateString()});state.activeNoteIdx=state.notes.length-1;renderNoteList();renderNoteEditor();save();}
@@ -1050,7 +3091,7 @@ function loadMoodPlaylist(idx){
   const embed=pl.url.replace('open.spotify.com/','open.spotify.com/embed/').replace(/\?.*$/,'');
   document.getElementById('spotify-player').innerHTML='<iframe src="'+embed+'" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" style="border-radius:2px;border:1px solid var(--border);"></iframe>';
 }
-function getDefaultPlaylists(){return[{name:'Epic Combat',icon:'⚔',desc:'Intense battle music',url:'https://open.spotify.com/playlist/37i9dQZF1DX3rxVfibe1L0'},{name:'Tavern Ambience',icon:'🍺',desc:'Cozy inn sounds',url:'https://open.spotify.com/playlist/37i9dQZF1DWXe9gFZP0gtP'},{name:'Dungeon Crawl',icon:'🕯',desc:'Dark exploration',url:'https://open.spotify.com/playlist/37i9dQZF1DX5trt9iCwTOT'},{name:'Dark Forest',icon:'🌲',desc:'Ominous wilderness',url:'https://open.spotify.com/playlist/37i9dQZF1DWWQrqDFnlRSf'},{name:'Boss Fight',icon:'🐉',desc:'Final encounter',url:'https://open.spotify.com/playlist/37i9dQZF1DX0HRj9P7NxeE'},{name:'Town & Village',icon:'🏘',desc:'Peaceful town',url:'https://open.spotify.com/playlist/37i9dQZF1DWWEJlAGA9gs0'}];}
+function getDefaultPlaylists(){return[];}
 
 // ===== REFERENCE CONTENT =====
 function showRef(tab,btn){
